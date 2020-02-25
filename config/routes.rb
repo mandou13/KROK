@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root to: 'recipes#index'
+
+  resource :profile, only: :show # attendre la reconfiguration du devise
+
+  resources :recipes do
+    resources :liked_recipes, only: :create
+    resources :ratings, only: :create
+  end
+  resources :planners, only: [:show, :create, :update] do
+    resources :planner_recipes, only: [:destroy, :create]
+    resources :shopping_lists, only: [:index, :update]
+  end
+  resources :liked_recipes, only: [:index, :destroy]
 end

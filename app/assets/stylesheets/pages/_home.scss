@@ -1,1 +1,10 @@
 // Specific CSS for your home-page
+.card-index {
+  height: 20vh;
+  img {
+    height: 16vh;
+    width: 20vh;
+    object-fit: cover;
+    object-position: center;
+  }
+}

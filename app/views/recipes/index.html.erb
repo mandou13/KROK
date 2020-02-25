@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <% @recipes.each do |recipe| %>
+      <div class="col-6">
+        <div class="card card-index">
+          <div class="card-img-top">
+            <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/2b422cd19f6c488fbe649da9739b5542/fb.jpg" alt="recipe photo">
+          </div>
+          <div class="card-title"><%= recipe.name %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

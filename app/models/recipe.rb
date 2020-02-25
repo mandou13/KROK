@@ -11,4 +11,6 @@ class Recipe < ApplicationRecord
   validates  :dish_origin, inclusion: { in: ['Italian', 'Indian', 'French', 'Greek', 'English', 'Chinese',  'Middle East', 'Thai', 'Vietnamese', 'Spanish',  'Asian', 'Korean', 'American', 'German'] }
   validates  :prep_time, presence: true
   validates  :servings, presence: true
+
+  has_one_attached :photo
 end

@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   has_many :ingredients
+  has_many  :planner_recipes
   validates  :name, presence: true
   validates  :description, presence: true, uniqueness: true, length: { minimum: 30 }
   validates  :dish_type, inclusion: { in: ['Dessert', 'Starter', 'Appetizer', 'Main Course', 'Side', 'Snack'] }

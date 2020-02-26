@@ -121,7 +121,6 @@ Planner.create(
 )
 
 
-
 puts "#{User.count} users"
 puts "#{Rating.count} rating"
 puts "#{LikedRecipe.count} liked_recipe"

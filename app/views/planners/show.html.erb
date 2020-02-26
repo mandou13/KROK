@@ -1,1 +1,25 @@
-<h1>Page of the current planner</h1>
+<div class="container">
+  <div class="planner-title-card d-flex">
+    <h3 class='planner-title'> <%= @planner.name%></h3>
+    <i class="fas fa-edit p-2"></i>
+  </div>
+  <%= render 'shared/form' %>
+
+  <div class="planner-dish-type-card m-2">
+    <h5>Side dishes</h5>
+  </div>
+  <div class="planner-dish-type-card m-2">
+    <h5>Main dishes</h5>
+  </div>
+  <div class="planner-dish-type-card m-2">
+    <h5>Desserts</h5>
+  </div>
+
+
+  <div class="planner-new d-flex justify-content-center">
+    <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
+  </div>
+</div>
+
+
+<%#= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' %>

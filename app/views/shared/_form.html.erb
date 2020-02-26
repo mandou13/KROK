@@ -1,0 +1,8 @@
+<div class="form-box">
+  <%= form_for @planner, html: {class: 'form-inline w-40'} do |f|%>
+    <%= f.text_field :name %>
+    <%= f.button :submit, class: " btn krok-color"  do %>
+      <i class="fas fa-check"></i>
+    <% end %>
+  <% end %>
+</div>

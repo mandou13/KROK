@@ -1,0 +1,37 @@
+.planner-title {
+  color: #73C88B;
+  font-weight: bold;
+}
+
+.planner-edit-btn {
+  color: #282A29;
+}
+
+.btn-krok {
+  background-color: #73C88B;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+
+.krok-color {
+  color: #73C88B;
+
+}
+
+input,textarea {
+  width:100%;
+  display:block;
+  outline: none;}
+
+#planner_name {
+  max-width: 100px;
+  border: none
+}
+
+// .form-box {
+//   height: 10px;
+//   width: 20px;
+// }

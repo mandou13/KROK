@@ -1,15 +1,6 @@
 <div class="container">
 
-  <div class="search-box">
-   <%= form_tag recipes_path, method: :get do %>
-     <%= text_field_tag :query,
-       params[:query],
-       class: "form-control",
-       placeholder: "What to Krok?"
-     %>
-     <%#= submit_tag "Search", class: "btn btn-primary" %>
-   <% end %>
-  </div>
+  <%= render 'shared/search_box' %>
 
   <div class="row">
     <% @recipes.each do |recipe| %>
@@ -19,16 +10,16 @@
             <%= link_to recipe_path(recipe) do  %>
               <%= cl_image_tag recipe.photo.key %>
             <% end %>
+
             <div class="card-img-icons">
-              <div class="btn-heart">
-                <%= link_to recipe_liked_recipes_path(recipe) do %>
-                  <i class="far fa-heart icon-heart"></i>
+              <div class="circle-icon">
+                <%= link_to planner_planner_recipes_path(Planner.last), method: :post do %>
+                  <i class="fas fa-utensils btn-add-recipe"></i>
                 <% end %>
               </div>
-              <%#= link_to planner_planner_recipes_path(planner) do %>
-                <!-- <i class="far fa-heart btn-heart"></i> -->
-              <%# end %>
+              <%= render 'shared/btn_heart', recipe: recipe %>
             </div>
+
           </div>
           <div class="card-title mb-0">
             <%= link_to recipe.name, recipe_path(recipe) %>

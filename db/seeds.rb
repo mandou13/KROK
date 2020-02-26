@@ -97,13 +97,13 @@ recipes = [
   }
 ]
 
-first_recipe = Recipe.create(recieps[0])
+first_recipe = Recipe.create(recipes[0])
 
 photo_first_recipe = URI.open("https://assets.afcdn.com/recipe/20190529/93189_w1024h768c1cx2886cy4330.jpg")
 first_recipe.photo.attach(io: photo_first_recipe, filename: "photo_blanquette.png", content_type: "image/png")
 first_recipe.save!
 
-LikedRecipe.create(user_id: pauline.id, recipe_id = first_recipe.id)
+LikedRecipe.create(user_id: pauline.id, recipe_id: first_recipe.id)
 
 
 Ingredient.create(name: 'Veal', unit: 'kg', quantity: 1, recipe_id: first_recipe.id)

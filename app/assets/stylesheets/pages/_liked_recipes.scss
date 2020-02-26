@@ -1,0 +1,11 @@
+.dish-type-nav {
+  button {
+    border: $green solid 1px;
+    font-weight: bold;
+    font-size: 13px;
+ }
+ .btn-active {
+  color: white;
+  background-color: $green;
+ }
+}

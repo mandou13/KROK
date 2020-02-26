@@ -8,26 +8,30 @@
       </div>
       <div class="recipe-photo-show" style="background-image: url('<%= cl_image_path @recipe.photo.key %>');">
         <div class="circle-add-recipe">
-          <i class="fas fa-utensils btn-add-recipe"></i>
+          <%= link_to planner_planner_recipes_path(Planner.last), method: :post do %>
+            <i class="fas fa-utensils btn-add-recipe"></i>
+          <% end %>
         </div>
       </div>
       <div class="recipe-text-show bg-white">
         <div class="name-review">
           <h3 class="text-center"><%= @recipe.name %></h3>
-          <!-- rating & liked -->
+          <!-- add rating & liked -->
         </div>
-        <div class="owner-info d-flex justify-content-start">
-          <%= cl_image_tag @recipe.user.photo.key, class: "avatar-recipe-show" %>
-          <div class="owner-info-text ml-2 d-flex flex-column justify-content-center">
-            <h6 class="mb-0"><%= @recipe.user.username %></h6>
-            <p class="mb-0"><%= @recipe.updated_at.strftime("%m-%d") %></p>
+        <div class="owner-info d-flex justify-content-between align-items-center">
+          <div class="d-flex justify-content-start">
+            <%= cl_image_tag @recipe.user.photo.key, class: "avatar-recipe-show" %>
+            <div class="owner-info-text ml-2 d-flex flex-column justify-content-center">
+              <h6 class="mb-0"><%= @recipe.user.username %></h6>
+              <p class="mb-0"><%= @recipe.updated_at.strftime("%m-%d") %></p>
+            </div>
           </div>
+          <%= render 'shared/btn_heart', recipe: @recipe %>
         </div>
 
         <p><%= @recipe.description %></p>
-
+        <!-- icons design -->
         <div class="recipe-short-info">
-          <!-- icons for each info -->
           <p><i class="fas fa-globe-europe icon-green"></i> <%= @recipe.dish_origin %></p>
           <p><i class="fas fa-mountain icon-green"></i> <%= @recipe.difficulty %></p>
 
@@ -43,12 +47,13 @@
           <p><i class="fas fa-hourglass-half icon-green"></i><%= @recipe.prep_time %></p>
           <p><i class="fas fa-users icon-green"></i> <%= @recipe.servings %></p>
         </div>
-
+        <!-- icons design -->
+        <!-- step design -->
         <% @recipe.steps.scan(/(\d_ .+)/).each_with_index do |step, index| %>
           <p><%= index + 1 %></p>
           <p><%= step[0].gsub(/\d_ /, '') %></p>
         <% end %>
-
+        <!-- step design -->
       </div>
 
     </div>

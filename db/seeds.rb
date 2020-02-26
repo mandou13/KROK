@@ -113,7 +113,3 @@ puts "#{Recipe.count} recipe"
 puts "#{PlannerRecipe.count} planner_recipe"
 puts "#{ShoppingList.count} shopping_list"
 puts "#{Ingredient.count} ingredient"
-
-
-
-

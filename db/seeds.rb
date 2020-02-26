@@ -120,6 +120,20 @@ Planner.create(
   user_id: pauline.id
 )
 
+PlannerRecipe.create(
+  recipe_id: first_recipe.id,
+  planner_id: Planner.last.id,
+  servings: first_recipe.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: first_recipe.id,
+  planner_id: Planner.last.id,
+  servings: first_recipe.servings,
+  cooked: false
+  )
+
 
 puts "#{User.count} users"
 puts "#{Rating.count} rating"

@@ -8,90 +8,104 @@
 
 
 #SCRAPPING  BBC GOOD FOOD
-require 'nokogiri'
-require 'open-uri'
+# require 'nokogiri'
+# require 'open-uri'
+# require 'csv'
 
-URL_BBC = 'https://www.bbcgoodfood.com/'
-DISH_TYPE = ['Dessert', 'Starter', 'Appetizer', 'Main Course', 'Side', 'Snack']
+# URL_BBC = 'https://www.bbcgoodfood.com/'
+# DISH_TYPE = ['Dessert', 'Starter', 'Appetizer', 'Main Course', 'Side', 'Snack']
 
-
-def scrapping(meal_type, meal_origin)
-  url_search = URL_BBC + 'search/recipes?query='  + meal_type + ' ' +meal_origin
-  doc = Nokogiri::HTML(open(url_search), nil, 'utf-8')
-  names = scrapping_search(doc, ".teaser-item__title")
-  prep_times = cooking_time(scrapping_search(doc, ".teaser-item__info-item--total-time"))
-  difficulty = scrapping_search(doc, ".teaser-item__info-item--skill-level")
-  description =  scrapping_search(doc, '.even')
-  url_meals =  scrapping_h3_href(doc, 'teaser-items')
-  names.each_with_index do |recipe, index|
-    recipe_page = Nokogiri::HTML(open(url_meals[index]), nil, 'utf-8')
-    servings = recipe_page.at("//span[@itemprop = 'recipeYield']").children.text.scan(/\d/)[0]
-    steps = scrapping_search(recipe_page, ".method__list")
-    recipe = Recipe.new(
-      name: names[index],
-      # steps: steps,
-      dish_type: meal_type,
-      dish_origin: meal_origin,
-      prep_time: prep_times[index],
-      servings: servings,
-      description: description,
-      # difficulty: difficulty,
-      )
-    p recipe.description
-    ingredients = scrapping_search(recipe_page, ".ingredients-list__item").each do |ingredient|
-      quantity = ingredient.split(" ")[0].scan(/\d/).join.to_i
-      unit = ingredient.split(" ")[0].scan(/\D/).join
-      unit = 'tbsp' if unit == ""
-      ingredient = Ingredient.new(
-      recipe_id: recipe.id,
-      quantity: quantity,
-      unit: unit,
-      name: ingredient.split(" ").drop(1).join(" "),
-      )
-      p ingredient
-    end
-  end
-end
-scrapping('dessert', 'french')
+# csv_options = { col_sep: ',', force_quotes: true, quote_char: '"' }
+# filepath    = 'recipes.csv'
 
 
-def scrapping_search(doc, tag)
-  array = []
-  doc.search(tag).each { |recipe| array << recipe.text.strip }
-  array
-end
+# def scrapping(meal_type, meal_origin)
+#   url_search = URL_BBC + 'search/recipes?query='  + meal_type + ' ' +meal_origin
+#   doc = Nokogiri::HTML(open(url_search), nil, 'utf-8')
+#   names = scrapping_search(doc, ".teaser-item__title")
+#   prep_times = cooking_time(scrapping_search(doc, ".teaser-item__info-item--total-time"))
+#   difficulty = scrapping_search(doc, ".teaser-item__info-item--skill-level")
+#   description =  scrapping_search(doc, '.even')
+#   url_meals =  scrapping_h3_href(doc, 'teaser-items')
+#   names.each_with_index do |recipe, index|
+#     recipe_page = Nokogiri::HTML(open(url_meals[index]), nil, 'utf-8')
+#     servings = recipe_page.at("//span[@itemprop = 'recipeYield']").children.text.scan(/\d/)[0]
+#     steps = scrapping_search(recipe_page, ".method__list")
+#     photo_recipe = URI.open(recipe_page.xpath("//img[@itemprop = 'image']").map { |t| t[:src].remove(/\/{2}/) }[index])
+#     uu_id = SecureRandom(10)
+#     CSV.open(filepath, 'wb', csv_options) do |csv|
+#       csv << ['Name', 'steps', 'Meal type', 'Origin']
+#       csv << [names[index], steps, meal_type, meal_origin, prep_times[index], servings, description, difficulty[index]]
+#     end
+#     recipe = Recipe.new(
+#       name: names[index],
+#       steps: steps,
+#       dish_type: meal_type,
+#       dish_origin: meal_origin,
+#       prep_time: prep_times[index],
+#       servings: servings,
+#       description: description,
+#       difficulty: difficulty[index],
+#     )
+
+#     recipe.photo.attach(io: photo_recipe, filename: "photo#{names[index]}.png", content_type: "image/png")
+#     p photo_recipes
+#     ingredients = scrapping_search(recipe_page, ".ingredients-list__item").each do |ingredient|
+#       quantity = ingredient.split(" ")[0].scan(/\d/).join.to_i
+#       unit = ingredient.split(" ")[0].scan(/\D/).join
+#       unit = 'tbsp' if unit == ""
+#       ingredient = Ingredient.new(
+#       recipe_id: recipe.id,
+#       quantity: quantity,
+#       unit: unit,
+#       name: ingredient.split(" ").drop(1).join(" "),
+#       )
+#       CSV.open(filepath, 'wb', csv_options) do |csv|
+#         csv << [quantity, unit, ingredient.split(" ").drop(1).join(" ")]
+#        end
+#       # p ingredient
+#     end
+#   end
+# end
+# scrapping('dessert', 'french')
 
 
-def scrapping_h3_href(doc, tag)
-  doc.xpath('//h3[@class="teaser-item__title"]/a/@href').map { |recipe| URL_BBC + recipe.value }
-  # doc.search(tag).map { |recipe| recipe.value }
-end
+# def scrapping_search(doc, tag)
+#   array = []
+#   doc.search(tag).each { |recipe| array << recipe.text.strip }
+#   array
+# end
 
-def cooking_time(cooking_time_array)
-  cooking_time_array.map do |time|
-    if time.include?("hour") || time.include?("hours")
-      time = time.split(" ")
-      hours = time[0].to_i * 60
-      minutes = time.drop(1).join(" ").scan(/\d/).join('').to_i
-      time = minutes + hours
-    else
-      time = time.split(" ")
-      time = time[0].to_i
-    end
-    p time
-  end
-end
+
+# def scrapping_h3_href(doc, tag)
+#   doc.xpath('//h3[@class="teaser-item__title"]/a/@href').map { |recipe| URL_BBC + recipe.value }
+#   # doc.search(tag).map { |recipe| recipe.value }
+# end
+
+# def cooking_time(cooking_time_array)
+#   cooking_time_array.map do |time|
+#     if time.include?("hour") || time.include?("hours")
+#       time = time.split(" ")
+#       hours = time[0].to_i * 60
+#       minutes = time.drop(1).join(" ").scan(/\d/).join('').to_i
+#       time = minutes + hours
+#     else
+#       time = time.split(" ")
+#       time = time[0].to_i
+#     end
+#   time
+#   end
+# end
+
 prep_times = cooking_time(scrapping_search(doc, ".teaser-item__info-item--total-time"))
 
 
-names.each_with_index do |recipe, index|
-    recipe_page = Nokogiri::HTML(open(url_meals[index]), nil, 'utf-8')
-    # ingredients = scrapping_search(recipe_page, ".ingredients-list__item")
-    servings = recipe_page.at("//span[@itemprop = 'recipeYield']").children.text.scan(/\d/)[0]
-    .scan(/\d/)
-    p servings
-    # p ingredients
- end
+
+# names = scrapping_search(doc, ".teaser-item__title")
+# names.each_with_index do |recipe, index|
+#   recipe_page = Nokogiri::HTML(open(url_meals[index]), nil, 'utf-8')
+#   p recipe_page.xpath("//img[@itemprop = 'image']").map { |t| t[:src].remove(/\/{2}/) }
+# end
 
 #MAXENCE
 

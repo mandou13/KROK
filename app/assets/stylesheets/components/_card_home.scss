@@ -1,0 +1,32 @@
+.card-home {
+  height: 20vh;
+  border: none;
+
+  // .card-img-icons {
+  //   position: relative;
+  // }
+
+  // .card-img-top {
+  //   position: absolute;
+  // }
+
+  img {
+    height: 16vh;
+    width: 20vh;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+  }
+
+  .btn-heart {
+    background-color: white;
+    color: black;
+    // color: #73C88B;
+    // border-radius: 50%;
+  }
+
+  .card-title {
+    text-align: center;
+    padding: 3px 5px 0 5px;
+  }
+}

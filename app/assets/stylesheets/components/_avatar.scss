@@ -18,3 +18,13 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
+.avatar-navbar{
+  width:          30px;
+  height:         30px;
+  border-radius:  50%;
+  object-fit: cover;
+  // border-style: solid;
+  // border-color: #73C88B;
+  // border-width: 1px;
+}

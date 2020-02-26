@@ -1,12 +1,35 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar {
+  display:         flex;
+  justify-content: space-around;
+  background:      white;
+  flex-grow:       0;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar i {
+display:     flex;
+align-items: center;
+margin:      auto;
+padding: 5px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-logo i{
+  font-size: 22px;
+  color:     black;
+  margin:    auto;
+}
+
+.navbar-container{
+  display:flex;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  justify-content: space-around;
+  border-top-style: solid;
+  border-width: 2px;
+  border-color: #EEEEEE;
+  width: 100%;
+}
+
+.active i{
+  color: #73C88B !important;
 }

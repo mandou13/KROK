@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div class="search-box">
+   <%= form_tag recipes_path, method: :get do %>
+     <%= text_field_tag :query,
+       params[:query],
+       class: "form-control",
+       placeholder: "What to Krok?"
+     %>
+     <%#= submit_tag "Search", class: "btn btn-primary" %>
+   <% end %>
+  </div>
+
+  <div class="row">
+    <% @recipes.each do |recipe| %>
+      <div class="col-6 col-lg-3">
+        <div class="card card-home">
+          <div class="card-img-top d-flex justify-content-center">
+            <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/2b422cd19f6c488fbe649da9739b5542/fb.jpg" alt="recipe photo">
+            <div class="card-img-icons">
+              <div class="btn-heart">
+                <%= link_to recipe_liked_recipes_path(recipe) do %>
+                  <i class="far fa-heart icon-heart"></i>
+                <% end %>
+              </div>
+              <%#= link_to planner_planner_recipes_path(planner) do %>
+                <!-- <i class="far fa-heart btn-heart"></i> -->
+              <%# end %>
+            </div>
+          </div>
+          <div class="card-title mb-0"><%= recipe.name %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

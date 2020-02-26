@@ -89,6 +89,7 @@ first_recipe = Recipe.create!(
                 5_ Make a 'barrel' of tagliatelle Gordon's way: Pick up a few strands of pasta, digging a carving fork into the pot 3-4 times. Lift up the pasta so the strands hang free and press against the side of the pan. Then, holding with your (clean) fingers, start to twist the pasta into a barrel shape, pushing back against the pan side once or twice to neaten. When all the strands are wound, up-end the fork intothe centre of a plate and gently push the pasta off.",
   dish_type:   "Main Course",
   dish_origin: "French",
+  difficulty:  "Medium",
   prep_time:   30,
   servings:    6,
   user_id:     cyril.id,
@@ -96,13 +97,14 @@ first_recipe = Recipe.create!(
 
 photo_first_recipe = URI.open("https://assets.afcdn.com/recipe/20190529/93189_w1024h768c1cx2886cy4330.jpg")
 first_recipe.photo.attach(io: photo_first_recipe, filename: "photo_blanquette.png", content_type: "image/png")
-photo_first_recipe.save
+first_recipe.save!
 
 Ingredient.create(name: 'Veal', unit: 'kg', quantity: 1, recipe_id: first_recipe.id)
 Ingredient.create(name: 'White Wine', unit: 'ml', quantity: 250, recipe_id: first_recipe.id)
 Ingredient.create(name: 'Leeks', quantity: 2, recipe_id: first_recipe.id)
 Ingredient.create(name: 'Tagliatelle', unit: 'g', quantity: 300, recipe_id: first_recipe.id)
 Ingredient.create(name: 'Carrot', quantity: 3, recipe_id: first_recipe.id)
+
 
 
 puts "#{User.count} users"

@@ -1,7 +1,9 @@
 <div class="container">
-  <div class="planner-title-card d-flex">
-    <h3 class='planner-title'> <%= @planner.name%></h3>
-    <i class="fas fa-edit p-2"></i>
+  <div class="" id='title_to_update'>
+    <div class="planner-title-card d-flex">
+      <h3 class='planner-title'> <%= @planner.name%></h3>
+      <i class="fas fa-edit p-2" id="title_update_launch"></i>
+    </div>
   </div>
   <%= render 'shared/form' %>
 
@@ -14,7 +16,6 @@
   <div class="planner-dish-type-card m-2">
     <h5>Desserts</h5>
   </div>
-
 
   <div class="planner-new d-flex justify-content-center">
     <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>

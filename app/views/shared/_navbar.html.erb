@@ -1,31 +1,32 @@
 <div class='navbar-container d-flex align-items-center'>
-  <div class="navbar navbar-logo d-flex text-center">
+
+  <div id="logo-home" class="navbar navbar-logo d-flex text-center active">
     <%= link_to root_path do  %>
       <i class="fas fa-home"></i>
     <% end %>
   </div>
-  <div class="navbar navbar-logo d-flex text-center">
-    <%= link_to root_path do  %> <!-- mettre planner_path -->
+  <div id="logo-fork" class="navbar navbar-logo d-flex text-center">
+    <%= link_to planner_path(Planner.last) do  %> <!-- mettre planner_path -->
       <i class="fas fa-utensils"></i>
     <% end %>
   </div>
-    <div class="navbar navbar-logo d-flex text-center">
-    <%= link_to root_path do  %> <!-- mettre planner_shopping_lists_path -->
+  <div id="logo-list" class="navbar navbar-logo d-flex text-center">
+    <%= link_to planner_shopping_lists_path(Planner.last) do  %> <!-- mettre planner_shopping_lists_path -->
       <i class="fas fa-list-ul"></i>
     <% end %>
   </div>
-  <div class="navbar navbar-logo d-flex text-center">
+  <div id="logo-heart" class="navbar navbar-logo d-flex text-center">
     <%= link_to root_path do  %> <!-- mettre liked_recipes_path -->
       <i class="fas fa-heart"></i>
     <% end %>
   </div>
-  <div class="navbar navbar-logo d-flex text-center">
+  <div id="logo-profile" class="navbar navbar-logo d-flex text-center">
     <% if current_user.nil? %>
-      <%= link_to root_path do  %> <!-- mettre profile_path -->
+      <%= link_to profile_path do  %> <!-- mettre profile_path -->
         <i class="fas fa-user"></i>
       <% end %>
-    <% elsif %>
-      <%= cl_image_tag current_user.photo.key, class: 'avatar-navbar'%>
+    <% else %>
+      <%= link_to cl_image_tag current_user.photo.key, class: 'avatar-navbar'%>
     <% end %>
   </div>
 </div>

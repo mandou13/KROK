@@ -25,6 +25,11 @@ padding: 5px;
   bottom: 0;
   justify-content: space-around;
   border-top-style: solid;
-  border-width: thin;
+  border-width: 2px;
+  border-color: #EEEEEE;
   width: 100%;
+}
+
+.active i{
+  color: #73C88B !important;
 }

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :ratings, only: :create
   end
   resources :planners, only: [:show, :create, :update] do
-    resources :planner_recipes, only: [:destroy, :create]
+    resources :planner_recipes, only: [:destroy, :create, :update]
     resources :shopping_lists, only: [:index, :update]
   end
   resources :liked_recipes, only: [:index, :destroy]

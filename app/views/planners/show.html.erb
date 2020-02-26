@@ -21,9 +21,9 @@
                     <i class="fas fa-check"></i>
                   </div>
                 <% else %>
-                  <div class="btn-not-cooked">
-                    <i class="fas fa-check"></i>
-                  </div>
+                  <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
+                    <i class="fas fa-check btn-not-cooked"></i>
+                  <% end %>
                 <% end %>
               </div>
             </div>

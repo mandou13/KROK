@@ -9,13 +9,35 @@
 
   <div class="planner-dish-type-card m-2">
     <h5>Side dishes</h5>
-    <% @planner_recipes.each do |planner_recipe| %>
-    <div class="col-sm-5 m-1">
-      <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill, class: '' %>
-      <p> <%= planner_recipe.cooked %>  </p>
+    <div class="row justify-content-center">
+      <% @planner_recipes.each do |planner_recipe| %>
+        <div class="col-6 col-lg-3">
+          <div class="card-show">
+            <div class="card-img-top d-flex justify-content-center">
+              <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill %>
+              <div class="card-img-icon-cooked">
+                <% if planner_recipe.cooked == true %>
+                  <div class="btn-cooked">
+                    <i class="fas fa-check"></i>
+                  </div>
+                <% else %>
+                  <div class="btn-not-cooked">
+                    <i class="fas fa-check"></i>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="card-title">
+              <p> <%= planner_recipe.cooked %>  </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
     </div>
-    <% end %>
-  </div>
+
+
+
   <div class="planner-dish-type-card m-2">
     <h5>Main dishes</h5>
   </div>
@@ -29,4 +51,3 @@
 </div>
 
 
-<%#= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' %>

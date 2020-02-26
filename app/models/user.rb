@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :planner_recipes, through: :planners
   has_many :shopping_lists, through: :planners
 
+  has_one_attached :photo
 end

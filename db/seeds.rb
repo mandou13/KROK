@@ -96,13 +96,28 @@ first_recipe = Recipe.create!(
 
 photo_first_recipe = URI.open("https://assets.afcdn.com/recipe/20190529/93189_w1024h768c1cx2886cy4330.jpg")
 first_recipe.photo.attach(io: photo_first_recipe, filename: "photo_blanquette.png", content_type: "image/png")
-photo_first_recipe.save
+first_recipe.save
 
 Ingredient.create(name: 'Veal', unit: 'kg', quantity: 1, recipe_id: first_recipe.id)
 Ingredient.create(name: 'White Wine', unit: 'ml', quantity: 250, recipe_id: first_recipe.id)
 Ingredient.create(name: 'Leeks', quantity: 2, recipe_id: first_recipe.id)
 Ingredient.create(name: 'Tagliatelle', unit: 'g', quantity: 300, recipe_id: first_recipe.id)
 Ingredient.create(name: 'Carrot', quantity: 3, recipe_id: first_recipe.id)
+
+Planner.create(
+  name: Time.now.strftime("%D"),
+  user_id: maxence.id
+)
+
+Planner.create(
+  name: Time.now.strftime("%D"),
+  user_id: louis.id
+)
+
+Planner.create(
+  name: Time.now.strftime("%D"),
+  user_id: pauline.id
+)
 
 
 puts "#{User.count} users"

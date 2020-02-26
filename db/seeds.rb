@@ -14,33 +14,33 @@ URL_BBC = 'https://www.bbcgoodfood.com/'
 DISH_TYPE = ['Dessert', 'Starter', 'Appetizer', 'Main Course', 'Side', 'Snack']
 
 
-def scrapping(meal_type)
-  url_search = URL_BBC + 'search/recipes?query='  + meal_type
+def scrapping(meal_type, meal_origin)
+  url_search = URL_BBC + 'search/recipes?query='  + meal_type + ' ' +meal_origin
   doc = Nokogiri::HTML(open(url_search), nil, 'utf-8')
   names = scrapping_search(doc, ".teaser-item__title")
-  prep_times = scrapping_search(doc, ".mins").map { |time| time.scan(/\d/).join.to_i } #this is fake we don t have the real times
+  prep_times = cooking_time(scrapping_search(doc, ".teaser-item__info-item--total-time"))
   difficulty = scrapping_search(doc, ".teaser-item__info-item--skill-level")
-  description =  scrapping_search(doc, '.field-items')
+  description =  scrapping_search(doc, '.even')
   url_meals =  scrapping_h3_href(doc, 'teaser-items')
   names.each_with_index do |recipe, index|
     recipe_page = Nokogiri::HTML(open(url_meals[index]), nil, 'utf-8')
-    servings = recipe_page.at("//span[@itemprop = 'recipeYield']").children.text#.scan(/\d/)
+    servings = recipe_page.at("//span[@itemprop = 'recipeYield']").children.text.scan(/\d/)[0]
     steps = scrapping_search(recipe_page, ".method__list")
     recipe = Recipe.new(
       name: names[index],
-      steps: steps,
-      dish_type: meal_type[index],
-      dish_origin: 'to define',
+      # steps: steps,
+      dish_type: meal_type,
+      dish_origin: meal_origin,
       prep_time: prep_times[index],
       servings: servings,
       description: description,
-      difficulty: difficulty,
+      # difficulty: difficulty,
       )
-    p recipe
+    p recipe.description
     ingredients = scrapping_search(recipe_page, ".ingredients-list__item").each do |ingredient|
       quantity = ingredient.split(" ")[0].scan(/\d/).join.to_i
       unit = ingredient.split(" ")[0].scan(/\D/).join
-      unit = 'tbsp' if unit.nil?
+      unit = 'tbsp' if unit == ""
       ingredient = Ingredient.new(
       recipe_id: recipe.id,
       quantity: quantity,
@@ -51,6 +51,7 @@ def scrapping(meal_type)
     end
   end
 end
+scrapping('dessert', 'french')
 
 
 def scrapping_search(doc, tag)
@@ -65,10 +66,29 @@ def scrapping_h3_href(doc, tag)
   # doc.search(tag).map { |recipe| recipe.value }
 end
 
+def cooking_time(cooking_time_array)
+  cooking_time_array.map do |time|
+    if time.include?("hour") || time.include?("hours")
+      time = time.split(" ")
+      hours = time[0].to_i * 60
+      minutes = time.drop(1).join(" ").scan(/\d/).join('').to_i
+      time = minutes + hours
+    else
+      time = time.split(" ")
+      time = time[0].to_i
+    end
+    p time
+  end
+end
+prep_times = cooking_time(scrapping_search(doc, ".teaser-item__info-item--total-time"))
 
-# names.each_with_index do |recipe, index|
-#     recipe_page = Nokogiri::HTML(open(url_meals[index]), nil, 'utf-8')
-#     ingredients = scrapping_search(recipe_page, ".ingredients-list__item")
-#     p ingredients
-#  end
+
+names.each_with_index do |recipe, index|
+    recipe_page = Nokogiri::HTML(open(url_meals[index]), nil, 'utf-8')
+    # ingredients = scrapping_search(recipe_page, ".ingredients-list__item")
+    servings = recipe_page.at("//span[@itemprop = 'recipeYield']").children.text.scan(/\d/)[0]
+    .scan(/\d/)
+    p servings
+    # p ingredients
+ end
 

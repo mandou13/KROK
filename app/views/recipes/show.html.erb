@@ -1,0 +1,57 @@
+<div class="container-show mx-0">
+  <div class="row">
+    <div class="col-sm-12 recipe-show p-0">
+      <div class="navbar-back">
+        <%= link_to recipes_path do %>
+          <i class="fas fa-chevron-left btn-back"></i>
+        <% end %>
+      </div>
+      <div class="recipe-photo-show" style="background-image: url('<%= cl_image_path @recipe.photo.key %>');">
+        <div class="circle-add-recipe">
+          <i class="fas fa-utensils btn-add-recipe"></i>
+        </div>
+      </div>
+      <div class="recipe-text-show bg-white">
+        <div class="name-review">
+          <h3 class="text-center"><%= @recipe.name %></h3>
+          <!-- rating & liked -->
+        </div>
+        <div class="owner-info d-flex justify-content-start">
+          <%= cl_image_tag @recipe.user.photo.key, class: "avatar-recipe-show" %>
+          <div class="owner-info-text ml-2 d-flex flex-column justify-content-center">
+            <h6 class="mb-0"><%= @recipe.user.username %></h6>
+            <p class="mb-0"><%= @recipe.updated_at.strftime("%m-%d") %></p>
+          </div>
+        </div>
+
+        <p><%= @recipe.description %></p>
+
+        <div class="recipe-short-info">
+          <!-- icons for each info -->
+          <p><i class="fas fa-globe-europe icon-green"></i> <%= @recipe.dish_origin %></p>
+          <p><i class="fas fa-mountain icon-green"></i> <%= @recipe.difficulty %></p>
+
+          <p>
+            <% if @recipe.dish_type == 'Main Course'  %>
+              <i class="fas fa-fish icon-green"></i><%= @recipe.dish_type %>
+            <% elsif @recipe.dish_type == 'Dessert' %>
+              <i class="fas fa-cookie-bite icon-green"></i><%= @recipe.dish_type %>
+            <% else %>
+              <i class="fas fa-hotdog icon-green"></i><%= @recipe.dish_type %>
+            <% end %>
+          </p>
+          <p><i class="fas fa-hourglass-half icon-green"></i><%= @recipe.prep_time %></p>
+          <p><i class="fas fa-users icon-green"></i> <%= @recipe.servings %></p>
+        </div>
+
+        <% @recipe.steps.scan(/(\d_ .+)/).each_with_index do |step, index| %>
+          <p><%= index + 1 %></p>
+          <p><%= step[0].gsub(/\d_ /, '') %></p>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

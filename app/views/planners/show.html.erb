@@ -15,7 +15,7 @@
           <div class="card-show">
             <div class="card-img-top d-flex justify-content-center">
               <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill %>
-              <div class="card-img-icon-cooked">
+              <div class="card-img-icon-cooked" id="revert_cook_status">
                 <% if planner_recipe.cooked == true %>
                   <div class="btn-cooked">
                     <i class="fas fa-check"></i>

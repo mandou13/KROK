@@ -9,6 +9,12 @@
 
   <div class="planner-dish-type-card m-2">
     <h5>Side dishes</h5>
+    <%= @planner_recipes.each do |planner_recipe| %>
+    <div class="col-sm-5 m-1">
+      <%= cl_image_tag planner_recipe.recipe.photo.key, height: 300, width: 400, crop: :fill %>
+      <p> <%= planner_recipe.cooked %>  </p>
+    </div>
+    <% end %>
   </div>
   <div class="planner-dish-type-card m-2">
     <h5>Main dishes</h5>

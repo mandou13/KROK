@@ -122,14 +122,42 @@ Planner.create(
 
 PlannerRecipe.create(
   recipe_id: first_recipe.id,
-  planner_id: Planner.last.id,
+  planner_id: louis.planners.last.id,
   servings: first_recipe.servings,
   cooked: false
   )
 
 PlannerRecipe.create(
   recipe_id: first_recipe.id,
-  planner_id: Planner.last.id,
+  planner_id: louis.planners.last.id,
+  servings: first_recipe.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: first_recipe.id,
+  planner_id: pauline.planners.last.id,
+  servings: first_recipe.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: first_recipe.id,
+  planner_id: pauline.planners.last.id,
+  servings: first_recipe.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: first_recipe.id,
+  planner_id: maxence.planners.last.id,
+  servings: first_recipe.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: first_recipe.id,
+  planner_id: maxence.planners.last.id,
   servings: first_recipe.servings,
   cooked: false
   )

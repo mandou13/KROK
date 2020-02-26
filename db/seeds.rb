@@ -8,36 +8,15 @@
 
 require "open-uri"
 puts "#{User.count} users"
-puts "#{Rating.count} users"
-puts "#{LikedRecipe.count} users"
-puts "#{Planner.count} users"
-puts "#{Recipe.count} users"
-puts "#{PlannerRecipe.count} users"
-puts "#{ShoppingList.count} users"
-puts "#{Ingredient.count} users"
+puts "#{Rating.count} ratings"
+puts "#{LikedRecipe.count} liked_recipe"
+puts "#{Planner.count} planner"
+puts "#{Recipe.count} recipe"
+puts "#{PlannerRecipe.count} planner_recipe"
+puts "#{ShoppingList.count} shopping_list"
+puts "#{Ingredient.count} ingredient"
 
 puts "DELETING"
-User.destroy_all
-Rating.destroy_all
-LikedRecipeLiked.destroy_all
-Planner.destroy_all
-Recipe.destroy_all
-PlannerRecipe.destroy_all
-ShoppingList.destroy_all
-Ingredient.destroy_all
-
-puts "#{User.count} users"
-puts "#{Rating.count} users"
-puts "#{LikedRecipe.count} users"
-puts "#{Planner.count} users"
-puts "#{Recipe.count} users"
-puts "#{PlannerRecipe.count} users"
-puts "#{ShoppingList.count} users"
-puts "#{Ingredient.count} users"
-
-
-puts "SEEDING"
-
 
 User.destroy_all
 Rating.destroy_all
@@ -48,14 +27,26 @@ PlannerRecipe.destroy_all
 ShoppingList.destroy_all
 Ingredient.destroy_all
 
+puts "#{User.count} users"
+puts "#{Rating.count} ratings"
+puts "#{LikedRecipe.count} liked_recipe"
+puts "#{Planner.count} planner"
+puts "#{Recipe.count} recipe"
+puts "#{PlannerRecipe.count} planner_recipe"
+puts "#{ShoppingList.count} shopping_list"
+puts "#{Ingredient.count} ingredient"
 
-amandine = User.new(
-  username: "Mandou",
+
+puts "SEEDING"
+
+cyril = User.new(
+  username: "Cyril Lignac",
   password: "azerty",
-  email: "amandine.legal@me.com")
-photo_a = URI.open('https://avatars3.githubusercontent.com/u/58696274?v=4')
-amandine.photo.attach(io: photo_a, filename: 'photogithub.png', content_type: 'image/png')
-amandine.save
+  email: "cyril@me.com")
+
+photo_c = URI.open('https://www.parisinfo.com/var/otcp/sites/images/node_43/node_51/node_532/chef-%C3%A9toil%C3%A9-cyril-lignac-%7C-630x405-%7C-%C2%A9-arthur-delloye/12145594-1-fre-FR/Chef-%C3%A9toil%C3%A9-Cyril-Lignac-%7C-630x405-%7C-%C2%A9-Arthur-Delloye.gif')
+cyril.photo.attach(io: photo_c, filename: 'photocyril.png', content_type: 'image/png')
+cyril.save
 
 maxence = User.new(
   username: "Naicma59",
@@ -82,20 +73,37 @@ photo_p = URI.open("https://avatars1.githubusercontent.com/u/58698738?v=4")
 pauline.photo.attach(io: photo_p, filename: "photogithub.png", content_type: "image/png")
 pauline.save
 
-user_id = []
-User.all.each do |user|
-  user_id << user.id
-end
-
-first_recipe = Car.new(
-  name:        "Blanquette de Veau",
-  description: "Du veau, des poireaux, des carottes, des champignons et une garniture aromatique.",
-  dish_type:   "Main",
+first_recipe = Recipe.new(
+  name:        "Veal Blanquette",
+  description: "From Gordon Ramsay, a blanquette is a stew made with pale-coloured meats which are not fried first",
+  steps:       "1_ Pour the stock and wine into a large saucepan, then add all the vegetables except the mushrooms. Add the garlic and rosemary and bring to the boil, then simmer, uncovered, for 10 mins.
+                2_ Trim veal of any excess fat and cut into large bite-size cubes. Add to pan with the mushrooms. Return to a simmer, season well, then cook for 20 mins until meat is just tender; allow longer if it’s not. The stew can be cooled and chilled or frozen at this stage.
+                3_ When ready to serve, beat together the yolks and cream. Return the stew to a simmer, stir in the horseradish or mustard, briskly mix in yolks and cream, then stir until it starts to thicken slightly. Take care not to overheat or the mixture will curdle. Stir in the butter, remove pan from the heat, then mix in the parsley, lemon zest and juice. Check the seasoning again.
+                4_ Meanwhile, boil tagliatelle according to pack instructions – about 3 mins for fresh pasta, up to 10 mins for dried. Drain and toss with a little butter. Make into a ‘barrel’ of pasta (see above right) or simply divide between six warmed plates. Spoon the Blanquette of veal on top and serve.
+                5_ Make a 'barrel' of tagliatelle Gordon's way: Pick up a few strands of pasta, digging a carving fork into the pot 3-4 times. Lift up the pasta so the strands hang free and press against the side of the pan. Then, holding with your (clean) fingers, start to twist the pasta into a barrel shape, pushing back against the pan side once or twice to neaten. When all the strands are wound, up-end the fork intothe centre of a plate and gently push the pasta off.",
+  dish_type:   "Main Course",
   dish_origin: "French",
   prep_time:   30,
-  servings:    2,
-  user_id:     user_id.sample,
+  servings:    6,
+  user_id:     cyril.id,
   )
+first_recipe.save!
+
+Ingredient.create(name: 'Veal', unit: 'kg', quantity: 1, recipe_id: first_recipe.id)
+Ingredient.create(name: 'White Wine', unit: 'ml', quantity: 250, recipe_id: first_recipe.id)
+Ingredient.create(name: 'Leeks', quantity: 2, recipe_id: first_recipe.id)
+Ingredient.create(name: 'Tagliatelle', unit: 'g', quantity: 300, recipe_id: first_recipe.id)
+Ingredient.create(name: 'Carrot', quantity: 3, recipe_id: first_recipe.id)
+
+
+puts "#{User.count} users"
+puts "#{Rating.count} rating"
+puts "#{LikedRecipe.count} liked_recipe"
+puts "#{Planner.count} planner"
+puts "#{Recipe.count} recipe"
+puts "#{PlannerRecipe.count} planner_recipe"
+puts "#{ShoppingList.count} shopping_list"
+puts "#{Ingredient.count} ingredient"
 
 
 

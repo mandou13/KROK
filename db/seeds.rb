@@ -18,14 +18,14 @@ puts "#{Ingredient.count} ingredient"
 
 puts "DELETING"
 
-User.destroy_all
 Rating.destroy_all
 LikedRecipe.destroy_all
 Planner.destroy_all
+Ingredient.destroy_all
 Recipe.destroy_all
 PlannerRecipe.destroy_all
 ShoppingList.destroy_all
-Ingredient.destroy_all
+User.destroy_all
 
 puts "#{User.count} users"
 puts "#{Rating.count} ratings"
@@ -39,41 +39,47 @@ puts "#{Ingredient.count} ingredient"
 
 puts "SEEDING"
 
-cyril = User.new(
+cyril = User.create!(
   username: "Cyril Lignac",
   password: "azerty",
-  email: "cyril@me.com")
+  email:    "cyril@me.com",
+)
 
 photo_c = URI.open('https://www.parisinfo.com/var/otcp/sites/images/node_43/node_51/node_532/chef-%C3%A9toil%C3%A9-cyril-lignac-%7C-630x405-%7C-%C2%A9-arthur-delloye/12145594-1-fre-FR/Chef-%C3%A9toil%C3%A9-Cyril-Lignac-%7C-630x405-%7C-%C2%A9-Arthur-Delloye.gif')
 cyril.photo.attach(io: photo_c, filename: 'photocyril.png', content_type: 'image/png')
-cyril.save
+cyril.save!
 
-maxence = User.new(
+maxence = User.create!(
   username: "Naicma59",
   password: "azerty",
-  email: "maxence@me.com")
+  email:    "maxence@me.com",
+)
+
 photo_m = URI.open('https://avatars3.githubusercontent.com/u/58698893?v=4')
 maxence.photo.attach(io: photo_m, filename: 'photogithub.png', content_type: 'image/png')
-maxence.save
+maxence.save!
 
-louis = User.new(
+louis = User.create!(
   username: "Gat_food_lover",
   password: "azerty",
-  email: "gat@me.com")
+  email:    "gat@me.com",
+)
 
 photo = URI.open('https://avatars2.githubusercontent.com/u/56741514?v=4')
 louis.photo.attach(io: photo, filename: "photogithub.png", content_type: 'image/png')
-louis.save
+louis.save!
 
-pauline = User.new(
+pauline = User.create!(
   username: "Paopao",
   password: "azerty",
-  email: "pauline@me.com")
+  email:    "pauline@me.com",
+)
+
 photo_p = URI.open("https://avatars1.githubusercontent.com/u/58698738?v=4")
 pauline.photo.attach(io: photo_p, filename: "photogithub.png", content_type: "image/png")
 pauline.save
 
-first_recipe = Recipe.new(
+first_recipe = Recipe.create!(
   name:        "Veal Blanquette",
   description: "From Gordon Ramsay, a blanquette is a stew made with pale-coloured meats which are not fried first",
   steps:       "1_ Pour the stock and wine into a large saucepan, then add all the vegetables except the mushrooms. Add the garlic and rosemary and bring to the boil, then simmer, uncovered, for 10 mins.
@@ -86,8 +92,11 @@ first_recipe = Recipe.new(
   prep_time:   30,
   servings:    6,
   user_id:     cyril.id,
-  )
-first_recipe.save!
+)
+
+photo_first_recipe = URI.open("https://assets.afcdn.com/recipe/20190529/93189_w1024h768c1cx2886cy4330.jpg")
+first_recipe.photo.attach(io: photo_first_recipe, filename: "photo_blanquette.png", content_type: "image/png")
+photo_first_recipe.save
 
 Ingredient.create(name: 'Veal', unit: 'kg', quantity: 1, recipe_id: first_recipe.id)
 Ingredient.create(name: 'White Wine', unit: 'ml', quantity: 250, recipe_id: first_recipe.id)

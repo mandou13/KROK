@@ -28,7 +28,7 @@ class ScrappingRecipes
       steps = scrapping_search(recipe_page, ".method__list")
       photo_urls = recipe_page.xpath("//img[@itemprop = 'image']").map { |t| t[:src].remove(/\/{2}/) }
       uuid = SecureRandom.hex(10)
-      recipes << [uuid, names[index], steps.first, meal_type, meal_origin, prep_times[index], servings, description[index], difficulty[index], photo_url[index]]
+      recipes << [uuid, names[index], steps.first, meal_type, meal_origin, prep_times[index], servings, description[index], difficulty[index], photo_urls[index]]
 
       scrapping_search(recipe_page, ".ingredients-list__item").each do |ingredient|
         quantity = ingredient.split(" ")[0].scan(/\d/).join.to_i
@@ -41,7 +41,7 @@ class ScrappingRecipes
     end
 
     CSV.open(Rails.root.join('db', 'datas', 'ingredients.csv'), 'ab', csv_options) do |csv|
-      csv << ['uuid', 'quantity', 'unit', 'quantity']
+      csv << ['uuid', 'quantity', 'unit', 'name']
       ingredients.each do |ingredienty|
         csv  << ingredienty
       end
@@ -53,6 +53,7 @@ class ScrappingRecipes
         csv << recipe
       end
     end
+
     "Done"
   end
 

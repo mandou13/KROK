@@ -16,7 +16,7 @@ class Recipe < ApplicationRecord
 
   has_one_attached :photo
 
-  def rating
+  def avg_rating
     sum = 0
     self.ratings.each do |rating|
       sum += rating.rating

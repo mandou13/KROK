@@ -10,11 +10,12 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <%= render 'shared/top_navbar' unless (params[:controller] == 'recipes' && params[:action] == 'show') %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <%= render 'shared/navbar' unless (params[:controller] == 'recipes' && params[:action] == 'show') %>
-    <%= javascript_include_tag 'application' %>
+    <%= render 'shared/navbar' %>
 
+    <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>

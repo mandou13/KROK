@@ -1,17 +1,9 @@
-
-
-
-
 const display_searchbar = () => {
   const SearchBarIndex = document.getElementById('searchbox-recipe-index-before');
   if (SearchBarIndex) {
-    console.log('led')
     SearchBarIndex.addEventListener("click", (event) => {
       document.getElementById('recipes').classList.toggle("d-none");
       document.getElementById('searchbox-recipe-index-after').classList.toggle("d-none");
-      // document.body.classList.toggle("bg-search");
-      // console.log(event.currentTarget);
-      // event.currentTarget.classList.toggle("bg-white");
     });
   }
 }

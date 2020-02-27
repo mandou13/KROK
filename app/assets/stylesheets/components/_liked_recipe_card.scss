@@ -1,0 +1,18 @@
+.liked_recipe_card {
+  border: none;
+  h6 {
+    color: $gray;
+  }
+  img {
+    margin-left:     15px;
+    height:          128px;
+    width:           128px;
+    object-fit:      cover;
+    object-position: center;
+    border-radius:   5px;
+  }
+  .btn-add-recipe {
+    color: $green;
+  }
+}
+

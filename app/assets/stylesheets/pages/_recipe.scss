@@ -1,4 +1,3 @@
-@import "../components/navbar_back";
 .recipe-show {
   position: relative;
   .recipe-photo-show {
@@ -35,6 +34,13 @@
   }
   p {
     font-size: 10px;
+  }
+  .circle-icon {
+    margin-right: 20px;
+  }
+  .btn-heart {
+    font-size: 23px;
+    color: $green;
   }
 }
 

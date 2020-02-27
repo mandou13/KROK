@@ -73,6 +73,7 @@ photo_p = URI.open("https://avatars1.githubusercontent.com/u/58698738?v=4")
 pauline.photo.attach(io: photo_p, filename: "photogithub.png", content_type: "image/png")
 pauline.save
 
+
 # first_recipe = Recipe.create!(
 #   name:        "Veal Blanquette",
 #   description: "From Gordon Ramsay, a blanquette is a stew made with pale-coloured meats which are not fried first",

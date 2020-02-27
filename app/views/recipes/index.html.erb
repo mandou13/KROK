@@ -13,7 +13,7 @@
 
             <div class="card-img-icons">
               <div class="circle-icon">
-                <%= link_to planner_planner_recipes_path(Planner.last), method: :post do %>
+                <%= link_to planner_planner_recipes_path(current_user.planners.last), method: :post do %>
                   <i class="fas fa-utensils btn-add-recipe"></i>
                 <% end %>
               </div>

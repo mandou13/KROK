@@ -1,11 +1,21 @@
+@import "../components/card_liked";
+.liked-recipe-title {
+  color: $green;
+}
+
 .dish-type-nav {
+  margin-bottom: 30px;
   button {
     border: $green solid 1px;
     font-weight: bold;
     font-size: 13px;
  }
- .btn-active {
+ .btn-liked-active {
   color: white;
   background-color: $green;
  }
+}
+
+.no-liked-recipe {
+  margin-left: 15px;
 }

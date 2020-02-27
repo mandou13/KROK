@@ -1,5 +1,5 @@
 <div class="circle-icon">
-  <% if current_user.liked_recipes.include?(recipe) %>
+  <% if recipe.liked?(current_user) %>
     <%= link_to liked_recipe_path(LikedRecipe.find_by(recipe: recipe, user: current_user)), method: :delete do %>
       <i class="fas fa-heart btn-heart"></i>
     <% end %>

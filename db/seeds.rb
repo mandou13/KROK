@@ -103,7 +103,6 @@ photo_first_recipe = URI.open("https://assets.afcdn.com/recipe/20190529/93189_w1
 first_recipe.photo.attach(io: photo_first_recipe, filename: "photo_blanquette.png", content_type: "image/png")
 first_recipe.save!
 
-LikedRecipe.create(user_id: pauline.id, recipe_id: first_recipe.id)
 
 
 Ingredient.create(name: 'Veal', unit: 'kg', quantity: 1, recipe_id: first_recipe.id)

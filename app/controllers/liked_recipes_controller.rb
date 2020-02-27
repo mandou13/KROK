@@ -11,8 +11,7 @@ class LikedRecipesController < ApplicationController
   end
 
   def destroy
-    recipe = Recipe.find(params[:recipe_id])
-    @liked_recipe = LikedRecipe.find_by(user: current_user, recipe: recipe)
+    @liked_recipe = LikedRecipe.find(params[:id])
     @liked_recipe.destroy
   end
 end

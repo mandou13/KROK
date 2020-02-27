@@ -7,3 +7,47 @@
   }
 }
 
+$color-krok: #73C88B;
+
+.underligned-green {
+  border-bottom: 5px solid #73C88B;
+}
+
+.filtering-tags {
+  background-color: #73C88B;
+  border-radius: 63px;
+  // border: 1px solid #4A4A4A;
+  font-size: lighter;
+  padding: 3px 21px;
+  // opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-bottom: 15px;
+}
+
+
+.exit-button {
+  margin-bottom: 1px;
+  margin-left: 16px;
+  margin-right: 179px;
+}
+
+.search-padding {
+  padding-bottom: 10px;
+}
+
+
+.filter-tag {
+  background-color: #73C88B;
+  border-radius: 63px;
+  // border: 1px solid #4A4A4A;
+  font-size: lighter;
+  padding: 8px 24px;
+  // opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+.h3-tagtitle {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

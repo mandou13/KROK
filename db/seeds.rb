@@ -119,7 +119,7 @@ CSV.foreach(Rails.root.join('db', 'datas', 'recipes.csv'), csv_options) do |row|
   uuid_recipe = row["uuid"]
   CSV.foreach(Rails.root.join('db', 'datas', 'ingredients.csv'), csv_options) do |row|
     if uuid_recipe == row["uuid"]
-      ingredient = Ingredient.new(
+      ingredient = Ingredient.create!(
         recipe_id: recipe.id,
         quantity: row["quantity"],
         unit: row["unit"],

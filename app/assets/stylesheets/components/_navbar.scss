@@ -20,7 +20,6 @@ padding: 5px;
 
 .navbar-container{
   display:flex;
-  overflow: hidden;
   position: fixed;
   bottom: 0;
   justify-content: space-around;
@@ -28,6 +27,8 @@ padding: 5px;
   border-width: 2px;
   border-color: #EEEEEE;
   width: 100%;
+  background:      white;
+
 }
 
 .active i{

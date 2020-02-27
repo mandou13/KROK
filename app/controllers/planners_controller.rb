@@ -1,5 +1,6 @@
 class PlannersController < ApplicationController
   def show
+    @recipes = Recipe.all
     @planner = current_user.planners.last
     @planner_recipes = @planner.planner_recipes.sort
     @rating = Rating.new

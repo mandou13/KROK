@@ -33,6 +33,25 @@
           </div>
         </div>
       </div>
+
+
+
+      <% planner_recipe_random = @recipes.sample %>
+      <div class="col-6 col-lg-3">
+        <div class="card-show">
+          <div class="card-img-top d-flex justify-content-center background-random">
+            <%= cl_image_tag planner_recipe_random.photo.key, crop: :fill %>
+          </div>
+        </div>
+        <div class="card-title">
+         <!-- 'To add if necessary' -->
+        </div>
+      </div>
+
+
+
+
+
       <% @planner_recipes.each do |planner_recipe| %>
       <div class="col-6 col-lg-3">
         <div class="card-show">
@@ -84,8 +103,6 @@
   <div class="planner-new d-flex justify-content-center">
     <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
   </div>
-
-<%= render 'shared/tinder_swipe' %>
 
 
 

@@ -1,3 +1,5 @@
+// STANDBY
+
 'use strict';
 
 var tinderContainer = document.querySelector('.tinder');

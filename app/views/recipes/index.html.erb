@@ -16,7 +16,9 @@
       <div class="col-6 col-lg-3">
         <div class="card card-home">
           <div class="card-img-top d-flex justify-content-center">
-            <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/2b422cd19f6c488fbe649da9739b5542/fb.jpg" alt="recipe photo">
+            <%= link_to recipe_path(recipe) do  %>
+              <%= cl_image_tag recipe.photo.key %>
+            <% end %>
             <div class="card-img-icons">
               <div class="btn-heart">
                 <%= link_to recipe_liked_recipes_path(recipe) do %>
@@ -28,7 +30,9 @@
               <%# end %>
             </div>
           </div>
-          <div class="card-title mb-0"><%= recipe.name %></div>
+          <div class="card-title mb-0">
+            <%= link_to recipe.name, recipe_path(recipe) %>
+          </div>
         </div>
       </div>
     <% end %>

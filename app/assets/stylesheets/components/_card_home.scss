@@ -35,7 +35,7 @@
         // color: rgb(50, 50, 50);
         font-size: 15px;
 
-        color: #73C88B;
+        color: $green;
       }
     }
 
@@ -44,5 +44,12 @@
   .card-title {
     text-align: center;
     padding: 3px 5px 0 5px;
+    a {
+      text-decoration: none;
+      color: rgb(50, 50, 50);
+      &:hover {
+        color: rgb(50, 50, 50);
+      }
+    }
   }
 }

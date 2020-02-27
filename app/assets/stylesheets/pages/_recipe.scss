@@ -1,0 +1,71 @@
+@import "../components/navbar_back";
+.recipe-show {
+  position: relative;
+  .recipe-photo-show {
+    background-size: cover;
+    background-position: 50% 90%;
+    background-repeat: no-repeat;
+    height: 60vh;
+  }
+  p {
+    font-size: 15px;
+    color: rgb(40, 40, 40);
+  }
+}
+
+.name-review {
+  border-bottom: 0.5px solid rgba(200, 200, 200, 0.6);
+  padding-bottom: 15px;
+}
+
+.recipe-text-show {
+  border-radius: 50px 50px 0px 0px;
+  position: absolute;
+  top: 57vh;
+  padding: 30px 40px;
+}
+
+.owner-info {
+  margin: 10px auto;
+  h6, p {
+    color: rgb(40, 40, 40);
+  }
+  h6 {
+    font-size: 15px;
+  }
+  p {
+    font-size: 10px;
+  }
+}
+
+.recipe-short-info {
+  .icon-green {
+    color: $green;
+  }
+}
+
+.recipe-photo-show {
+  position: relative;
+  .circle-add-recipe {
+    position: absolute;
+    top: 49vh;
+    left: 45vw;
+    background-color: white;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    .btn-add-recipe {
+      position: absolute;
+      left: 6vw;
+      top: 2vh;
+      font-size: 26px;
+      color: $green;
+      z-index: 1;
+    }
+  }
+}
+
+
+
+

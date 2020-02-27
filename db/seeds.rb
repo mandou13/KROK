@@ -99,6 +99,62 @@ pauline.save
 # Ingredient.create(name: 'Tagliatelle', unit: 'g', quantity: 300, recipe_id: first_recipe.id)
 # Ingredient.create(name: 'Carrot', quantity: 3, recipe_id: first_recipe.id)
 
+Planner.create(
+  name: Time.now.strftime("%D"),
+  user_id: maxence.id
+)
+
+Planner.create(
+  name: Time.now.strftime("%D"),
+  user_id: louis.id
+)
+
+Planner.create(
+  name: Time.now.strftime("%D"),
+  user_id: pauline.id
+)
+
+PlannerRecipe.create(
+  recipe_id: first_recipe.id,
+  planner_id: louis.planners.last.id,
+  servings: first_recipe.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: first_recipe.id,
+  planner_id: louis.planners.last.id,
+  servings: first_recipe.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: first_recipe.id,
+  planner_id: pauline.planners.last.id,
+  servings: first_recipe.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: first_recipe.id,
+  planner_id: pauline.planners.last.id,
+  servings: first_recipe.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: first_recipe.id,
+  planner_id: maxence.planners.last.id,
+  servings: first_recipe.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: first_recipe.id,
+  planner_id: maxence.planners.last.id,
+  servings: first_recipe.servings,
+  cooked: false
+  )
 
 
 puts "#{User.count} users"

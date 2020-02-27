@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="" id='title_to_update'>
+    <div class="planner-title-card d-flex">
+      <h3 class='planner-title'> <%= @planner.name%></h3>
+      <i class="fas fa-edit p-2" id="title_update_launch"></i>
+    </div>
+  </div>
+  <%= render 'shared/form' %>
+
+  <div class="planner-dish-type-card m-2">
+    <h5>Side dishes</h5>
+    <% @planner_recipes.each do |planner_recipe| %>
+    <div class="col-sm-5 m-1">
+      <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill, class: '' %>
+      <p> <%= planner_recipe.cooked %>  </p>
+    </div>
+    <% end %>
+  </div>
+  <div class="planner-dish-type-card m-2">
+    <h5>Main dishes</h5>
+  </div>
+  <div class="planner-dish-type-card m-2">
+    <h5>Desserts</h5>
+  </div>
+
+  <div class="planner-new d-flex justify-content-center">
+    <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
+  </div>
+</div>
+
+
+<%#= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' %>

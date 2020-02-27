@@ -1,8 +1,16 @@
 <div class="container">
 
-  <%= render 'shared/search_box' %>
+  <div class="search-box" id ='searchbox-recipe-index-before'>
+   <%= form_tag recipes_path, method: :get do %>
+     <%= text_field_tag :query,
+       params[:query],
+       class: "form-control",
+       placeholder: "What to Krok?"
+     %>
+   <% end %>
+  </div>
 
-  <div class="row">
+  <div id="recipes" class="row">
     <% @recipes.each do |recipe| %>
       <div class="col-6 col-lg-3">
         <div class="card card-home mb-1">
@@ -35,5 +43,46 @@
       </div>
     <% end %>
   </div>
+
+  <div id="searchbox-recipe-index-after" class="d-none">
+    <div class='d-flex align-items-center justify-content-between search-padding'>
+      <h1 class='underligned-green'> Search </h1>
+      <div class='exit-button'>
+        <%= link_to recipes_path do %>
+          <i class="fas fa-times-circle fa-2x text-dark"></i>
+        <% end %>
+      </div>
+    </div>
+      <p id= "display-filters-title" class="btn filter-tag pt-10"> Filters </p>
+  </div>
+
+  <div id='display-filters' class="d-none">
+    <h3 class='h3-tagtitle'>Dish Type</h3>
+    <%=  link_to "Starter", recipes_path(:dish_type => "starter"), class: "btn filtering-tags" %>
+    <%=  link_to "Main", recipes_path(:dish_type => "main"), class: "btn filtering-tags" %>
+    <%=  link_to "Dessert", recipes_path(:dish_type => "dessert"), class: "btn filtering-tags" %>
+
+    <h3 class='h3-tagtitle'>Prep Time</h3>
+    <%=  link_to "20min", recipes_path(:prep_time => 20), class: "btn filtering-tags" %>
+    <%=  link_to "30min", recipes_path(:prep_time => 30), class: "btn filtering-tags" %>
+    <%=  link_to "45min", recipes_path(:prep_time => 45), class: "btn filtering-tags" %>
+    <%=  link_to "1hour", recipes_path(:prep_time => 60), class: "btn filtering-tags" %>
+
+    <h3 class='h3-tagtitle'>Dish Origin</h3>
+    <%=  link_to "English", recipes_path(:dish_origin => "English"), class: "btn filtering-tags" %>
+    <%=  link_to "French", recipes_path(:dish_origin => "French"), class: "btn filtering-tags" %>
+    <%=  link_to "American", recipes_path(:dish_origin => "American"), class: "btn filtering-tags" %>
+    <%=  link_to "Indian", recipes_path(:dish_origin => "Indian"), class: "btn filtering-tags" %>
+    <%=  link_to "Mexican", recipes_path(:dish_origin => "Mexican"), class: "btn filtering-tags" %>
+    <%=  link_to "Middle East", recipes_path(:dish_origin => "Middle East"), class: "btn filtering-tags" %>
+    <%=  link_to "Spanish", recipes_path(:dish_origin => "Spanish"), class: "btn filtering-tags" %>
+
+    <h3 class='h3-tagtitle'>Difficulty</h3>
+    <%=  link_to "Simple", recipes_path(:difficulty => "Easy"), class: "btn filtering-tags" %>
+    <%=  link_to "Medium", recipes_path(:difficulty => "Medium"), class: "btn filtering-tags" %>
+    <%=  link_to "Hard", recipes_path(:difficulty => "Hard"), class: "btn filtering-tags" %>
+  </div>
 </div>
+
+
 

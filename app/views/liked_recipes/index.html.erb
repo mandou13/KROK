@@ -19,14 +19,14 @@
     <div class="col-sm-12 col-lg-6">
 
       <div class="liked-recipes-main">
-        <% if @liked_recipes.select { |r| r.recipe.dish_type == "Main Course" }.blank? %>
+        <% if @liked_recipes.select { |r| r.recipe.dish_type == "main" }.blank? %>
           <div class="no-liked-recipe">
             <p class="text-black-50">Find your star recipes!</p>
-            <%= link_to "Discover", recipes_path, class: 'btn-green' %>
+            <%= link_to "Discover", recipes_path, class: 'btn-green text-decoration-none' %>
           </div>
         <% else %>
           <% @liked_recipes.each do |liked_recipe| %>
-            <% if liked_recipe.recipe.dish_type == "Main Course" %>
+            <% if liked_recipe.recipe.dish_type == "main" %>
               <!-- card design -->
               <%= render 'liked_recipes/shared/card_liked', liked_recipe: liked_recipe %>
               <!-- card design -->
@@ -36,14 +36,14 @@
       </div>
 
       <div class="liked-recipes-starter d-none">
-        <% if @liked_recipes.reject { |r| r.recipe.dish_type == "Main Course" || liked_recipe.recipe.dish_type == "Dessert" }.blank? %>
+        <% if @liked_recipes.reject { |r| r.recipe.dish_type == "main" || r.recipe.dish_type == "dessert" }.blank? %>
           <div class="no-liked-recipe">
             <p class="text-black-50">Find your star recipes!</p>
-            <%= link_to "Discover", recipes_path, class: 'btn-green' %>
+            <%= link_to "Discover", recipes_path, class: 'btn-green text-decoration-none' %>
           </div>
         <% else %>
           <% @liked_recipes.each do |liked_recipe| %>
-            <% unless liked_recipe.recipe.dish_type == "Main Course" || liked_recipe.recipe.dish_type == "Dessert" %>
+            <% unless liked_recipe.recipe.dish_type == "main" || liked_recipe.recipe.dish_type == "dessert" %>
               <!-- card design -->
               <%= render 'liked_recipes/shared/card_liked', liked_recipe: liked_recipe %>
               <!-- card design -->
@@ -53,14 +53,14 @@
       </div>
 
       <div class="liked-recipes-dessert d-none">
-        <% if @liked_recipes.select { |r| r.recipe.dish_type == "Dessert" }.blank? %>
+        <% if @liked_recipes.select { |r| r.recipe.dish_type == "dessert" }.blank? %>
           <div class="no-liked-recipe">
             <p class="text-black-50">Find your star recipes!</p>
-            <%= link_to "Discover", recipes_path, class: 'btn-green' %>
+            <%= link_to "Discover", recipes_path, class: 'btn-green text-decoration-none' %>
           </div>
         <% else %>
           <% @liked_recipes.each do |liked_recipe| %>
-            <% if liked_recipe.recipe.dish_type == "Dessert" %>
+            <% if liked_recipe.recipe.dish_type == "dessert" %>
               <!-- card design -->
               <%= render 'liked_recipes/shared/card_liked', liked_recipe: liked_recipe %>
               <!-- card design -->

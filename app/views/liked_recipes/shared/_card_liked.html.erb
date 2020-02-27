@@ -1,36 +1,30 @@
-<div class="card card-liked">
-    <div class="row no-gutters d-flex justify-content-center">
-      <div class="col-sm-3">
-        <%= link_to recipe_path(liked_recipe.recipe) do  %>
-          <%= cl_image_tag liked_recipe.recipe.photo.key %>
-        <% end %>
-      </div>
-      <div class="col-sm-9">
-        <div class="card-body">
-          <div class="card-title d-flex justify-content-between">
-            <%= link_to recipe_path(liked_recipe.recipe), class: 'text-decoration-none' do  %>
-              <h5><%= liked_recipe.recipe.name %></h5>
-            <% end %>
-            <%= link_to liked_recipe_path(liked_recipe), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fas fa-times btn-cross"></i>
-            <% end %>
-          </div>
-          <div class="card-text">
-            <div class="icons-card-liked d-flex">
-              <% if liked_recipe.recipe.rating == 5 %>
-                <p><i class="fas fa-star mr-1 icon-star"></i><%= liked_recipe.recipe.rating %></p>
-              <% elsif liked_recipe.recipe.ratings.blank? %>
-                <p class="text-muted"><i class="far fa-star mr-1"></i> <%= liked_recipe.recipe.rating %></p>
-              <% elsif liked_recipe.recipe.rating == 0 &&  !(liked_recipe.recipe.ratings.blank?) %>
-                <p><i class="far fa-star mr-1 icon-star"></i><%= liked_recipe.recipe.rating %></p>
-              <% elsif liked_recipe.recipe.ratings %>
-                <p><i class="fas fa-star-half-alt mr-1 icon-star"></i><%= liked_recipe.recipe.rating %></p>
-              <% end %>
-              <p class="ml-3"><i class="fas fa-utensils btn-add-recipe"></i> <%= liked_recipe.recipe.ratings.size %></p>
-            </div>
-            <%= link_to 'Add to planner', planner_planner_recipes_path(current_user.planners.last), method: :post, class: 'btn-green' %>
-          </div>
-        </div>
-      </div>
+<div class="liked_recipe_card d-flex mb-5">
+  <div>
+    <%= link_to recipe_path(liked_recipe.recipe) do  %>
+      <%= cl_image_tag liked_recipe.recipe.photo.key %>
+    <% end %>
+  </div>
+  <div class="ml-2">
+    <div class="card-title d-flex justify-content-between">
+      <%= link_to recipe_path(liked_recipe.recipe), class: 'text-decoration-none' do  %>
+        <h6><%= liked_recipe.recipe.name.truncate(45) %></h6>
+      <% end %>
+      <%= link_to liked_recipe_path(liked_recipe), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="fas fa-times btn-cross"></i>
+      <% end %>
     </div>
+    <div class="card-text">
+      <div class="icons-card-liked d-flex">
+        <% if liked_recipe.recipe.rating == 5 %>
+          <p><i class="fas fa-star mr-1 icon-star"></i><%= liked_recipe.recipe.rating %></p>
+        <% elsif liked_recipe.recipe.rating == 0 %>
+          <p><i class="far fa-star mr-1 icon-star"></i> <%= liked_recipe.recipe.rating %></p>
+        <% else %>
+          <p><i class="fas fa-star-half-alt mr-1 icon-star"></i><%= liked_recipe.recipe.rating %></p>
+        <% end %>
+        <p class="ml-3"><i class="fas fa-utensils btn-add-recipe"></i> <%= liked_recipe.recipe.ratings.size %></p>
+      </div>
+      <%= link_to 'Add to planner', planner_planner_recipes_path(current_user.planners.last), method: :post, class: 'btn-green text-decoration-none' %>
+    </div>
+  </div>
 </div>

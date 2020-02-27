@@ -2,7 +2,6 @@ const initLikedRecipeNav = () => {
   const btnStarter = document.getElementById('btn-starter');
   const btnMain = document.getElementById('btn-main');
   const btnDessert = document.getElementById('btn-dessert');
-  const btnActive = document.querySelector('.btn-liked-active');
 
   const mainRecipes = document.querySelector('.liked-recipes-main');
   const starterRecipes = document.querySelector('.liked-recipes-starter');
@@ -11,7 +10,8 @@ const initLikedRecipeNav = () => {
 
   if (btnMain) {
     btnMain.addEventListener('click', (event) => {
-      btnActive.classList.remove('btn-liked-active');
+      btnStarter.classList.remove('btn-liked-active');
+      btnDessert.classList.remove('btn-liked-active');
       btnMain.classList.add('btn-liked-active');
       mainRecipes.classList.remove('d-none');
       starterRecipes.classList.add('d-none');
@@ -20,7 +20,8 @@ const initLikedRecipeNav = () => {
   }
   if (btnStarter) {
     btnStarter.addEventListener('click', (event) => {
-      btnActive.classList.remove('btn-liked-active');
+      btnMain.classList.remove('btn-liked-active');
+      btnDessert.classList.remove('btn-liked-active');
       btnStarter.classList.add('btn-liked-active');
       starterRecipes.classList.remove('d-none');
       mainRecipes.classList.add('d-none');
@@ -29,7 +30,8 @@ const initLikedRecipeNav = () => {
   }
   if (btnDessert) {
     btnDessert.addEventListener('click', (event) => {
-      btnActive.classList.remove('btn-liked-active');
+      btnMain.classList.remove('btn-liked-active');
+      btnStarter.classList.remove('btn-liked-active');
       btnDessert.classList.add('btn-liked-active');
       dessertRecipes.classList.remove('d-none');
       starterRecipes.classList.add('d-none');

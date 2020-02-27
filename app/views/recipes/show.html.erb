@@ -34,14 +34,13 @@
         <div class="recipe-short-info">
           <p><i class="fas fa-globe-europe icon-green"></i> <%= @recipe.dish_origin %></p>
           <p><i class="fas fa-mountain icon-green"></i> <%= @recipe.difficulty %></p>
-
           <p>
-            <% if @recipe.dish_type == 'Main Course'  %>
-              <i class="fas fa-fish icon-green"></i><%= @recipe.dish_type %>
-            <% elsif @recipe.dish_type == 'Dessert' %>
-              <i class="fas fa-cookie-bite icon-green"></i><%= @recipe.dish_type %>
+            <% if @recipe.dish_type == 'main'  %>
+              <i class="fas fa-fish icon-green"></i><%= @recipe.dish_type.capitalize %>
+            <% elsif @recipe.dish_type == 'dessert' %>
+              <i class="fas fa-cookie-bite icon-green"></i><%= @recipe.dish_type.capitalize %>
             <% else %>
-              <i class="fas fa-hotdog icon-green"></i><%= @recipe.dish_type %>
+              <i class="fas fa-pizza-slice icon-green"></i><%= @recipe.dish_type.capitalize %>
             <% end %>
           </p>
           <p><i class="fas fa-hourglass-half icon-green"></i><%= @recipe.prep_time %></p>
@@ -49,9 +48,9 @@
         </div>
         <!-- icons design -->
         <!-- step design -->
-        <% @recipe.steps.scan(/(\d_ .+)/).each_with_index do |step, index| %>
+        <% @recipe.steps.split('.').each_with_index do |step, index| %>
           <p><%= index + 1 %></p>
-          <p><%= step[0].gsub(/\d_ /, '') %></p>
+          <p><%= step %></p>
         <% end %>
         <!-- step design -->
       </div>

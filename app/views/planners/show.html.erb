@@ -37,10 +37,20 @@
 
 
       <% planner_recipe_random = @recipes.sample %>
-      <div class="col-6 col-lg-3">
+      <div class="col-6 col-lg-3 " id="card_random_to_hide">
         <div class="card-show">
-          <div class="card-img-top d-flex justify-content-center background-random">
+          <div class="card-img-top d-flex background-random">
             <%= cl_image_tag planner_recipe_random.photo.key, crop: :fill %>
+            <div class="card-img-icon-random-again" id="card-img-icon-random-again">
+              <%= link_to planner_path(@planner) do %>
+              <i class="fas fa-dice btn-random-again"></i>
+              <% end %>
+            </div>
+            <div class="card-img-icon-random-valid" id="card-img-icon-random-valid">
+              <%= link_to recipe_planner_recipes_path(planner_recipe_random), method: :post, remote: true do %>
+                <i class="fas fa-grin-hearts btn-random-valid"></i>
+              <% end %>
+            </div>
           </div>
         </div>
         <div class="card-title">

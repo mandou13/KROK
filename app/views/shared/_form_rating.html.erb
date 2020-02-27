@@ -1,0 +1,8 @@
+<div class="form-box font-italic" id='title_updated'>
+  <%= form_for [planner_recipe, rating], html: {class: 'form-inline w-40'} do |f|%>
+    <p><%= f.text_field :rating %></p>
+    <%= f.button :submit, class: "btn btn-krok-little"  do %>
+    Rate !
+    <% end %>
+  <% end %>
+</div>

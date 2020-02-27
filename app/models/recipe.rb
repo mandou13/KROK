@@ -16,6 +16,13 @@ class Recipe < ApplicationRecord
 
   has_one_attached :photo
 
+  include PgSearch::Model
+  pg_search_scope :search_by_name_origin_dish_type_and_difficulty,
+    against: [ :name, :dish_origin, :dish_type, :difficulty ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def rating
     sum = 0
     self.ratings.each do |rating|

@@ -7,8 +7,12 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :liked_recipes, only: :create
+  end
+
+  resources :planner_recipes do
     resources :ratings, only: :create
   end
+
   resources :planners, only: [:show, :create, :update] do
     resources :planner_recipes, only: [:destroy, :create, :update]
     resources :shopping_lists, only: [:index, :update]

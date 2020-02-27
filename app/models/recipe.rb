@@ -15,4 +15,11 @@ class Recipe < ApplicationRecord
 
 
   has_one_attached :photo
+
+  def already_rated?(user)
+    user.ratings.each do |rate|
+      return true if rate.recipe == self
+    end
+    return false
+  end
 end

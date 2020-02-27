@@ -17,9 +17,9 @@
               <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill %>
               <div class="card-img-icon-cooked" id="revert_cook_status">
                 <% if planner_recipe.cooked == true %>
-                  <div class="btn-cooked">
-                    <i class="fas fa-check"></i>
-                  </div>
+                  <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
+                    <i class="fas fa-check btn-cooked"></i>
+                  <% end %>
                 <% else %>
                   <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
                     <i class="fas fa-check btn-not-cooked"></i>
@@ -29,12 +29,14 @@
             </div>
             <div class="card-title">
               <p> <%= planner_recipe.cooked %>  </p>
+              <p> <%= planner_recipe.id %>  </p>
             </div>
           </div>
         </div>
+        <%# raise %>
       <% end %>
       </div>
-    </div>
+  </div>
 
 
 

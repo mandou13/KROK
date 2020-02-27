@@ -73,6 +73,7 @@ photo_p = URI.open("https://avatars1.githubusercontent.com/u/58698738?v=4")
 pauline.photo.attach(io: photo_p, filename: "photogithub.png", content_type: "image/png")
 pauline.save
 
+
 # first_recipe = Recipe.create!(
 #   name:        "Veal Blanquette",
 #   description: "From Gordon Ramsay, a blanquette is a stew made with pale-coloured meats which are not fried first",
@@ -119,7 +120,7 @@ CSV.foreach(Rails.root.join('db', 'datas', 'recipes.csv'), csv_options) do |row|
   uuid_recipe = row["uuid"]
   CSV.foreach(Rails.root.join('db', 'datas', 'ingredients.csv'), csv_options) do |row|
     if uuid_recipe == row["uuid"]
-      ingredient = Ingredient.new(
+      ingredient = Ingredient.create!(
         recipe_id: recipe.id,
         quantity: row["quantity"],
         unit: row["unit"],
@@ -129,6 +130,34 @@ CSV.foreach(Rails.root.join('db', 'datas', 'recipes.csv'), csv_options) do |row|
   end
 end
 
+
+
+#################################
+second_recipe = Recipe.create!(
+  name:        "Veal Blanquette 2",
+  description: "desc: From Gordon Ramsay, a blanquette is a stew made with pale-coloured meats which are not fried first",
+  steps:       "1_ Pour the stock and wine into a large saucepan, then add all the vegetables except the mushrooms. Add the garlic and rosemary and bring to the boil, then simmer, uncovered, for 10 mins.
+                2_ Trim veal of any excess fat and cut into large bite-size cubes. Add to pan with the mushrooms. Return to a simmer, season well, then cook for 20 mins until meat is just tender; allow longer if it’s not. The stew can be cooled and chilled or frozen at this stage.
+                3_ When ready to serve, beat together the yolks and cream. Return the stew to a simmer, stir in the horseradish or mustard, briskly mix in yolks and cream, then stir until it starts to thicken slightly. Take care not to overheat or the mixture will curdle. Stir in the butter, remove pan from the heat, then mix in the parsley, lemon zest and juice. Check the seasoning again.
+                4_ Meanwhile, boil tagliatelle according to pack instructions – about 3 mins for fresh pasta, up to 10 mins for dried. Drain and toss with a little butter. Make into a ‘barrel’ of pasta (see above right) or simply divide between six warmed plates. Spoon the Blanquette of veal on top and serve.
+                5_ Make a 'barrel' of tagliatelle Gordon's way: Pick up a few strands of pasta, digging a carving fork into the pot 3-4 times. Lift up the pasta so the strands hang free and press against the side of the pan. Then, holding with your (clean) fingers, start to twist the pasta into a barrel shape, pushing back against the pan side once or twice to neaten. When all the strands are wound, up-end the fork intothe centre of a plate and gently push the pasta off.",
+  dish_type:   "main",
+  dish_origin: "French",
+  difficulty:  "Medium",
+  prep_time:   30,
+  servings:    6,
+  user_id:     cyril.id,
+)
+
+photo_second_recipe = URI.open("https://static.750g.com/images/622-auto/d60923a6a32c8b20cfc5d1f7db28b97d/blanquette-de-veau.jpg")
+second_recipe.photo.attach(io: photo_second_recipe, filename: "photo_blanquette2.png", content_type: "image/png")
+second_recipe.save!
+
+Ingredient.create(name: 'Veal', unit: 'kg', quantity: 1, recipe_id: second_recipe.id)
+Ingredient.create(name: 'White Wine', unit: 'ml', quantity: 250, recipe_id: second_recipe.id)
+Ingredient.create(name: 'Leeks', quantity: 2, recipe_id: second_recipe.id)
+Ingredient.create(name: 'Tagliatelle', unit: 'g', quantity: 300, recipe_id: second_recipe.id)
+Ingredient.create(name: 'Carrot', quantity: 3, recipe_id: second_recipe.id)
 
 Planner.create(
   name: Time.now.strftime("%D"),
@@ -154,38 +183,47 @@ PlannerRecipe.create(
 
 PlannerRecipe.create(
   recipe_id: Recipe.first.id,
+  planner_id: pauline.planners.last.id,
+  servings: Recipe.first.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: Recipe.first.id,
+  planner_id: maxence.planners.last.id,
+  servings: Recipe.first.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: Recipe.second.id,
   planner_id: louis.planners.last.id,
-  servings: Recipe.first.servings,
+  servings: Recipe.second.servings,
   cooked: false
   )
 
 PlannerRecipe.create(
-  recipe_id: Recipe.first.id,
+  recipe_id: Recipe.second.id,
   planner_id: pauline.planners.last.id,
-  servings: Recipe.first.servings,
+  servings: Recipe.second.servings,
   cooked: false
   )
 
 PlannerRecipe.create(
-  recipe_id: Recipe.first.id,
-  planner_id: pauline.planners.last.id,
-  servings: Recipe.first.servings,
-  cooked: false
-  )
-
-PlannerRecipe.create(
-  recipe_id: Recipe.first.id,
+  recipe_id: Recipe.second.id,
   planner_id: maxence.planners.last.id,
-  servings: Recipe.first.servings,
+  servings: Recipe.second.servings,
   cooked: false
   )
 
-PlannerRecipe.create(
+Rating.create(
+  user_id: louis.id,
   recipe_id: Recipe.first.id,
-  planner_id: maxence.planners.last.id,
-  servings: Recipe.first.servings,
-  cooked: false
+  rating: 3
   )
+#############################################
+
+
 
 
 puts "#{User.count} users"

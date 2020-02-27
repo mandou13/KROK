@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="" id='title_to_update'>
     <div class="planner-title-card d-flex">
@@ -6,27 +7,98 @@
     </div>
   </div>
   <%= render 'shared/form' %>
-
   <div class="planner-dish-type-card m-2">
     <h5>Side dishes</h5>
-    <% @planner_recipes.each do |planner_recipe| %>
-    <div class="col-sm-5 m-1">
-      <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill, class: '' %>
-      <p> <%= planner_recipe.cooked %>  </p>
+    <div class="row justify-content-center">
+      <div class="col-6 col-lg-3" id='card_to_hide'>
+        <div class="card-show">
+          <div class="card-img-top d-flex justify-content-center background-alone">
+            <div class="card-img-icon-add" id="card-img-icon-add">
+              <i class="fas fa-plus"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3 d-none" id="card_to_display">
+        <div class="card-show">
+          <div class="card-img-top d-flex justify-content-center background-alone">
+            <div class="card-img-icon-search" id="card-img-icon-search">
+              <%= link_to recipes_path do %>
+                <i class="fas fa-search"></i>
+              <% end %>
+            </div>
+            <div class="card-img-icon-random" id="card-img-icon-random">
+              <i class="fas fa-dice"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% @planner_recipes.each do |planner_recipe| %>
+      <div class="col-6 col-lg-3">
+        <div class="card-show">
+          <div class="card-img-top d-flex justify-content-center">
+            <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill %>
+            <div class="card-img-icon-cooked" id="">
+              <% if planner_recipe.cooked %>
+                <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
+                  <i class="fas fa-check btn-cooked"></i>
+                <% end %>
+              <% elsif !planner_recipe.cooked && planner_recipe.recipe.already_rated?(current_user) %>
+                <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
+                  <i class="fas fa-check btn-not-cooked" ></i>
+                <% end %>
+              <% else %>
+                <button type="button" class="fas fa-check btn-not-cooked" data-toggle="modal" data-target="#planner-recipe-<%= planner_recipe.id %>">
+                </button>
+                <div class="modal fade" id="planner-recipe-<%= planner_recipe.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Give a rating from 1 to 5</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body d-flex justify-content-center align-middle">
+                        <%= render 'shared/form_rating', planner_recipe: planner_recipe, rating: @rating %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="card-img-icon-delete">
+              <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :delete do  %>
+                <i class="fas fa-times btn-cross"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="card-title">
+         <!-- 'To add if necessary' -->
+        </div>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
-  <div class="planner-dish-type-card m-2">
-    <h5>Main dishes</h5>
-  </div>
-  <div class="planner-dish-type-card m-2">
-    <h5>Desserts</h5>
-  </div>
-
   <div class="planner-new d-flex justify-content-center">
     <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
   </div>
+
+
+
+
+
+
+  <!-- Button trigger modal -->
+
+  <!-- Modal -->
+
+
+
 </div>
 
 
-<%#= link_to "Cancel", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-decoration-none' %>
+
+
+

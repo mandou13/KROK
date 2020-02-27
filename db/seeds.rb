@@ -99,74 +99,6 @@ pauline.save
 # Ingredient.create(name: 'Tagliatelle', unit: 'g', quantity: 300, recipe_id: first_recipe.id)
 # Ingredient.create(name: 'Carrot', quantity: 3, recipe_id: first_recipe.id)
 
-Planner.create(
-  name: Time.now.strftime("%D"),
-  user_id: maxence.id
-)
-
-Planner.create(
-  name: Time.now.strftime("%D"),
-  user_id: louis.id
-)
-
-Planner.create(
-  name: Time.now.strftime("%D"),
-  user_id: pauline.id
-)
-
-PlannerRecipe.create(
-  recipe_id: first_recipe.id,
-  planner_id: louis.planners.last.id,
-  servings: first_recipe.servings,
-  cooked: false
-  )
-
-PlannerRecipe.create(
-  recipe_id: first_recipe.id,
-  planner_id: louis.planners.last.id,
-  servings: first_recipe.servings,
-  cooked: false
-  )
-
-PlannerRecipe.create(
-  recipe_id: first_recipe.id,
-  planner_id: pauline.planners.last.id,
-  servings: first_recipe.servings,
-  cooked: false
-  )
-
-PlannerRecipe.create(
-  recipe_id: first_recipe.id,
-  planner_id: pauline.planners.last.id,
-  servings: first_recipe.servings,
-  cooked: false
-  )
-
-PlannerRecipe.create(
-  recipe_id: first_recipe.id,
-  planner_id: maxence.planners.last.id,
-  servings: first_recipe.servings,
-  cooked: false
-  )
-
-PlannerRecipe.create(
-  recipe_id: first_recipe.id,
-  planner_id: maxence.planners.last.id,
-  servings: first_recipe.servings,
-  cooked: false
-  )
-
-
-puts "#{User.count} users"
-puts "#{Rating.count} rating"
-puts "#{LikedRecipe.count} liked_recipe"
-puts "#{Planner.count} planner"
-puts "#{Recipe.count} recipe"
-puts "#{PlannerRecipe.count} planner_recipe"
-puts "#{ShoppingList.count} shopping_list"
-puts "#{Ingredient.count} ingredient"
-
-
 csv_options = { col_sep: ';', quote_char: '"', headers: :first_row }
 
 CSV.foreach(Rails.root.join('db', 'datas', 'recipes.csv'), csv_options) do |row|
@@ -196,4 +128,73 @@ CSV.foreach(Rails.root.join('db', 'datas', 'recipes.csv'), csv_options) do |row|
     end
   end
 end
+
+
+Planner.create(
+  name: Time.now.strftime("%D"),
+  user_id: maxence.id
+)
+
+Planner.create(
+  name: Time.now.strftime("%D"),
+  user_id: louis.id
+)
+
+Planner.create(
+  name: Time.now.strftime("%D"),
+  user_id: pauline.id
+)
+
+PlannerRecipe.create(
+  recipe_id: Recipe.first.id,
+  planner_id: louis.planners.last.id,
+  servings: Recipe.first.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: Recipe.first.id,
+  planner_id: louis.planners.last.id,
+  servings: Recipe.first.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: Recipe.first.id,
+  planner_id: pauline.planners.last.id,
+  servings: Recipe.first.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: Recipe.first.id,
+  planner_id: pauline.planners.last.id,
+  servings: Recipe.first.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: Recipe.first.id,
+  planner_id: maxence.planners.last.id,
+  servings: Recipe.first.servings,
+  cooked: false
+  )
+
+PlannerRecipe.create(
+  recipe_id: Recipe.first.id,
+  planner_id: maxence.planners.last.id,
+  servings: Recipe.first.servings,
+  cooked: false
+  )
+
+
+puts "#{User.count} users"
+puts "#{Rating.count} rating"
+puts "#{LikedRecipe.count} liked_recipe"
+puts "#{Planner.count} planner"
+puts "#{Recipe.count} recipe"
+puts "#{PlannerRecipe.count} planner_recipe"
+puts "#{ShoppingList.count} shopping_list"
+puts "#{Ingredient.count} ingredient"
+
 

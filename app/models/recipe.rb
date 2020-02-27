@@ -30,5 +30,11 @@ class Recipe < ApplicationRecord
       answer << (liked_recipe.user.id == user.id)
     end
     answer.include?(true)
+
+  def already_rated?(user)
+    user.ratings.each do |rate|
+      return true if rate.recipe == self
+    end
+    return false
   end
 end

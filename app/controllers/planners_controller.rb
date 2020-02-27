@@ -1,7 +1,8 @@
 class PlannersController < ApplicationController
   def show
     @planner = current_user.planners.last
-    @planner_recipes = @planner.planner_recipes
+    @planner_recipes = @planner.planner_recipes.sort
+    @rating = Rating.new
   end
 
   def create

@@ -140,7 +140,7 @@ second_recipe = Recipe.create!(
                 3_ When ready to serve, beat together the yolks and cream. Return the stew to a simmer, stir in the horseradish or mustard, briskly mix in yolks and cream, then stir until it starts to thicken slightly. Take care not to overheat or the mixture will curdle. Stir in the butter, remove pan from the heat, then mix in the parsley, lemon zest and juice. Check the seasoning again.
                 4_ Meanwhile, boil tagliatelle according to pack instructions – about 3 mins for fresh pasta, up to 10 mins for dried. Drain and toss with a little butter. Make into a ‘barrel’ of pasta (see above right) or simply divide between six warmed plates. Spoon the Blanquette of veal on top and serve.
                 5_ Make a 'barrel' of tagliatelle Gordon's way: Pick up a few strands of pasta, digging a carving fork into the pot 3-4 times. Lift up the pasta so the strands hang free and press against the side of the pan. Then, holding with your (clean) fingers, start to twist the pasta into a barrel shape, pushing back against the pan side once or twice to neaten. When all the strands are wound, up-end the fork intothe centre of a plate and gently push the pasta off.",
-  dish_type:   "Main Course",
+  dish_type:   "main",
   dish_origin: "French",
   difficulty:  "Medium",
   prep_time:   30,

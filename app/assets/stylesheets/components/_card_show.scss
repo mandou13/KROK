@@ -9,6 +9,38 @@
     bottom: 2px;
   }
 
+  .card-img-icon-delete {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+  }
+
+  .card-img-icon-add {
+    position: absolute;
+    top: 3vh;
+    right: 15vw;
+    font-size: 50px;
+    color: #ACB3BF;
+  }
+
+  .card-img-icon-search {
+    position: absolute;
+    padding: 4px 30px;
+    top: 3vh;
+    right: 12vw;
+    color: white;
+    background-color: #ACB3BF;
+  }
+
+  .card-img-icon-random {
+    position: absolute;
+    padding: 4px 29px;
+    bottom: 3vh;
+    right: 12vw;
+    color: white;
+    background-color: #ACB3BF;
+  }
+
   .card-img-top {
     position: relative;
     height: 16vh;
@@ -41,4 +73,10 @@
      color: rgba(250, 250, 250, 1);
    }
 
+
   }
+
+   .background-alone {
+    background-color: #EDF6EF;
+    position: relative;
+   }

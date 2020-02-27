@@ -12,5 +12,9 @@ class PlannerRecipesController < ApplicationController
   end
 
   def destroy
+    @planner = Planner.find(params[:planner_id])
+    @planner_recipe = PlannerRecipe.find(params[:id])
+    @planner_recipe.destroy
+    redirect_to planner_path(@planner)
   end
 end

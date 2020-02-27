@@ -10,6 +10,27 @@
   <div class="planner-dish-type-card m-2">
     <h5>Side dishes</h5>
     <div class="row justify-content-center">
+      <div class="col-6 col-lg-3" id='card_to_hide'>
+        <div class="card-show">
+          <div class="card-img-top d-flex justify-content-center background-alone">
+            <div class="card-img-icon-add" id="card-img-icon-add">
+              <i class="fas fa-plus"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3 d-none" id="card_to_display">
+        <div class="card-show">
+          <div class="card-img-top d-flex justify-content-center background-alone">
+            <div class="card-img-icon-search" id="card-img-icon-search">
+              <i class="fas fa-search"></i>
+            </div>
+            <div class="card-img-icon-random" id="card-img-icon-random">
+              <i class="fas fa-dice"></i>
+            </div>
+          </div>
+        </div>
+      </div>
       <% @planner_recipes.each do |planner_recipe| %>
       <div class="col-6 col-lg-3">
         <div class="card-show">
@@ -42,6 +63,11 @@
                     </div>
                   </div>
                 </div>
+              <% end %>
+            </div>
+            <div class="card-img-icon-delete">
+              <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :delete do  %>
+                <i class="fas fa-times btn-cross"></i>
               <% end %>
             </div>
           </div>

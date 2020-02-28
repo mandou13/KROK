@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
-    @planner = current_user.planners.last
+    @planner = current_user.planners.last unless current_user.nil?
     # @recipes = Recipe.all.shuffle.first(30)
     if params[:dish_type].present?
       @recipes = Recipe.where(dish_type: params[:dish_type])

@@ -18,13 +18,23 @@
           <h3 class="text-center"><%= @recipe.name %></h3>
           <div class="icons d-flex justify-content-center">
             <% if @recipe.avg_rating == 5 %>
-              <p><i class="fas fa-star mr-1 icon-star"></i><%= @recipe.avg_rating %></p>
+              <p><i class="fas fa-star icon-star"></i><%= @recipe.avg_rating %></p>
             <% elsif @recipe.avg_rating == 0 %>
-              <p><i class="far fa-star mr-1 icon-star"></i> <%= @recipe.avg_rating %></p>
+              <p><i class="far fa-star icon-star"></i> <%= @recipe.avg_rating %></p>
             <% else %>
-              <p><i class="fas fa-star-half-alt mr-1 icon-star"></i><%= @recipe.avg_rating %></p>
+              <p><i class="fas fa-star-half-alt icon-star"></i><%= @recipe.avg_rating %></p>
             <% end %>
-            <p class="ml-3"><i class="fas fa-utensils btn-add-recipe"></i> <%= @recipe.ratings.size %></p>
+            <p>
+              <% if @recipe.dish_type == 'main'  %>
+                <i class="fas fa-fish icon-green ml-3 mr-1"></i><%= @recipe.dish_type.capitalize %> course
+              <% elsif @recipe.dish_type == 'dessert' %>
+                <i class="fas fa-cookie-bite icon-green ml-3 mr-1"></i><%= @recipe.dish_type.capitalize %>
+              <% else %>
+                <i class="fas fa-pizza-slice icon-green ml-3 mr-1"></i><%= @recipe.dish_type.capitalize %>
+              <% end %>
+            </p>
+            <p class="ml-3"><i class="fas fa-utensils icon-green"></i> <%= @recipe.ratings.size %></p>
+
           </div>
         </div>
         <div class="owner-info d-flex justify-content-between align-items-center">
@@ -40,20 +50,11 @@
 
         <p><%= @recipe.description %>.</p>
         <!-- icons design -->
-        <div class="recipe-short-info">
-          <p><i class="fas fa-globe-europe icon-green"></i> <%= @recipe.dish_origin %></p>
-          <p><i class="fas fa-mountain icon-green"></i> <%= @recipe.difficulty %></p>
-          <p>
-            <% if @recipe.dish_type == 'main'  %>
-              <i class="fas fa-fish icon-green"></i><%= @recipe.dish_type.capitalize %>
-            <% elsif @recipe.dish_type == 'dessert' %>
-              <i class="fas fa-cookie-bite icon-green"></i><%= @recipe.dish_type.capitalize %>
-            <% else %>
-              <i class="fas fa-pizza-slice icon-green"></i><%= @recipe.dish_type.capitalize %>
-            <% end %>
-          </p>
-          <p><i class="fas fa-hourglass-half icon-green"></i><%= @recipe.optim_prep_time %></p>
-          <p><i class="fas fa-users icon-green"></i> <%= @recipe.servings %></p>
+        <div class="recipe-short-info d-flex justify-content-center mb-4">
+          <span class="mr-3"><i class="fas fa-globe-europe icon-green"></i> <%= @recipe.dish_origin %></span>
+          <span class="mr-3"><i class="fas fa-mountain icon-green"></i> <%= @recipe.difficulty %></span>
+          <span class="mr-3"><i class="fas fa-hourglass-half icon-green mr-1"></i><%= @recipe.optim_prep_time %></span>
+          <span><i class="fas fa-users icon-green"></i> <%= @recipe.servings %></span>
         </div>
         <!-- icons design -->
         <!-- step design -->

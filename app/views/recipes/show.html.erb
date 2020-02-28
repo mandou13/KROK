@@ -2,16 +2,19 @@
   <div class="row">
     <div class="col-sm-12 recipe-show p-0">
       <div class="navbar-back">
-        <%= link_to recipes_path do %>
-          <i class="fas fa-chevron-left btn-back"></i>
+        <% if URI(request.referer).path.index("liked_recipes") == 1 %>
+          <%= link_to liked_recipes_path do %>
+            <i class="fas fa-chevron-left btn-back"></i>
+          <% end %>
+        <% else %>
+          <%= link_to recipes_path do %>
+            <i class="fas fa-chevron-left btn-back"></i>
+          <% end %>
         <% end %>
+
       </div>
       <div class="recipe-photo-show" style="background-image: url('<%= cl_image_path @recipe.photo.key %>');">
-        <div class="circle-add-recipe">
-          <%= link_to recipe_planner_recipes_path(@recipe), method: :post do %>
-            <i class="fas fa-utensils btn-add-recipe"></i>
-          <% end %>
-        </div>
+        <%= render 'shared/btn_addrecipe', recipe: @recipe %>
       </div>
       <div class="recipe-text-show bg-white">
         <div class="name-review">

@@ -10,19 +10,18 @@
   <h2 class='' id='editable-shopping-list-name'> <%= @planner.name %> </h2>
 </div>
 
-<%#= @shopping_list %>
-<% @shopping_list.each do |item| %>
-  <%= item %>
-<%end%>
-<!--
-<div class='container'>
-  <% @ingredients.each do |ingredient_collection| %>
-    <% ingredient_collection.each do |ingredient| %>
-      <li>
 
-        <%= ingredient.name %>
+<div class='container'>
+  <% @categories.each do |category| %>
+    <h3><%= category %></h3>
+    <% @shopping_lists.each do |shopping_list| %>
+    <ul>
+      <% if shopping_list.category == category %>
+        <li>
+          <%= shopping_list.quantity %> <%= shopping_list.unit %> <%= shopping_list.ingredient_name %>
         </li>
       <% end %>
+      </ul>
+    <% end %>
   <% end %>
 </div>
- -->

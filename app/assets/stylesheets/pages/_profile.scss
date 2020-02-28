@@ -1,41 +1,66 @@
 .avatar-profile{
-    width:          130px;
+  width:            130px;
   height:           130px;
   border-radius:    50%;
   object-position:  center;
 }
 
 .profile-header{
-  padding: 15px;
-  display:flex;
-  align-items: center;
+  padding:          15px;
+  display:          flex;
+  align-items:      center;
   flex-direction:   column;
 }
 
+.underligned-green {
+  border-bottom:    5px solid #73C88B;
+}
+
+.profile-header-item{
+  font-size:        27px;
+  font-family:      "Raleway", "Helvetica", "sans-serif";;
+}
+
+
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion-profile {
-  background-color: #73C88B;
-  display:flex;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  margin-top: 15px;
-  width: 90%;
-  text-align: center;
-  border: none;
-  outline: none;
-  border-style: solid;
-  border-radius: 10px;
-  align-items: center;
-
+  background-color:  white;
+  display:          flex;
+  color:             #444;
+  cursor:            pointer;
+  padding:           18px;
+  margin-top:        20px;
+  width:             96%;
+  text-align:        center;
+  border:            none;
+  outline:           none;
+  border-style:      solid;
+  border-radius:     18px;
+  align-items:       center;
 }
 
 /* Style the accordion panel. Note: hidden by default */
 .panel-profile {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
 
+  padding:      10px;
+  overflow:     hidden;
+  width: 100%;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  // -webkit-transition: all 0.5s ease-in-out;
+  // -moz-transition: all 0.5s ease-in-out;
+  // -ms-transition: all 0.5s ease-in-out;
+  // transition: all 0.5s ease-in-out;
+
+}
+
+.active-profile {
+
+background-color: #73C88B ;
+border-decoration: none;
 }
 
 .item-text{
@@ -43,22 +68,45 @@
 }
 
 .profile-items{
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
+display:           flex;
+justify-content:   center;
+flex-direction:    column;
+align-items:       center;
+text-align:        center;
+
 }
 
 .filtering-tags-profile {
-  background-color: gray;
-  border-radius: 63px;
+  background-color:     gray;
+  border-radius:        63px;
   // border: 1px solid #4A4A4A;
-  font-size: lighter;
-  padding: 3px 21px;
+  font-size:            lighter;
+  padding:              3px 18px;
   // opacity: 0;
-  transition: opacity 0.3s ease;
-  width: 25%;
+  transition:           opacity 0.3s ease;
+  width:                34%;
 }
+
+.edit-profile{
+  display:          flex;
+  justify-content:  space-between;
+  border-radius:    20px;
+   border: 1px solid gray;
+   margin-bottom: 10px;
+   padding: 10px;
+   width: 60%;
+   background-color: #F7F7F9;
+
+}
+.edit-profile a {
+  color: black;
+
+
+}
+
+
+
+
 
 
 

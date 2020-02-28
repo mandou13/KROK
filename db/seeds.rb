@@ -125,6 +125,7 @@ CSV.foreach(Rails.root.join('db', 'datas', 'recipes.csv'), csv_options) do |row|
         quantity: row["quantity"],
         unit: row["unit"],
         name: row["name"],
+        category: row["category"],
         )
     end
   end

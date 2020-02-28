@@ -46,4 +46,12 @@ class Recipe < ApplicationRecord
     return false
   end
 
+  def categories_of_recipe
+    categories = []
+    self.ingredients.each do |ingredient|
+      categories << ingredient.category
+    end
+    return categories.uniq
+  end
+
 end

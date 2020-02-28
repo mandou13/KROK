@@ -21,7 +21,7 @@
   border-radius: 50px 50px 0px 0px;
   position: absolute;
   top: 57vh;
-  padding: 30px 40px;
+  padding: 30px 40px 60px 40px;
 }
 
 .owner-info {
@@ -72,8 +72,8 @@
   }
 }
 
-.recipe-steps-title {
-  border-bottom: solid 1px $green;
+.recipe-subtitle {
+  border-bottom: solid 5px $green;
 }
 
 .recipe-steps {
@@ -81,5 +81,27 @@
     color: $green;
   }
 }
+
+.recipe-ingredients-card {
+  border: none;
+  border-bottom: 0.5px solid rgba(200, 200, 200, 0.4);
+  .card-body {
+    padding: 5px 20px;
+    p {
+      margin-bottom: 5px;
+    }
+  }
+  .card-title {
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: $green;
+  }
+}
+
+
+
+
+
 
 

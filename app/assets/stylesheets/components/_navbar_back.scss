@@ -1,6 +1,10 @@
 .navbar-back {
-  background: white;
-  padding: 5px 40px;
+  padding: 10px 40px 5px 40px;
+  position: fixed;
+  top: 10px;
+  z-index: 2;
+  width: 405px;
+  background-color: transparent;
   .btn-back {
     color: rgb(50, 50, 50);
     // same color with font color

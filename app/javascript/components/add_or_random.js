@@ -16,7 +16,9 @@ if (
   card_update_launch &&
   back_to_card_through_search &&
   back_to_card_through_random &&
-  card_img_icon_random_valid
+  card_img_icon_random_valid &&
+  card_img_icon_random_again &&
+  card_random_to_hide
   ) {
   card_update_launch.addEventListener('click', (event) => {
     card_to_display.classList.remove("d-none");
@@ -32,15 +34,17 @@ if (
     card_to_display.classList.add("d-none");
     card_to_hide.classList.remove("d-none");
     card_random_to_hide.classList.remove("d-none");
+  });
 
    card_img_icon_random_again.addEventListener('click', (event) => {
+    window.location.reload();
     card_random_to_hide.classList.remove("d-none");
+    // location.reload();
    })
 
-  });
   card_img_icon_random_valid.addEventListener('click', (event) => {
-    card_random_to_hide.classList.add("d-none");
-    // location.reload();
+    // card_random_to_hide.classList.add("d-none");
+    // window.location.reload();
   })
   }
 

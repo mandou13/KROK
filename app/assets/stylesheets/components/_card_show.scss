@@ -77,28 +77,28 @@
     object-position: center;
     border-radius: 5px;
   }
+}
+
+.background-alone {
+background-color: #EDF6EF;
+position: relative;
+}
 
 
+.background-random {
+background-color: rgba(150, 150, 150, 0.7);
+height: 16vh;
+width: 44vw;
+// opacity: 0.3;
+// position: relative;
+img {
+  opacity: 0.4;
+}
+}
 
-
-  }
-
-   .background-alone {
-    background-color: #EDF6EF;
-    position: relative;
-   }
-
-
-   .background-random {
-    background-color: rgba(150, 150, 150, 0.7);
-    height: 16vh;
-    width: 44vw;
-    // opacity: 0.3;
-    // position: relative;
-    img {
-      opacity: 0.4;
-    }
-   }
+.dish-type-title {
+  font-weight: 900;
+}
 
 
 

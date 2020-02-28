@@ -7,8 +7,11 @@ class PlannerRecipesController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @planner_recipe.recipe = @recipe
     @planner_recipe.save!
-    redirect_to planner_path(@planner) if URI(request.referer).path.index("planners") == 1
-    redirect_to recipes_path if URI(request.referer).path.index("recipes") == 1
+    if URI(request.referer).path.index("planners") == 1
+      redirect_to planner_path(@planner)
+    else
+      redirect_to recipes_path
+    end
   end
 
   def update
@@ -20,10 +23,14 @@ class PlannerRecipesController < ApplicationController
   end
 
   def destroy
-    @planner = Planner.find(params[:planner_id])
+    @planner = params[:planner_id].nil? ? current_user.planners.last : Planner.find(params[:planner_id])
     @planner_recipe = PlannerRecipe.find(params[:id])
     @planner_recipe.destroy
-    redirect_to planner_path(@planner)
+    if URI(request.referer).path.index("planners") == 1
+      redirect_to planner_path(@planner)
+    else
+      redirect_to recipes_path
+    end
   end
 
   private

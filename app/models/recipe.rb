@@ -23,7 +23,7 @@ class Recipe < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  def rating
+  def avg_rating
     sum = 0
     self.ratings.each do |rating|
       sum += rating.rating

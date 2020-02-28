@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update]
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.shuffle.first(30)
     if params[:dish_type].present?
       @recipes = Recipe.where(dish_type: params[:dish_type])
     elsif params[:dish_origin].present?

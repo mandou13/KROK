@@ -1,8 +1,8 @@
 class PlannersController < ApplicationController
   def show
     @recipes = Recipe.all
-    @recipes_main = Recipe.where(dish_type: 'main')
     @recipes_starter = Recipe.where(dish_type: 'starter')
+    @recipes_main = Recipe.where(dish_type: 'main')
     @recipes_dessert = Recipe.where(dish_type: 'dessert')
     # @recipes_appetizer = Recipe.where(dish_type: 'appetizer')
     # @recipes_side = Recipe.where(dish_type: 'side')

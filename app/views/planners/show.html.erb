@@ -34,8 +34,8 @@
           </div>
         </div>
       </div>
-      <% planner_recipe_random = @recipes_all[index].sample %>
-      <div class="col-6 col-lg-3 d-none" id="card_random_to_hide">
+      <% @recipes_all[index].sample(10).each do |planner_recipe_random| %>
+      <div class="col-6 col-lg-3 d-none card_random_to_hide-<%=index%>" id="card_random_to_hide">
         <div class="card-show">
           <div class="card-img-top d-flex background-random">
             <%= cl_image_tag planner_recipe_random.photo.key, crop: :fill %>
@@ -53,10 +53,11 @@
             </div>
           </div>
         </div>
-        <div class="card-title">
-         <!-- 'To add if necessary' -->
-        </div>
+<!--         <div class="card-title">
+         'To add if necessary'
+        </div> -->
       </div>
+      <% end %>
       <% @planner_recipes_all[index].each do |planner_recipe| %>
       <div class="col-6 col-lg-3">
         <div class="card-show">

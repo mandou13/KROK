@@ -72,6 +72,14 @@
   }
 }
 
+.recipe-steps-title {
+  border-bottom: solid 1px $green;
+}
 
+.recipe-steps {
+  .recipe-step-number {
+    color: $green;
+  }
+}
 
 

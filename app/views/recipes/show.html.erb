@@ -48,10 +48,13 @@
         </div>
         <!-- icons design -->
         <!-- step design -->
-        <% @recipe.steps.split('.').each_with_index do |step, index| %>
-          <p><%= index + 1 %></p>
-          <p><%= step %></p>
-        <% end %>
+        <h4 class="recipe-steps-title">Directions</h4>
+        <div class="recipe-steps">
+          <% @recipe.steps.split('.').each_with_index do |step, index| %>
+            <p class="font-weight-bold mb-0 recipe-step-number">Step <%= index + 1 %></p>
+            <p><%= step %></p>
+          <% end %>
+        </div>
         <!-- step design -->
       </div>
 

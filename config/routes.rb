@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resource :profile, only: :show # attendre la reconfiguration du devise
 
   resources :recipes do
-    resources :planner_recipes, only: :create
+    resources :planner_recipes, only: [:create, :destroy]
     resources :liked_recipes, only: :create
   end
 

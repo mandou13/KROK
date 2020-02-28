@@ -9,7 +9,7 @@
       <%= link_to recipe_path(liked_recipe.recipe), class: 'text-decoration-none' do  %>
         <h6><%= liked_recipe.recipe.name.truncate(45) %></h6>
       <% end %>
-      <%= link_to liked_recipe_path(liked_recipe), method: :delete, data: { confirm: "Are you sure?" } do %>
+      <%= link_to liked_recipe_path(liked_recipe), method: :delete do %>
         <i class="fas fa-times btn-cross"></i>
       <% end %>
     </div>

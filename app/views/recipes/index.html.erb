@@ -31,8 +31,15 @@
                     <i class="fas fa-utensils btn-add-recipe"></i>
                   <% end %>
                 <% else %>
-                  <%= link_to recipe_planner_recipes_path(recipe), method: :post do %>
-                    <i class="fas fa-utensils btn-add-recipe"></i>
+                  <% has_recipe_in = current_user.planners.last.recipes.include?(recipe) %>
+                  <% if has_recipe_in %>
+                    <%= link_to recipe_planner_recipe_path(recipe, PlannerRecipe.find_by(recipe: recipe, planner: @planner)), method: :delete do  %>
+                      <i class="fas fa-utensils btn-add-recipe-done-orange"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to recipe_planner_recipes_path(recipe), method: :post do %>
+                      <i class="fas fa-utensils btn-add-recipe"></i>
+                    <% end %>
                   <% end %>
                 <% end %>
               </div>

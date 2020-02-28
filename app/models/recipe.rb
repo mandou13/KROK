@@ -33,12 +33,22 @@ class Recipe < ApplicationRecord
 
   def liked?(user)
    unless user.nil?
-    answer = []
-    self.liked_recipes.each do |liked_recipe|
-      answer << (liked_recipe.user.id == user.id)
+      answer = []
+      self.liked_recipes.each do |liked_recipe|
+        answer << (liked_recipe.user.id == user.id)
+      end
+      answer.include?(true)
     end
-    answer.include?(true)
   end
+
+  def added?(user)
+   unless user.nil?
+      answer = []
+      user.planners.last.planner_recipes.each do |planner_recipe|
+        answer << (planner_recipe.recipe == self)
+      end
+      answer.include?(true)
+    end
   end
 
   def already_rated?(user)

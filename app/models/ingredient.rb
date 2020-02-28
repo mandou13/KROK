@@ -11,4 +11,8 @@ class Ingredient < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def categories_of_recipe
+
+  end
 end

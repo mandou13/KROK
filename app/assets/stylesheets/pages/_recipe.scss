@@ -21,7 +21,7 @@
   border-radius: 50px 50px 0px 0px;
   position: absolute;
   top: 57vh;
-  padding: 30px 40px;
+  padding: 30px 40px 60px 40px;
 }
 
 .owner-info {
@@ -44,7 +44,7 @@
   }
 }
 
-.recipe-short-info {
+.recipe-text-show {
   .icon-green {
     color: $green;
   }
@@ -53,8 +53,9 @@
 .recipe-photo-show {
   position: relative;
   .circle-add-recipe {
+    border: 2px solid $green;
     position: absolute;
-    top: 49vh;
+    top: 52vh;
     left: 45vw;
     background-color: white;
     border-radius: 50%;
@@ -64,13 +65,50 @@
     .btn-add-recipe {
       position: absolute;
       left: 6vw;
-      top: 2vh;
+      top: 22px;
       font-size: 26px;
       color: $green;
       z-index: 1;
     }
   }
+  .circle-add-recipe-cliked {
+    background-color: $green;
+    z-index: 1;
+    .btn-add-recipe-cliked {
+      color: white;
+    }
+  }
 }
+
+.recipe-subtitle {
+  border-bottom: solid 5px $green;
+}
+
+.recipe-steps {
+  .recipe-step-number {
+    color: $green;
+  }
+}
+
+.recipe-ingredients-card {
+  border: none;
+  border-bottom: 0.5px solid rgba(200, 200, 200, 0.4);
+  .card-body {
+    padding: 5px 20px;
+    p {
+      margin-bottom: 5px;
+    }
+  }
+  .card-title {
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: $green;
+  }
+}
+
+
+
 
 
 

@@ -13,5 +13,6 @@ class LikedRecipesController < ApplicationController
   def destroy
     @liked_recipe = LikedRecipe.find(params[:id])
     @liked_recipe.destroy
+    redirect_to liked_recipes_path if URI(request.referer).path.index("liked_recipes") == 1
   end
 end

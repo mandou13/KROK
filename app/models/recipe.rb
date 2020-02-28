@@ -32,11 +32,23 @@ class Recipe < ApplicationRecord
   end
 
   def liked?(user)
-    answer = []
-    self.liked_recipes.each do |liked_recipe|
-      answer << (liked_recipe.user.id == user.id)
+   unless user.nil?
+      answer = []
+      self.liked_recipes.each do |liked_recipe|
+        answer << (liked_recipe.user.id == user.id)
+      end
+      answer.include?(true)
     end
-    answer.include?(true)
+  end
+
+  def added?(user)
+   unless user.nil?
+      answer = []
+      user.planners.last.planner_recipes.each do |planner_recipe|
+        answer << (planner_recipe.recipe == self)
+      end
+      answer.include?(true)
+    end
   end
 
   def already_rated?(user)
@@ -44,6 +56,24 @@ class Recipe < ApplicationRecord
       return true if rate.recipe == self
     end
     return false
+  end
+
+  def categories_of_recipe
+    categories = []
+    self.ingredients.each do |ingredient|
+      categories << ingredient.category
+    end
+    return categories.uniq
+  end
+
+  def optim_prep_time
+    if self.prep_time < 60
+      "#{self.prep_time} m"
+    else
+      hour = self.prep_time / 60
+      minutes = self.prep_time.remainder(60)
+      "#{hour}h #{minutes}m"
+    end
   end
 
 end

@@ -1,14 +1,15 @@
 .card-home {
-  height: 16vh;
+  height: 20vh;
   border: none;
-  margin-top: 10px;
+
+  .card-img-icons {
+    position: absolute;
+    right: 10px;
+    bottom: 95px;
+  }
+
   .card-img-top {
     position: relative;
-    .card-img-icons {
-      position: absolute;
-      right: 10px;
-      bottom: 62px;
-    }
   }
 
   img {
@@ -19,53 +20,35 @@
     border-radius: 5px;
   }
 
-  .circle-icon {
+  .btn-heart {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 5px;
     border-radius: 50%;
     width: 28px;
     height: 28px;
-    margin-bottom: 0.5vh;
     a {
       position: relative;
-      .btn-heart {
+      .icon-heart {
         position: absolute;
         left: 2px;
         top: 2px;
+        // color: rgb(50, 50, 50);
         font-size: 15px;
+
         color: $green;
       }
     }
-  }
 
-.circle-icon {
-  a {
-    position: relative;
-    .btn-add-recipe {
-      position: absolute;
-      left: 3px;
-      top: 2px;
-      font-size: 15px;
-      color: $green;
-    }
-    .btn-add-recipe-done-orange {
-      position: absolute;
-      left: 3px;
-      top: 2px;
-      font-size: 15px;
-      color: orange;
-    }
   }
-}
-
 
   .card-title {
+    text-align: center;
     padding: 3px 5px 0 5px;
     a {
       text-decoration: none;
-      color: $gray;
+      color: rgb(50, 50, 50);
       &:hover {
-        color: $gray;
+        color: rgb(50, 50, 50);
       }
     }
   }

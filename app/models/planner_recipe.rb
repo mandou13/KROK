@@ -12,4 +12,8 @@ class PlannerRecipe < ApplicationRecord
       self.save
     end
   end
+
+  def recipe
+    Recipe.find(self.recipe_id)
+  end
 end

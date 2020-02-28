@@ -1,0 +1,28 @@
+<!-- <h1>ShoppingLists#index</h1>
+<p>Find me in app/views/shopping_lists/index.html.erb</p>
+ -->
+
+<div class='text-center'>
+  <h1 class='underligned-green pb-2 pt-2'> Your Shopping List </h1>
+</div>
+
+<div class='text-center'>
+  <h2 class='' id='editable-shopping-list-name'> <%= @planner.name %> </h2>
+</div>
+
+<%#= @shopping_list %>
+<% @shopping_list.each do |item| %>
+  <%= item %>
+<%end%>
+<!--
+<div class='container'>
+  <% @ingredients.each do |ingredient_collection| %>
+    <% ingredient_collection.each do |ingredient| %>
+      <li>
+
+        <%= ingredient.name %>
+        </li>
+      <% end %>
+  <% end %>
+</div>
+ -->

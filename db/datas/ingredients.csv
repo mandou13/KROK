@@ -73,7 +73,6 @@ f72acec0c134474aa129;2;tbsp;olive oil;Condiment
 2346df08e1939e37ed64;2;tbsp;olive oil;Condiment
 66c0531c06a9f27a851a;2;tbsp;olive oil;Condiment
 781874bcf5aac010e8ff;2;tbsp;olive oil;Condiment
-781874bcf5aac010e8ff;2;tbsp;olive oil;Condiment
 99b55a0d8e297048cfc0;3;tbsp;olive oil;Condiment
 18e04b3fff1325b4d244;1;tbsp;olive oil;Condiment
 4324264498e040b4fdc7;1;tbsp;olive oil;Condiment
@@ -197,8 +196,8 @@ cacfe28b4d2c6964be85;4;;apple;Fruit
 6de778e5c687e14b0e50;1;;avocado;Fruit
 7a62eaea1565c352310b;3;;avocado;Fruit
 f17672605ba58e226ff9;2;tbsp;banana;Fruit
-24d25b308700d23f709b;1;kg;butternut squash;Fruit
-781874bcf5aac010e8ff;1;kg;butternut squash;Fruit
+24d25b308700d23f709b;1;kg;butternut squash;Vegetable
+781874bcf5aac010e8ff;1;kg;butternut squash;Vegetable
 286a7c7866ffa2650643;700;g;cherries;Fruit
 19d959d6874b812a9094;100;g;cherry tomatoes;Fruit
 cb63700d3badc09031a7;200;g;cherry tomatoes;Fruit
@@ -367,8 +366,8 @@ f72acec0c134474aa129;50;g;mushroom;Vegetable
 0992b75fd5a8cc6a3e3e;500;g;mushroom;Vegetable
 f72acec0c134474aa129;250;g;mushroom;Vegetable
 194dd9e1bf7694493015;200;g;mushroom;Vegetable
-287b2c962512f7153d66;1;tbsp;mustard;Vegetable
-2346df08e1939e37ed64;1;tsp;mustard;Vegetable
+287b2c962512f7153d66;1;tbsp;mustard;Condiment
+2346df08e1939e37ed64;1;tsp;mustard;Condiment
 92699b7582199135ad27;1;;onion;Vegetable
 2346df08e1939e37ed64;1;;onion;Vegetable
 684a85ea430c1fc1c513;1;;onion;Vegetable

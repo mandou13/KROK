@@ -14,4 +14,12 @@ display_searchbar();
 display_filter();
 btnHeartToggle();
 initLikedRecipeNav();
+
+
+//  window.onload = function(){
+//    setTimeout(display_add_or_random, 5000)
+// };
+
 display_add_or_random();
+
+

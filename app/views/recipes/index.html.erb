@@ -32,7 +32,12 @@
                   <% end %>
                 <% else %>
                   <%= link_to recipe_planner_recipes_path(recipe), method: :post do %>
+                  <% has_recipe_in = current_user.planners.last.recipes.include?(recipe) %>
+                  <% if has_recipe_in %>
+                    <i class="fas fa-utensils btn-add-recipe-circle-green"></i>
+                  <% else %>
                     <i class="fas fa-utensils btn-add-recipe"></i>
+                  <% end %>
                   <% end %>
                 <% end %>
               </div>

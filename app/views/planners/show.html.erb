@@ -62,7 +62,9 @@
       <div class="col-6 col-lg-3">
         <div class="card-show">
           <div class="card-img-top d-flex justify-content-center">
+          <%= link_to recipe_path(planner_recipe.recipe) do  %>
             <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill %>
+          <% end %>
             <div class="card-img-icon-cooked" id="">
               <% if planner_recipe.cooked %>
                 <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>

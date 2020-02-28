@@ -14,11 +14,7 @@
 
       </div>
       <div class="recipe-photo-show" style="background-image: url('<%= cl_image_path @recipe.photo.key %>');">
-        <div class="circle-add-recipe">
-          <%= link_to recipe_planner_recipes_path(@recipe), method: :post do %>
-            <i class="fas fa-utensils btn-add-recipe"></i>
-          <% end %>
-        </div>
+        <%= render 'shared/btn_addrecipe', recipe: @recipe %>
       </div>
       <div class="recipe-text-show bg-white">
         <div class="name-review">

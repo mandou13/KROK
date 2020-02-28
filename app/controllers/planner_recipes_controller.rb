@@ -22,7 +22,7 @@ class PlannerRecipesController < ApplicationController
     @planner = Planner.find(params[:planner_id])
     @planner_recipe = PlannerRecipe.find(params[:id])
     @planner_recipe.destroy
-    redirect_to planner_path(@planner)
+    redirect_to planner_path(@planner) if URI(request.referer).path.index("planners") == 1
   end
 
   private

@@ -7,6 +7,7 @@ class PlannerRecipesController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @planner_recipe.recipe = @recipe
     @planner_recipe.save!
+    redirect_to planner_path(@planner) if URI(request.referer).path.index("planners") == 1
   end
 
   def update

@@ -7,8 +7,9 @@
     </div>
   </div>
   <%= render 'shared/form' %>
+  <% [0,1,2].each do |index| %>
   <div class="planner-dish-type-card m-2">
-    <h5>Side dishes</h5>
+    <h5 class="dish-type-title"> <%= @recipes_all[index].first.dish_type.capitalize %></h5>
     <div class="row justify-content-center">
       <div class="col-6 col-lg-3" id='card_to_hide'>
         <div class="card-show">
@@ -33,7 +34,31 @@
           </div>
         </div>
       </div>
-      <% @planner_recipes.each do |planner_recipe| %>
+      <% @recipes_all[index].sample(10).each do |planner_recipe_random| %>
+      <div class="col-6 col-lg-3 d-none card_random_to_hide-<%=index%>" id="card_random_to_hide">
+        <div class="card-show">
+          <div class="card-img-top d-flex background-random">
+            <%= cl_image_tag planner_recipe_random.photo.key, crop: :fill %>
+            <div class="card-img-icon-random-again" id="card-img-icon-random-again">
+              <!-- ON THIS BUTTON:  A REFRESH BY JS + remove d-none -->
+              <%#= link_to planner_path(@planner) do %>
+              <i class="fas fa-dice btn-random-again"></i>
+              <%# end %>
+            </div>
+            <div class="card-img-icon-random-valid" id="card-img-icon-random-valid">
+              <!-- <input type="hidden" name="dashboardredirect" value="1"/> -->
+              <%= link_to recipe_planner_recipes_path(planner_recipe_random), method: :post do %>
+                <i class="fas fa-grin-hearts btn-random-valid"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+<!--         <div class="card-title">
+         'To add if necessary'
+        </div> -->
+      </div>
+      <% end %>
+      <% @planner_recipes_all[index].each do |planner_recipe| %>
       <div class="col-6 col-lg-3">
         <div class="card-show">
           <div class="card-img-top d-flex justify-content-center">
@@ -81,21 +106,10 @@
       <% end %>
     </div>
   </div>
+  <% end %>
   <div class="planner-new d-flex justify-content-center">
     <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
   </div>
-
-
-
-
-
-
-  <!-- Button trigger modal -->
-
-  <!-- Modal -->
-
-
-
 </div>
 
 

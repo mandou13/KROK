@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'shopping_lists/index'
+  get 'shopping_lists/update'
   devise_for :users
 
   root to: 'recipes#index'

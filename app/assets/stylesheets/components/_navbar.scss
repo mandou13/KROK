@@ -31,6 +31,11 @@ padding: 5px;
 
 }
 
-.active i{
+.navbar-active i{
   color: #73C88B !important;
+}
+
+.nav-item:hover{
+  color:       #e8035f;
+  box-shadow: 0px 5px 0px;
 }

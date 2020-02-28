@@ -48,4 +48,22 @@ class Recipe < ApplicationRecord
     return false
   end
 
+  def categories_of_recipe
+    categories = []
+    self.ingredients.each do |ingredient|
+      categories << ingredient.category
+    end
+    return categories.uniq
+  end
+
+  def optim_prep_time
+    if self.prep_time < 60
+      "#{self.prep_time} m"
+    else
+      hour = self.prep_time / 60
+      minutes = self.prep_time.remainder(60)
+      "#{hour}h #{minutes}m"
+    end
+  end
+
 end

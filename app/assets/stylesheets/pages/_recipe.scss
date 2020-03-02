@@ -19,6 +19,7 @@
 
 .recipe-text-show {
   border-radius: 50px 50px 0px 0px;
+  // border-top: 2px solid $green;
   position: absolute;
   top: 57vh;
   padding: 30px 40px 60px 40px;
@@ -50,7 +51,8 @@
   }
 }
 
-.recipe-photo-show {
+// btnAdd
+.container-show {
   position: relative;
   .circle-add-recipe {
     border: 2px solid $green;
@@ -62,6 +64,7 @@
     width: 70px;
     height: 70px;
     position: relative;
+
     .btn-add-recipe {
       position: absolute;
       left: 6vw;
@@ -79,6 +82,7 @@
     }
   }
 }
+// btnAdd
 
 .recipe-subtitle {
   border-bottom: solid 5px $green;

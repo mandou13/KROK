@@ -1,4 +1,7 @@
 class PlannersController < ApplicationController
+  skip_before_action :number_of_unseen_planner_recipes
+  before_action :set_planner_recipes_to_seen, only: [:show]
+
   def show
     @recipes = Recipe.all
     @recipes_starter = Recipe.where(dish_type: 'starter')
@@ -39,8 +42,18 @@ class PlannersController < ApplicationController
     end
   end
 
+  private
+
   def set_planner_params
     params.require(:planner).permit(:name)
+  end
+
+  def set_planner_recipes_to_seen
+    @set_planner_recipes_to_seen = PlannerRecipe.all
+    @set_planner_recipes_to_seen.each do |planner_recipe|
+      planner_recipe.seen = true
+      planner_recipe.save
+    end
   end
 end
 

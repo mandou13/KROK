@@ -6,6 +6,10 @@
           <%= link_to liked_recipes_path do %>
             <i class="fas fa-chevron-left btn-back"></i>
           <% end %>
+        <% elsif URI(request.referer).path.index("planners/#{current_user.planners.last.id}") == 1 %>
+          <%= link_to planner_path(current_user.planners.last) do %>
+            <i class="fas fa-chevron-left btn-back"></i>
+          <% end %>
         <% else %>
           <%= link_to recipes_path do %>
             <i class="fas fa-chevron-left btn-back"></i>
@@ -14,7 +18,7 @@
 
       </div>
       <div class="recipe-photo-show" style="background-image: url('<%= cl_image_path @recipe.photo.key %>');">
-        <%= render 'shared/btn_addrecipe', recipe: @recipe %>
+        <%= render 'shared/btn_addrecipe_show', recipe: @recipe %>
       </div>
       <div class="recipe-text-show bg-white">
         <div class="name-review">

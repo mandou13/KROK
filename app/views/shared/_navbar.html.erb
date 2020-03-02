@@ -11,10 +11,14 @@
 
     <div id="logo-fork" class="navbar navbar-logo d-flex text-center">
       <%= link_to planner_path(current_user.planners.last) do  %> <!-- mettre planner_path -->
-        <i class="fas fa-utensils"></i>
+        <i class="fas fa-utensils pastille-notif-outer"></i>
+      <% end %>
+      <% unless @number_of_unseen_planner_recipes.nil?  %>
+        <% if @number_of_unseen_planner_recipes > 0 %>
+          <p class='pastille-notif-inner'> <%= @number_of_unseen_planner_recipes %></p>
+        <% end %>
       <% end %>
     </div>
-
     <div id="logo-list" class="navbar navbar-logo d-flex text-center">
       <%= link_to planner_shopping_lists_path(current_user.planners.last) do  %> <!-- mettre planner_shopping_lists_path -->
         <i class="fas fa-list-ul"></i>
@@ -28,15 +32,15 @@
     </div>
   <% end %>
 
-    <div id="logo-profile" class="navbar navbar-logo d-flex text-center">
-      <% if current_user.nil? %>
-        <%= link_to profile_path do  %> <!-- mettre profile_path -->
-          <i class="fas fa-user"></i>
-        <% end %>
-      <% else %>
-        <%= link_to profile_path do  %>
-          <%= cl_image_tag current_user.photo.key, class: 'avatar-navbar'%>
-        <% end %>
+  <div id="logo-profile" class="navbar navbar-logo d-flex text-center">
+    <% if current_user.nil? %>
+      <%= link_to profile_path do  %> <!-- mettre profile_path -->
+        <i class="fas fa-user"></i>
       <% end %>
-    </div>
+    <% else %>
+      <%= link_to profile_path do  %>
+        <%= cl_image_tag current_user.photo.key, class: 'avatar-navbar'%>
+      <% end %>
+    <% end %>
+  </div>
 </div>

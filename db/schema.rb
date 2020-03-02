@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_125443) do
   end
 
   create_table "planner_recipes", force: :cascade do |t|
-    t.boolean "cooked"
+    t.boolean "cooked", default: false
     t.integer "servings"
     t.bigint "planner_id"
     t.bigint "recipe_id"

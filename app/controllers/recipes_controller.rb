@@ -28,20 +28,13 @@ class RecipesController < ApplicationController
       end
     end
     @recipes = @recipes.uniq
-    dish_type = params[:query_dish_type].present? ? params[:query_dish_type].downcase.split("%") : Recipe::DISH_TYPE
-    prep_time = params[:query_prep_time].present? ? params[:query_prep_time].downcase.split("%").map {|time| time[0...-3]} : Recipe::PREP_TIME
-    dish_origin = params[:query_dish_origin].present? ? params[:query_dish_origin].split("%") : Recipe::DISH_ORIGIN
-    difficulty = params[:query_difficulty].present? ? params[:query_difficulty].split("%") : Recipe::DIFFICULTY
-
-    # if  (params[:query_dish_type] || params[:query_prep_time] || params[:query_dish_origin] || params[:query_difficulty]).present?
-    #   dish_type = params[:query_dish_type].downcase.split("%") unless params[:query_dish_type].nil?
-    #   prep_time = params[:query_prep_time].downcase.split("%").map {|time| time[0...-3]} unless params[:query_prep_time].nil?
-    #   dish_origin = params[:query_dish_origin].split("%")  unless params[:query_dish_origin].nil?
-    #   difficulty = params[:query_difficulty].split("%")  unless params[:query_difficulty].nil?
-      @recipes = Recipe.where(dish_type: dish_type, prep_time: prep_time, dish_origin: dish_origin, difficulty: difficulty)
-      redirect_to recipes_path
-      # redirect_to recipes_path(dish_type: dish_type, prep_time: prep_time, dish_origin: dish_origin, difficulty: difficulty)
-    # end
+    if  (params[:query_dish_type] || params[:query_prep_time] || params[:query_dish_origin] || params[:query_difficulty]).present?
+      dish_type = params[:query_dish_type].present? ? params[:query_dish_type].downcase.split("%") : Recipe::DISH_TYPE
+      prep_time = params[:query_prep_time].present? ? params[:query_prep_time].downcase.split("%").map {|time| time[0...-3].to_i}.max : 200
+      dish_origin = params[:query_dish_origin].present? ? params[:query_dish_origin].split("%") : Recipe::DISH_ORIGIN
+      difficulty = params[:query_difficulty].present? ? params[:query_difficulty].split("%") : Recipe::DIFFICULTY
+      @recipes = Recipe.where(dish_type: dish_type, dish_origin: dish_origin, difficulty: difficulty).where("prep_time <= #{prep_time}")
+    end
   end
 
   def show

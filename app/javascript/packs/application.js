@@ -16,16 +16,8 @@ display_title();
 display_searchbar();
 display_filter();
 initLikedRecipeNav();
-
-
-//  window.onload = function(){
-//    setTimeout(display_add_or_random, 5000)
-// };
-
 display_add_or_random();
 navBackChangeWithScrollPos();
-
 changeClassWhenSelect();
-
 addFiltersToSearch();
 

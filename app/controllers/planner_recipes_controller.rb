@@ -1,18 +1,21 @@
 class PlannerRecipesController < ApplicationController
 
   def create
-    @planner_recipe = PlannerRecipe.new(cooked: false, servings: 1)
+    @planner_recipe = PlannerRecipe.new(set_planner_recipe_params)
     @planner = current_user.planners.last
     @planner_recipe.planner = @planner
     @recipe = Recipe.find(params[:recipe_id])
     @planner_recipe.recipe = @recipe
-    @planner_recipe.save!
-    if URI(request.referer).path.index("planners") == 1
-      redirect_to planner_path(@planner)
-    elsif URI(request.referer).path.index("recipes/#{@recipe.id}") == 1
-      redirect_to recipe_path(@recipe)
+    if @planner_recipe.save
+      if URI(request.referer).path.index("planners") == 1
+        redirect_to planner_path(@planner)
+      elsif URI(request.referer).path.index("recipes/#{@recipe.id}") == 1
+        redirect_to recipe_path(@recipe)
+      else
+        redirect_to recipes_path
+      end
     else
-      redirect_to recipes_path
+      redirect_to recipes_path, alert: 'There was an issue trying to add to your planner.'
     end
   end
 
@@ -20,8 +23,9 @@ class PlannerRecipesController < ApplicationController
     @planner = Planner.find(params[:planner_id])
     @planner_recipe = PlannerRecipe.find(params[:id])
     @planner_recipe.cooked = !@planner_recipe.cooked
-    @planner_recipe.save
-    redirect_to planner_path(@planner)
+    if @planner_recipe.save
+      redirect_to planner_path(@planner)
+    end
   end
 
   def destroy

@@ -1,0 +1,16 @@
+.card-planner {
+  border: none;
+  width: 80vw;
+  .card-title h5 {
+    color: $green;
+    margin-bottom: 0;
+
+  }
+  .planner-recipe-img {
+    padding: 0;
+  }
+  .planner-recipe-img img {
+    width: 100%;
+    padding-right: 1px;
+  }
+}

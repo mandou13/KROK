@@ -11,19 +11,23 @@
     <div id="food-preference" class="accordion-profile">
       <p> </p>
       <i class="fas fa-carrot fa-lg "></i>
-      <div class="item-text">FOOD PREFERENCES</div>
+      <div class="item-text">Food Preferences</div>
       <i class="fas fa-sort-down"></i>
     </div>
-      <div id="food-preference" class="panel-profile d-none">
+      <div id="food-preference" class="panel-profile d-none mt-2">
         <p>Disliked Ingredients : </p>
         <p class="filtering-tags-profile"> Cucumber</p>
       </div>
-    <div id = "previous-lists" class="accordion-profile"><i class="fas fa-clock fa-lg"></i><div class="item-text">PREVIOUS SHOPPING LIST</div><i class="fas fa-sort-down"></i></div>
-      <div class="panel-profile d-none">
-        <p>Lorem ipsum...</p>
+    <div id = "previous-lists" class="accordion-profile"><i class="fas fa-clock fa-lg"></i><div class="item-text">Previous planners</div><i class="fas fa-sort-down"></i></div>
+      <div class="panel-profile d-none mt-2 mx-3">
+        <% current_user.planners.first(current_user.planners.size-1).each do |planner| %>
+          <!-- planner card design -->
+          <%= render 'shared/card_planner', planner: planner %>
+          <!-- planner card design -->
+        <% end %>
       </div>
-    <div id = "edit-profile" class="accordion-profile"><i class="fas fa-cog fa-lg"></i><div class="item-text"> EDIT PROFILE</div><i class="fas fa-sort-down"></i></div>
-      <div class="panel-profile d-none">
+    <div id = "edit-profile" class="accordion-profile"><i class="fas fa-cog fa-lg"></i><div class="item-text">Settings</div><i class="fas fa-sort-down"></i></div>
+      <div class="panel-profile d-none mt-2">
         <div class="edit-profile">
           <i class="fas fa-unlock-alt"></i>
           <%= link_to "Change password", edit_user_registration_path, class: "item-text" %>
@@ -36,7 +40,6 @@
           <i class="fas fa-door-closed"></i>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "item-text" %>
         </div>
-
       </div>
   </div>
 </div>

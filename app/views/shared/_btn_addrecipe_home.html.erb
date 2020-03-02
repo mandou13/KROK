@@ -31,10 +31,9 @@
 
               <div class="form-box font-italic" id='title_updated'>
                 <% planner_recipe = PlannerRecipe.new %>
-                <%= simple_form_for [recipe, planner_recipe], class: "form-inline w-40" do |f| %>
-                  <%#= render 'shared/error_messages', object: f.object %>
-                  <%= f.input :servings, class: 'rating-form-input', placeholder: "#{recipe.servings}" %>
-                  <%= f.submit 'Add', class: "btn btn-krok-little" %>
+                <%= form_for [recipe, planner_recipe] do |f| %>
+                <%= f.number_field :servings, collection: (1..20), class: 'form-input', placeholder: "#{recipe.servings}", value: recipe.servings  %>
+                <%= f.submit 'Add', class: "btn btn-krok-little" %>
                 <% end %>
               </div>
 

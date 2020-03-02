@@ -39,22 +39,20 @@
   }
 
 .circle-icon {
-  a {
-    position: relative;
-    .btn-add-recipe {
-      position: absolute;
-      left: 10px;
-      top: 2px;
-      font-size: 15px;
-      color: $green;
-    }
-    .btn-add-recipe-done-orange {
-      position: absolute;
-      left: 3px;
-      top: 2px;
-      font-size: 15px;
-      color: orange;
-    }
+  position: relative;
+  .btn-add-recipe {
+    position: absolute;
+    left: 8px;
+    top: 7px;
+    font-size: 15px;
+    color: $green;
+  }
+  .btn-add-recipe-done-orange {
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    font-size: 15px;
+    color: orange;
   }
 }
 

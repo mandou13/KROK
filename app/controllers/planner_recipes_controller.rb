@@ -15,7 +15,7 @@ class PlannerRecipesController < ApplicationController
         redirect_to recipes_path
       end
     else
-      redirect_to recipes_path, alert: 'There was an issue trying to add to your planner.'
+      redirect_to recipes_path, alert: 'You can only have greater than or equal to 1 servings'
     end
   end
 

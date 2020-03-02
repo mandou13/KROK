@@ -40,13 +40,11 @@ class Recipe < ApplicationRecord
   end
 
   def added?(user)
-   unless user.nil?
-      answer = []
-      user.planners.last.planner_recipes.each do |planner_recipe|
-        answer << (planner_recipe.recipe == self)
-      end
-      answer.include?(true)
+    answer = []
+    user.planners.last.planner_recipes.each do |planner_recipe|
+      answer << (planner_recipe.recipe == self)
     end
+    answer.include?(true)
   end
 
   def already_rated?(user)

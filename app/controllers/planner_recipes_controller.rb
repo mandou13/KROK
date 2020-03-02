@@ -9,6 +9,8 @@ class PlannerRecipesController < ApplicationController
     @planner_recipe.save!
     if URI(request.referer).path.index("planners") == 1
       redirect_to planner_path(@planner)
+    elsif URI(request.referer).path.index("recipes/#{@recipe.id}") == 1
+      redirect_to recipe_path(@recipe)
     else
       redirect_to recipes_path
     end
@@ -28,6 +30,8 @@ class PlannerRecipesController < ApplicationController
     @planner_recipe.destroy
     if URI(request.referer).path.index("planners") == 1
       redirect_to planner_path(@planner)
+    elsif URI(request.referer).path.index("recipes/#{@planner_recipe.recipe.id}") == 1
+      redirect_to recipe_path(@planner_recipe.recipe)
     else
       redirect_to recipes_path
     end

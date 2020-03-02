@@ -8,13 +8,11 @@ import { display_title } from '../components/planner_title';
 import { display_searchbar } from '../components/searchbar_index_recipe.js';
 import { display_filter } from '../components/searchbar_index_recipe.js';
 import { navBackChangeWithScrollPos } from '../components/navbar_back_bgchange_with_scrollpos';
-import { btnAddRecipeToggle } from "components/btn_addrecipe_toggle";
 
 display_title();
 display_searchbar();
 display_filter();
 initLikedRecipeNav();
-btnAddRecipeToggle();
 
 
 //  window.onload = function(){

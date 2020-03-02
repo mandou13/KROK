@@ -1,142 +1,158 @@
-
 <div class="container">
   <div class="" id='title_to_update'>
     <div class="planner-title-card d-flex">
       <h3 class='planner-title'> <%= @planner.name%> </h3>
-      <i class="fas fa-edit p-2" id="title_update_launch"></i>
+      <!-- not exist when coming from past planners -->
+      <% unless params[:id].to_i < @planner.id.to_i %>
+        <i class="fas fa-edit p-2" id="title_update_launch"></i>
+      <% end %>
+      <!-- not exist when coming from past planners -->
     </div>
   </div>
   <%= render 'shared/form' %>
   <% [0,1,2].each do |index| %>
-  <div class="planner-dish-type-card m-2">
-    <h5 class="dish-type-title"> <%= @recipes_all[index].first.dish_type.capitalize %></h5>
-    <div class="row justify-content-center">
-      <% @planner_recipes_all[index].each do |planner_recipe| %>
-      <div class="col-6 col-lg-3">
-        <div class="card-show">
-          <div class="card-img-top d-flex justify-content-center">
-          <%= link_to recipe_path(planner_recipe.recipe) do  %>
-            <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill %>
-          <% end %>
-
-            <div class="card-img-icon-cooked" id="">
-              <% if planner_recipe.cooked %>
-                <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
-                  <i class="fas fa-check btn-cooked"></i>
-                <% end %>
-              <% elsif !planner_recipe.cooked && planner_recipe.recipe.already_rated?(current_user) %>
-                <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
-                  <i class="fas fa-check btn-not-cooked" ></i>
-                <% end %>
-              <% else %>
-                <button type="button" class="fas fa-check btn-not-cooked" data-toggle="modal" data-target="#planner-recipe-<%= planner_recipe.id %>">
-                </button>
-                <div class="modal fade" id="planner-recipe-<%= planner_recipe.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Give a rating from 1 to 5</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body d-flex justify-content-center align-middle">
-                        <%= render 'shared/form_rating', planner_recipe: planner_recipe, rating: @rating %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    <div class="planner-dish-type-card m-2">
+      <h5 class="dish-type-title"> <%= @recipes_all[index].first.dish_type.capitalize %></h5>
+      <div class="row justify-content-center">
+        <% @planner_recipes_all[index].each do |planner_recipe| %>
+          <div class="col-6 col-lg-3">
+            <div class="card-show">
+              <div class="card-img-top d-flex justify-content-center">
+              <%= link_to recipe_path(planner_recipe.recipe) do  %>
+                <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill %>
               <% end %>
-            </div>
-
-            <div class="card-img-icon-delete">
-              <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :delete do  %>
-                <i class="fas fa-times btn-cross"></i>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% end %>
-      <div class="col-6 col-lg-3" id='card_to_hide'>
-        <div class="card-show">
-          <div class="card-img-top d-flex justify-content-center background-alone">
-            <div class="card-img-icon-add" id="card-img-icon-add">
-              <i class="fas fa-plus"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3 d-none" id="card_to_display">
-        <div class="card-show">
-          <div class="card-img-top d-flex justify-content-center background-alone">
-            <div class="card-img-icon-search" id="card-img-icon-search">
-              <%= link_to recipes_path do %>
-                <i class="fas fa-search"></i>
-              <% end %>
-            </div>
-            <div class="card-img-icon-random" id="card-img-icon-random">
-              <i class="fas fa-dice"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% @recipes_all[index].sample(10).each do |planner_recipe_random| %>
-        <div class="col-6 col-lg-3 d-none card_random_to_hide-<%=index%>" id="card_random_to_hide">
-          <div class="card-show">
-            <div class="card-img-top d-flex background-random">
-              <%= cl_image_tag planner_recipe_random.photo.key, crop: :fill %>
-              <div class="card-img-icon-random-again" id="card-img-icon-random-again">
-                <!-- ON THIS BUTTON:  A REFRESH BY JS + remove d-none -->
-                <%#= link_to planner_path(@planner) do %>
-                <i class="fas fa-dice btn-random-again"></i>
-                <%# end %>
-              </div>
-              <div class="card-img-icon-random-valid" id="card-img-icon-random-valid">
-                <!-- <input type="hidden" name="dashboardredirect" value="1"/> -->
-                <%= link_to recipe_planner_recipes_path(planner_recipe_random), method: :post do %>
-
-                <% end %>
-                <!-- servings modal -->
-                <i class="fas fa-grin-hearts btn-random-valid" data-toggle="modal" data-target="#recipe-<%= planner_recipe_random.id %>"></i>
-                <div class="modal fade" id="recipe-<%= planner_recipe_random.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">How many servings you want to prepare?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body d-flex justify-content-center align-middle">
-
-                        <div class="form-box font-italic" id='title_updated'>
-                          <% planner_recipe = PlannerRecipe.new %>
-                          <%= form_for [planner_recipe_random, planner_recipe] do |f| %>
-                          <%= f.number_field :servings, collection: (1..20), class: 'form-input', placeholder: "#{planner_recipe_random.servings}", value: planner_recipe_random.servings  %>
-                          <%= f.submit 'Add', class: "btn btn-krok-little" %>
-                          <% end %>
+                <!-- not exist when coming from past planners -->
+                <% unless params[:id].to_i < @planner.id.to_i %>
+                  <div class="card-img-icon-cooked" id="">
+                    <% if planner_recipe.cooked %>
+                      <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
+                        <i class="fas fa-check btn-cooked"></i>
+                      <% end %>
+                    <% elsif !planner_recipe.cooked && planner_recipe.recipe.already_rated?(current_user) %>
+                      <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
+                        <i class="fas fa-check btn-not-cooked" ></i>
+                      <% end %>
+                    <% else %>
+                      <button type="button" class="fas fa-check btn-not-cooked" data-toggle="modal" data-target="#planner-recipe-<%= planner_recipe.id %>">
+                      </button>
+                      <div class="modal fade" id="planner-recipe-<%= planner_recipe.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLongTitle">Give a rating from 1 to 5</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body d-flex justify-content-center align-middle">
+                              <%= render 'shared/form_rating', planner_recipe: planner_recipe, rating: @rating %>
+                            </div>
+                          </div>
                         </div>
-
                       </div>
-                    </div>
+                    <% end %>
                   </div>
-                </div>
-                <!--  servings modal -->
+                <% end %>
+                <!-- not exist when coming from past planners -->
+                <!-- not exist when coming from past planners -->
+                <% unless params[:id].to_i < @planner.id.to_i %>
+                  <div class="card-img-icon-delete">
+                    <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :delete do  %>
+                      <i class="fas fa-times btn-cross"></i>
+                    <% end %>
+                  </div>
+                <% end %>
+                <!-- not exist when coming from past planners -->
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+        <!-- not exist when coming from past planners -->
+        <% unless params[:id].to_i < @planner.id.to_i %>
+          <div class="col-6 col-lg-3" id='card_to_hide'>
+            <div class="card-show">
+              <div class="card-img-top d-flex justify-content-center background-alone">
+                <div class="card-img-icon-add" id="card-img-icon-add">
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-none" id="card_to_display">
+            <div class="card-show">
+              <div class="card-img-top d-flex justify-content-center background-alone">
+                <div class="card-img-icon-search" id="card-img-icon-search">
+                  <%= link_to recipes_path do %>
+                    <i class="fas fa-search"></i>
+                  <% end %>
+                </div>
+                <div class="card-img-icon-random" id="card-img-icon-random">
+                  <i class="fas fa-dice"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <!-- not exist when coming from past planners -->
+        <% @recipes_all[index].sample(10).each do |planner_recipe_random| %>
+          <div class="col-6 col-lg-3 d-none card_random_to_hide-<%=index%>" id="card_random_to_hide">
+            <div class="card-show">
+              <div class="card-img-top d-flex background-random">
+                <%= cl_image_tag planner_recipe_random.photo.key, crop: :fill %>
+                <div class="card-img-icon-random-again" id="card-img-icon-random-again">
+                  <!-- ON THIS BUTTON:  A REFRESH BY JS + remove d-none -->
+                  <%#= link_to planner_path(@planner) do %>
+                  <i class="fas fa-dice btn-random-again"></i>
+                  <%# end %>
+                </div>
+                <div class="card-img-icon-random-valid" id="card-img-icon-random-valid">
+                  <!-- <input type="hidden" name="dashboardredirect" value="1"/> -->
+                  <%= link_to recipe_planner_recipes_path(planner_recipe_random), method: :post do %>
+
+                  <% end %>
+                  <!-- servings modal -->
+                  <i class="fas fa-grin-hearts btn-random-valid" data-toggle="modal" data-target="#recipe-<%= planner_recipe_random.id %>"></i>
+                  <div class="modal fade" id="recipe-<%= planner_recipe_random.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">How many servings you want to prepare?</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body d-flex justify-content-center align-middle">
+
+                          <div class="form-box font-italic" id='title_updated'>
+                            <% planner_recipe = PlannerRecipe.new %>
+                            <%= form_for [planner_recipe_random, planner_recipe] do |f| %>
+                            <%= f.number_field :servings, collection: (1..20), class: 'form-input', placeholder: "#{planner_recipe_random.servings}", value: planner_recipe_random.servings  %>
+                            <%= f.submit 'Add', class: "btn btn-krok-little" %>
+                            <% end %>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--  servings modal -->
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
   <% end %>
+  <!-- not exist when coming from past planners -->
+  <% unless params[:id].to_i < @planner.id.to_i %>
     <div class="row justify-content-center">
-    <div class="planner-new">
-      <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
+      <div class="planner-new">
+        <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
+      </div>
     </div>
-  </div>
-</div>
+  <% end %>
+  <!-- not exist when coming from past planners -->
 </div>
 
 

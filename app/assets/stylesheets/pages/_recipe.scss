@@ -51,7 +51,8 @@
   }
 }
 
-.recipe-photo-show {
+// btnAdd
+.container-show {
   position: relative;
   .circle-add-recipe {
     border: 2px solid $green;
@@ -81,6 +82,7 @@
     }
   }
 }
+// btnAdd
 
 .recipe-subtitle {
   border-bottom: solid 5px $green;

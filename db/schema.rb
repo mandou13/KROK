@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_125443) do
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.string "unit"
-    t.integer "quantity"
+    t.float "quantity"
     t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 2020_03_02_125443) do
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_liked_recipes_on_recipe_id"
     t.index ["user_id"], name: "index_liked_recipes_on_user_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
   create_table "planner_recipes", force: :cascade do |t|

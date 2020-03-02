@@ -14,7 +14,7 @@ $color-krok: #73C88B;
   border-bottom: 5px solid #73C88B;
 }
 
-.filtering-tags {
+.filtering-tags-unselected {
   background-color: #73C88B;
   border-radius: 63px;
   // border: 1px solid #4A4A4A;
@@ -23,6 +23,25 @@ $color-krok: #73C88B;
   // opacity: 0;
   transition: opacity 0.3s ease;
   margin-bottom: 15px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.filtering-tags-selected {
+  background-color: white;
+  border: 2px solid #73C88B;
+  color: #73C88B;
+  border-radius: 63px;
+  // border: 1px solid #4A4A4A;
+  font-weight: bolder;
+  padding: 3px 21px;
+  // opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-bottom: 15px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
 }
 
 

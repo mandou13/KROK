@@ -8,6 +8,9 @@ import { display_title } from '../components/planner_title';
 import { display_searchbar } from '../components/searchbar_index_recipe.js';
 import { display_filter } from '../components/searchbar_index_recipe.js';
 import { navBackChangeWithScrollPos } from '../components/navbar_back_bgchange_with_scrollpos';
+import { changeClassWhenSelect } from '../components/multiselect_searchbox';
+import { addFiltersToSearch } from '../components/add_search_to_searchbox';
+
 
 display_title();
 display_searchbar();
@@ -21,4 +24,8 @@ initLikedRecipeNav();
 
 display_add_or_random();
 navBackChangeWithScrollPos();
+
+changeClassWhenSelect();
+
+addFiltersToSearch();
 

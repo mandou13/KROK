@@ -12,7 +12,9 @@ class PlannersController < ApplicationController
     # @recipes_snack = Recipe.where(dish_type: 'snack')
     # @recipes_other = @recipes_appetizer + @recipes_side + @recipes_snack
     @recipes_all = [@recipes_starter, @recipes_main, @recipes_dessert]
-    @planner = current_user.planners.last
+
+    @planner = Planner.find(params[:id])
+
     @planner_recipes = @planner.planner_recipes.sort
     @planner_recipes_main = @planner.planner_recipes.select { |planner_recipe| planner_recipe.recipe.dish_type == 'main'}.sort
     @planner_recipes_starter = @planner.planner_recipes.select { |planner_recipe| planner_recipe.recipe.dish_type == 'starter'}.sort

@@ -7,12 +7,17 @@
   </div>
   <div id="logo-fork" class="navbar navbar-logo d-flex text-center">
     <%= link_to planner_path(Planner.last) do  %> <!-- mettre planner_path -->
-      <i class="fas fa-utensils"></i>
+      <i class="fas fa-utensils pastille-notif-outer"></i>
+    <% end %>
+    <% unless @number_of_unseen_planner_recipes.nil?  %>
+      <% if @number_of_unseen_planner_recipes > 0 %>
+        <p class='pastille-notif-inner'> <%= @number_of_unseen_planner_recipes %></p>
+      <% end %>
     <% end %>
   </div>
   <div id="logo-list" class="navbar navbar-logo d-flex text-center">
     <%= link_to planner_shopping_lists_path(Planner.last) do  %> <!-- mettre planner_shopping_lists_path -->
-      <i class="fas fa-list-ul"></i>
+      <i class="fas fa-list-ul "></i>
     <% end %>
   </div>
   <div id="logo-heart" class="navbar navbar-logo d-flex text-center">

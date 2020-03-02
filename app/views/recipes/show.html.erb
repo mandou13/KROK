@@ -73,7 +73,7 @@
                   <% if ingredient.category == category %>
                     <p>
                       <span class="mr-2"><%= ingredient.name.capitalize %></span>
-                      <%= ingredient.quantity %>
+                      <%= ingredient.quantity.round %>
                       <%= ingredient.unit %>
                     </p>
                   <% end %>

@@ -3,7 +3,7 @@
  -->
 
 <div class='text-center'>
-  <h1 class='underligned-green pb-2 pt-2'> Your Shopping List </h1>
+  <h1 class='underligned-green pb-2 pt-4'> Your Shopping List </h1>
 </div>
 
 <div class='text-center'>
@@ -18,7 +18,13 @@
     <ul>
       <% if shopping_list.category == category %>
         <li>
-          <%= shopping_list.quantity %> <%= shopping_list.unit %> <%= shopping_list.ingredient_name %>
+          <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
+            <%= shopping_list.quantity / 1000 %> kg <%= shopping_list.ingredient_name %>
+          <% elsif  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'ml'%>
+            <%= shopping_list.quantity / 1000 %> l <%= shopping_list.ingredient_name %>
+          <% else %>
+            <%= shopping_list.quantity %> <%= shopping_list.unit %> <%= shopping_list.ingredient_name %>
+          <% end %>
         </li>
       <% end %>
       </ul>

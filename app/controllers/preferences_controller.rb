@@ -12,4 +12,11 @@ class PreferencesController < ApplicationController
       redirect_to preferences_path
     end
   end
+
+  def destroy
+    @preference = Preference.find(params[:id])
+    @preference.destroy
+    redirect_to profile_path
+
+  end
 end

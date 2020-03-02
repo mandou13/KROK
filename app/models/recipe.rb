@@ -32,13 +32,11 @@ class Recipe < ApplicationRecord
   end
 
   def liked?(user)
-   unless user.nil?
-      answer = []
-      self.liked_recipes.each do |liked_recipe|
-        answer << (liked_recipe.user.id == user.id)
-      end
-      answer.include?(true)
+    answer = []
+    self.liked_recipes.each do |liked_recipe|
+      answer << (liked_recipe.user.id == user.id)
     end
+    answer.include?(true)
   end
 
   def added?(user)

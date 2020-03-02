@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_093556) do
+ActiveRecord::Schema.define(version: 2020_03_02_103911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,15 +56,6 @@ ActiveRecord::Schema.define(version: 2020_02_28_093556) do
     t.index ["user_id"], name: "index_liked_recipes_on_user_id"
   end
 
-  create_table "pg_search_documents", force: :cascade do |t|
-    t.text "content"
-    t.string "searchable_type"
-    t.bigint "searchable_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
-  end
-
   create_table "planner_recipes", force: :cascade do |t|
     t.boolean "cooked"
     t.integer "servings"
@@ -82,6 +73,15 @@ ActiveRecord::Schema.define(version: 2020_02_28_093556) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_planners_on_user_id"
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "ingredient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_preferences_on_ingredient_id"
+    t.index ["user_id"], name: "index_preferences_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -141,6 +141,8 @@ ActiveRecord::Schema.define(version: 2020_02_28_093556) do
   add_foreign_key "planner_recipes", "planners"
   add_foreign_key "planner_recipes", "recipes"
   add_foreign_key "planners", "users"
+  add_foreign_key "preferences", "ingredients"
+  add_foreign_key "preferences", "users"
   add_foreign_key "ratings", "recipes"
   add_foreign_key "ratings", "users"
   add_foreign_key "recipes", "users"

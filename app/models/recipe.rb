@@ -76,4 +76,10 @@ class Recipe < ApplicationRecord
     end
   end
 
+  def is_rejected?(user)
+    self.ingredients.each do |ingredient|
+      return true if user.ingredients.include?(ingredient)
+    end
+    return false
+  end
 end

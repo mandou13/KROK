@@ -15,8 +15,14 @@
       <i class="fas fa-sort-down"></i>
     </div>
       <div id="food-preference" class="panel-profile d-none">
+        <%= simple_form_for @preference do |t| %>
+          <%= t.input :ingredient, collection: @ingredients %>
+          <%= t.submit "add"%>
+        <%end %>
         <p>Disliked Ingredients : </p>
-        <p class="filtering-tags-profile"> Cucumber</p>
+          <% @user_ingredients.each do |ingredient| %>
+          <p class="filtering-tags-profile"><%= ingredient.name %></p>
+          <% end %>
       </div>
     <div id = "previous-lists" class="accordion-profile"><i class="fas fa-clock fa-lg"></i><div class="item-text">PREVIOUS SHOPPING LIST</div><i class="fas fa-sort-down"></i></div>
       <div class="panel-profile d-none">

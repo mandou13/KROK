@@ -15,4 +15,7 @@ class Ingredient < ApplicationRecord
   def categories_of_recipe
 
   end
+
+
+
 end

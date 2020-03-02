@@ -21,4 +21,5 @@ Rails.application.routes.draw do
     resources :shopping_lists, only: [:index, :update]
   end
   resources :liked_recipes, only: [:index, :destroy]
+  resources :preferences, only: [:create, :destroy]
 end

@@ -11,8 +11,10 @@
   </div>
 
   <div id="recipes" class="row">
+    <% if @recipes.count == 0 %>
+      <p class="no-recipes-found">Nothing to Krok for this selection. Please choose other criterias...</p>
+    <% end %>
     <% @recipes.each_with_index do |recipe, index| %>
-
       <div class="col-6 col-lg-3">
         <div class="card card-home mb-1">
 
@@ -41,7 +43,6 @@
                   <% end %>
                 <% end %>
               </div>
-
               <%= render 'shared/btn_heart', recipe: recipe %>
             </div>
           </div>

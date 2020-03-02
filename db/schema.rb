@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_125443) do
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.string "unit"
-    t.integer "quantity"
+    t.float "quantity"
     t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

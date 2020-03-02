@@ -22,26 +22,7 @@
             <% end %>
 
             <div class="card-img-icons">
-
-              <div class="circle-icon">
-                <% if current_user.nil? %>
-                  <%= link_to new_user_session_path do %>
-                    <i class="fas fa-utensils btn-add-recipe"></i>
-                  <% end %>
-                <% else %>
-                  <% has_recipe_in = current_user.planners.last.recipes.include?(recipe) %>
-                  <% if has_recipe_in %>
-                    <%= link_to recipe_planner_recipe_path(recipe, PlannerRecipe.find_by(recipe: recipe, planner: @planner)), method: :delete do  %>
-                      <i class="fas fa-utensils btn-add-recipe-done-orange"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to recipe_planner_recipes_path(recipe), method: :post do %>
-                      <i class="fas fa-utensils btn-add-recipe"></i>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </div>
-
+              <%= render 'shared/btn_addrecipe_home', recipe: recipe %>
               <%= render 'shared/btn_heart', recipe: recipe %>
             </div>
           </div>

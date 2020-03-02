@@ -18,35 +18,37 @@
           <%= link_to recipe_path(planner_recipe.recipe) do  %>
             <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill %>
           <% end %>
+
             <div class="card-img-icon-cooked" id="">
-            <% if planner_recipe.cooked %>
-              <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
-                <i class="fas fa-check btn-cooked"></i>
-              <% end %>
-            <% elsif !planner_recipe.cooked && planner_recipe.recipe.already_rated?(current_user) %>
-              <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
-                <i class="fas fa-check btn-not-cooked" ></i>
-              <% end %>
-            <% else %>
-              <button type="button" class="fas fa-check btn-not-cooked" data-toggle="modal" data-target="#planner-recipe-<%= planner_recipe.id %>">
-              </button>
-              <div class="modal fade" id="planner-recipe-<%= planner_recipe.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLongTitle">Give a rating from 1 to 5</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body d-flex justify-content-center align-middle">
-                      <%= render 'shared/form_rating', planner_recipe: planner_recipe, rating: @rating %>
+              <% if planner_recipe.cooked %>
+                <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
+                  <i class="fas fa-check btn-cooked"></i>
+                <% end %>
+              <% elsif !planner_recipe.cooked && planner_recipe.recipe.already_rated?(current_user) %>
+                <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
+                  <i class="fas fa-check btn-not-cooked" ></i>
+                <% end %>
+              <% else %>
+                <button type="button" class="fas fa-check btn-not-cooked" data-toggle="modal" data-target="#planner-recipe-<%= planner_recipe.id %>">
+                </button>
+                <div class="modal fade" id="planner-recipe-<%= planner_recipe.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Give a rating from 1 to 5</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body d-flex justify-content-center align-middle">
+                        <%= render 'shared/form_rating', planner_recipe: planner_recipe, rating: @rating %>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
               <% end %>
             </div>
+
             <div class="card-img-icon-delete">
               <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :delete do  %>
                 <i class="fas fa-times btn-cross"></i>

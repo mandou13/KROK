@@ -34,36 +34,42 @@ class ShoppingList < ApplicationRecord
         ingredients_hash[shopping_list.ingredient_name] = [[shopping_list.quantity, shopping_list.unit]]
       end
     end
-    # p ingredients_hash
-    ingredients_hash.map do |key, value|
-      units    = []
-      quantity = []
-      value.each do |array|
-        quantity << array[0]
-        # p quantity
-        units    << array[1]
-      end
-      if units.uniq.size == 1
-        value = [quantity.sum, units[0]]
-        # p key
-        # p value
-      elsif units.include?('g')
-        unit_converter  = {}
-        unit_converter["tbsp"] = 0.02
-        unit_converter["tsp"] = 0.005
-        unit_converter["kg"] = 1
-        unit_converter["bunch"] = 0.1
-        unit_converter["clove"] = 0.003
-        unit_converter["ml"] = 0.01
-        unit_converter["g"]  = 0.01
-        unit_converter["l"] = 1
-        unit_converter[nil] = 0.06
-        good_quantity = units.map {|unit| unit_converter[unit]}
-        value = [good_quantity,"g"]
-      elsif units.include?('l')
-        value[1] = "l"
-      end
-      self.update(quantity: value[0], unit: value[1])
-    end
+    p ingredients_hash
+    # ingredients_hash.each do |key, value|
+    #   ingredient = ShoppingList.where(ingredient_name: key)
+    #   units    = []
+    #   quantity = []
+    #   value.each do |array|
+    #     quantity << array[0]
+    #     # p quantity
+    #     units    << array[1]
+    #   end
+    #   if units.uniq.length == 1
+    #     good_values = [quantity.sum, units[0]]
+    #     p good_values
+    #   elsif units.include?('g')
+    #     unit_converter  = {}
+    #     unit_converter["tbsp"] = 12
+    #     unit_converter["tsp"] = 5
+    #     unit_converter["kg"] = 1000
+    #     unit_converter["bunch"] = 100
+    #     unit_converter["clove"] = 5
+    #     unit_converter["g"]  = 1
+    #     unit_converter[nil] = 60
+    #     good_quantity = units.each_with_index.map {|unit, index| unit_converter[unit] * quantity[index]}
+    #     good_values = [good_quantity.sum,"g"]
+    #     p good_values
+    #   elsif units.include?('ml')
+    #     unit_converter  = {}
+    #     unit_converter["tbsp"] = 12
+    #     unit_converter["tsp"] = 5
+    #     unit_converter["ml"] = 1
+    #     unit_converter["l"] = 1000
+    #     good_quantity = units.each_with_index.map {|unit, index| unit_converter[unit] * quantity[index]}
+    #     good_values = [good_quantity.sum,"ml"]
+    #     p good_values
+    #   end
+    #   ingredient.update(quantity: good_values[0], unit: good_values[1])
+    # end
   end
 end

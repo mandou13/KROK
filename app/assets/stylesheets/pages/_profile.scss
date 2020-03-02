@@ -86,22 +86,48 @@ text-align:        center;
   color: black;
 }
 
-.filtering-tags-profile {
-  background-color:     gray;
-  border-radius:        63px;
-  // border: 1px solid #4A4A4A;
-  font-size:            lighter;
-  padding:              3px 18px;
-  // opacity: 0;
-  transition:           opacity 0.3s ease;
-  width:                34%;
+.container-preferences{
+  display: flex;
+  flex-direction: column;
+}
+
+.preferences-tags {
+    background-color: #EEEEEE;
+    border-radius: 63px;
+    font-size: lighter;
+    padding: 1px 15px;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+    margin-bottom: 15px;
+    position: absolute;
+    display: block;
+}
+
+.delete-preference{
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: relative;
+ left: -13px;
+ top: -14px;
+ font-size: 10px;
+}
+
+label.select.required{
+  color: black;
+  font-family: arial, sans-serif;
 }
 
 
-
-
-
-
+.btn-krok-pref{
+ background-color: #73C88B;
+  color: white;
+  font-weight: bold;
+  border-radius: 2px;
+  padding: 2px;
+  margin-left: 3px;
+  margin-bottom: 15px;
+}
 
 
 

@@ -65,11 +65,11 @@ class PlannerRecipesController < ApplicationController
         shopping_list_reference.quantity = ingredient.quantity
         shopping_list_reference.save!
       end
-      redirect_to planner_path(@planner)
-      # respond_to do  |format|
-      #     format.html{redirect_to planner_path(@planner)}
-      #     format.js { render  'planner_recipes.js.erb'}
-      #   end
+      # redirect_to planner_path(@planner)
+      respond_to do  |format|
+          format.html{redirect_to planner_path(@planner)}
+          format.js
+        end
     end
   end
 

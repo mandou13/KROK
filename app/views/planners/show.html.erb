@@ -121,12 +121,15 @@
                 </div>
                 <div class="card-img-icon-random-valid" id="card-img-icon-random-valid">
                   <!-- <input type="hidden" name="dashboardredirect" value="1"/> -->
-                  <%= link_to recipe_planner_recipes_path(planner_recipe_random), method: :post do %>
+                  <%= link_to recipe_planner_recipes_path(planner_recipe_random), method: :post, remote: true do %>
 
                   <% end %>
                   <!-- servings modal -->
-                  <i class="fas fa-grin-hearts btn-random-valid" data-toggle="modal" data-target="#recipe-<%= planner_recipe_random.id %>"></i>
-                  <div class="modal fade" id="recipe-<%= planner_recipe_random.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <%= link_to recipe_planner_recipes_path(planner_recipe_random), method: :post, remote: true do %>
+                    <i class="fas fa-grin-hearts btn-random-valid" data-toggle="modal" data-target="#recipe-<%= planner_recipe_random.id %>"></i>
+                  <% end %>
+
+                  <!-- <div class="modal fade" id="recipe-<%= planner_recipe_random.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -138,17 +141,17 @@
                         <div class="modal-body d-flex justify-content-center align-middle">
 
                           <div class="form-box font-italic" id='title_updated'>
-                            <% planner_recipe = PlannerRecipe.new %>
-                            <%= form_for [planner_recipe_random, planner_recipe] do |f| %>
-                            <%= f.number_field :servings, collection: (1..20), class: 'form-input', placeholder: "#{planner_recipe_random.servings}", value: planner_recipe_random.servings  %>
-                            <%= f.submit 'Add', class: "btn btn-krok-little" %>
-                            <% end %>
+                            <#% planner_recipe = PlannerRecipe.new %>
+                            <#%= form_for [planner_recipe_random, planner_recipe] do |f| %>
+                            <#%= f.number_field :servings, collection: (1..20), class: 'form-input', placeholder: "#{planner_recipe_random.servings}", value: planner_recipe_random.servings  %>
+                            <#%= f.submit 'Add', class: "btn btn-krok-little" %>
+                            <#% end %>
                           </div>
 
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <!--  servings modal -->
                 </div>
               </div>

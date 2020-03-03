@@ -12,12 +12,6 @@ margin:      auto;
 padding: 5px;
 }
 
-.navbar-logo i{
-  font-size: 22px;
-  color:     black;
-  margin:    auto;
-}
-
 .navbar-container{
   display:flex;
   position: fixed;
@@ -35,10 +29,10 @@ padding: 5px;
   color: #73C88B !important;
 }
 
-.nav-item:hover{
-  color:       #e8035f;
-  box-shadow: 0px 5px 0px;
-}
+// .nav-item:hover{
+//   color:       #e8035f;
+//   box-shadow: 0px 5px 0px;
+// }
 
 .pastille-notif-outer {
   position: relative;
@@ -57,5 +51,14 @@ padding: 5px;
   background-color: red;
   color: white;
   border: white;
+}
 
+.navbar-icon {
+  color:     black;
+  margin:    auto;
+  font-size: 22px;
+}
+
+.navbar-icon-green {
+  color: $green;
 }

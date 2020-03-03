@@ -21,15 +21,37 @@ $color-krok: #73C88B;
   border-bottom: 5px solid #73C88B;
 }
 
-.filtering-tags {
+.filtering-tags-selected {
   background-color: #73C88B;
   border-radius: 63px;
+  color:white;
   // border: 1px solid #4A4A4A;
   font-size: lighter;
   padding: 3px 21px;
+  font-weight: 550;
   // opacity: 0;
   transition: opacity 0.3s ease;
   margin-bottom: 15px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.filtering-tags-unselected {
+  background-color: white;
+  border: 1px solid #73C88B;
+  color: #73C88B;
+  border-radius: 63px;
+  font-weight: 550;
+  // border: 1px solid #4A4A4A;
+  // font-weight: 500;
+  padding: 2px 20px;
+  // opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-bottom: 15px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
 }
 
 
@@ -47,6 +69,8 @@ $color-krok: #73C88B;
 .filter-tag {
   background-color: #73C88B;
   border-radius: 63px;
+  color: white;
+  font-weight: 500;
   // border: 1px solid #4A4A4A;
   font-size: lighter;
   padding: 8px 24px;

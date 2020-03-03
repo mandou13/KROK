@@ -1,4 +1,10 @@
 class Recipe < ApplicationRecord
+
+    DISH_TYPE = ["dessert", "main", "starter"]
+    PREP_TIME = ["20", "30", "45", "60"]
+    DISH_ORIGIN = ["Italian", "German", "French", "American", "English", "Middle East", "British", "Mexican", "Spanish", "Indian"]
+    DIFFICULTY = ["Easy", "Medium"]
+
   belongs_to :user
   has_many   :ingredients
   has_many   :planner_recipes
@@ -22,6 +28,7 @@ class Recipe < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
 
   def avg_rating
     sum = 0

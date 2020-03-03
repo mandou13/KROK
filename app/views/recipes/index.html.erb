@@ -11,25 +11,21 @@
     </div>
 
   <div id="recipes" class="row">
+    <% if @recipes.count == 0 %>
+      <p class="no-recipes-found">Nothing to Krok for this selection. Please choose other criterias...</p>
+    <% end %>
     <% @recipes.each_with_index do |recipe, index| %>
-
       <div class="col-6 col-lg-3">
         <div class="card card-home mb-1">
-
           <div class="card-img-top d-flex justify-content-center">
             <%= link_to recipe_path(recipe) do  %>
               <%= cl_image_tag recipe.photo.key %>
             <% end %>
-
             <div class="card-img-icons">
               <%= render 'shared/btn_addrecipe_home', recipe: recipe %>
               <%= render 'shared/btn_heart', recipe: recipe %>
             </div>
           </div>
-
-<!--           <div class="card-title mb-0">
-            <%#= link_to recipe.name.truncate(25), recipe_path(recipe) %>
-          </div> -->
         </div>
       </div>
     <% end %>
@@ -49,29 +45,36 @@
 
   <div id='display-filters' class="d-none">
     <h3 class='h3-tagtitle'>Dish Type</h3>
-    <%=  link_to "Starter", recipes_path(:dish_type => "starter"), class: "btn filtering-tags" %>
-    <%=  link_to "Main", recipes_path(:dish_type => "main"), class: "btn filtering-tags" %>
-    <%=  link_to "Dessert", recipes_path(:dish_type => "dessert"), class: "btn filtering-tags" %>
+    <p class="filtering-tags filtering-tags-unselected input-dish-type">Starter</p>
+    <p class="filtering-tags filtering-tags-unselected input-dish-type">Main</p>
+    <p class="filtering-tags filtering-tags-unselected input-dish-type">Dessert</p>
 
     <h3 class='h3-tagtitle'>Prep Time</h3>
-    <%=  link_to "20min", recipes_path(:prep_time => 20), class: "btn filtering-tags" %>
-    <%=  link_to "30min", recipes_path(:prep_time => 30), class: "btn filtering-tags" %>
-    <%=  link_to "45min", recipes_path(:prep_time => 45), class: "btn filtering-tags" %>
-    <%=  link_to "1hour", recipes_path(:prep_time => 60), class: "btn filtering-tags" %>
+    <p class="filtering-tags filtering-tags-unselected input-prep-time">20min</p>
+    <p class="filtering-tags filtering-tags-unselected input-prep-time">30min</p>
+    <p class="filtering-tags filtering-tags-unselected input-prep-time">45min</p>
+    <p class="filtering-tags filtering-tags-unselected input-prep-time">60min</p>
 
     <h3 class='h3-tagtitle'>Dish Origin</h3>
-    <%=  link_to "English", recipes_path(:dish_origin => "English"), class: "btn filtering-tags" %>
-    <%=  link_to "French", recipes_path(:dish_origin => "French"), class: "btn filtering-tags" %>
-    <%=  link_to "American", recipes_path(:dish_origin => "American"), class: "btn filtering-tags" %>
-    <%=  link_to "Indian", recipes_path(:dish_origin => "Indian"), class: "btn filtering-tags" %>
-    <%=  link_to "Mexican", recipes_path(:dish_origin => "Mexican"), class: "btn filtering-tags" %>
-    <%=  link_to "Middle East", recipes_path(:dish_origin => "Middle East"), class: "btn filtering-tags" %>
-    <%=  link_to "Spanish", recipes_path(:dish_origin => "Spanish"), class: "btn filtering-tags" %>
+    <p class="filtering-tags filtering-tags-unselected input-dish-origin">English</p>
+    <p class="filtering-tags filtering-tags-unselected input-dish-origin">French</p>
+    <p class="filtering-tags filtering-tags-unselected input-dish-origin">American</p>
+    <p class="filtering-tags filtering-tags-unselected input-dish-origin">Indian</p>
+    <p class="filtering-tags filtering-tags-unselected input-dish-origin">Mexican</p>
+    <p class="filtering-tags filtering-tags-unselected input-dish-origin">Middle East</p>
+    <p class="filtering-tags filtering-tags-unselected input-dish-origin">Spansish</p>
 
     <h3 class='h3-tagtitle'>Difficulty</h3>
-    <%=  link_to "Simple", recipes_path(:difficulty => "Easy"), class: "btn filtering-tags" %>
-    <%=  link_to "Medium", recipes_path(:difficulty => "Medium"), class: "btn filtering-tags" %>
-    <%=  link_to "Hard", recipes_path(:difficulty => "Hard"), class: "btn filtering-tags" %>
+    <p class="filtering-tags filtering-tags-unselected input-difficulty">Easy</p>
+    <p class="filtering-tags filtering-tags-unselected input-difficulty">Medium</p>
+
+    <%= form_tag recipes_path, method: :get do %>
+      <%= text_field_tag :query_dish_type, params[:query_dish_type],class: "form-control specific-input-search-dish-type d-none"%>
+      <%= text_field_tag :query_prep_time, params[:query_prep_time],class: "form-control specific-input-search-prep-time d-none"%>
+      <%= text_field_tag :query_dish_origin, params[:query_dish_origin],class: "form-control specific-input-search-dish-origin d-none"%>
+      <%= text_field_tag :query_difficulty, params[:query_difficulty],class: "form-control specific-input-search-difficulty d-none"%>
+      <%= submit_tag "Search", class: "btn btn-searchbar-filter-go" %>
+  <% end %>
   </div>
 </div>
 

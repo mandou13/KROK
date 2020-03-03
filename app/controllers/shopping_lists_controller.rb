@@ -15,6 +15,11 @@ class ShoppingListsController < ApplicationController
     @shopping_item  = ShoppingList.find(params[:id])
     @shopping_item.bought = !@shopping_item.bought
     @shopping_item.save
-    redirect_to planner_shopping_lists_path(@planner)
+    if @shopping_item.save
+      respond_to do |format|
+        format.html { redirect_to planner_shopping_lists_path(@planner) }
+        format.js
+      end
+  end
   end
 end

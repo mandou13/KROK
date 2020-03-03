@@ -30,7 +30,7 @@
           <h5 class='title-shopping-list'>I need</h5>
           <% @shopping_lists.each do |shopping_list| %>
           <ul>
-              <li class='remove-dots'>
+              <li data-shopping-list-id="<%= shopping_list.id %>" class='remove-dots'>
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -45,7 +45,7 @@
                 <% unless shopping_list.bought %>
                 <div class="d-flex justify-content-between">
                   <div class="d-flex ">
-                    <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch do  %>
+                    <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch, remote: true  do  %>
                       <i class="far fa-square box-to-check"></i>
                     <% end %>
                     <p class="align-middle"><%= shopping_list_ingredient_name  %></p>
@@ -64,7 +64,7 @@
           <h5 class='title-shopping-list'>I got</h5>
           <% @shopping_lists.each do |shopping_list| %>
           <ul>
-              <li class='remove-dots'>
+              <li data-shopping-list-id="<%= shopping_list.id %>" class='remove-dots'>
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -79,7 +79,7 @@
                 <% if shopping_list.bought %>
                 <div class="d-flex justify-content-between">
                   <div class="d-flex ">
-                    <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch do  %>
+                    <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch, remote: true do  %>
                       <i class="fas fa-check box-checked"></i>
                     <% end %>
                     <p class="align-middle cross-name"><%= shopping_list_ingredient_name  %></p>
@@ -122,7 +122,7 @@
           <h5 class='title-shopping-list'>I need</h5>
           <% @shopping_lists_per_category.each do |shopping_list| %>
           <ul>
-              <li class='remove-dots'>
+              <li data-shopping-list-id="<%= shopping_list.id %>" class='remove-dots'>
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -137,7 +137,7 @@
                 <% unless shopping_list.bought %>
                 <div class="d-flex justify-content-between">
                   <div class="d-flex ">
-                    <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch do  %>
+                    <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch, remote: true do  %>
                       <i class="far fa-square box-to-check"></i>
                     <% end %>
                     <p class="align-middle"><%= shopping_list_ingredient_name  %></p>
@@ -156,7 +156,7 @@
           <h5 class='title-shopping-list'>I got</h5>
           <% @shopping_lists_per_category.each do |shopping_list| %>
           <ul>
-              <li class='remove-dots'>
+              <li data-shopping-list-id="<%= shopping_list.id %>" class='remove-dots'>
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -171,7 +171,7 @@
                 <% if shopping_list.bought %>
                 <div class="d-flex justify-content-between">
                   <div class="d-flex ">
-                    <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch do  %>
+                    <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch, remote: true do  %>
                       <i class="fas fa-check box-checked"></i>
                     <% end %>
                     <p class="align-middle cross-name"><%= shopping_list_ingredient_name  %></p>
@@ -214,7 +214,7 @@
           <h5 class='title-shopping-list'>I need</h5>
           <% @shopping_lists_other.each do |shopping_list| %>
           <ul>
-              <li class='remove-dots'>
+              <li data-shopping-list-id="<%= shopping_list.id %>" class='remove-dots'>
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -229,7 +229,7 @@
                 <% unless shopping_list.bought %>
                 <div class="d-flex justify-content-between">
                   <div class="d-flex ">
-                    <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch do  %>
+                    <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch, remote: true do  %>
                       <i class="far fa-square box-to-check"></i>
                     <% end %>
                     <p class="align-middle"><%= shopping_list_ingredient_name  %></p>
@@ -248,7 +248,7 @@
           <h5 class='title-shopping-list'>I got</h5>
           <% @shopping_lists_other.each do |shopping_list| %>
           <ul>
-              <li class='remove-dots'>
+              <li data-shopping-list-id="<%= shopping_list.id %>" class='remove-dots'>
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -263,7 +263,7 @@
                 <% if shopping_list.bought %>
                 <div class="d-flex justify-content-between">
                   <div class="d-flex ">
-                    <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch do  %>
+                    <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch, remote: true do  %>
                       <i class="fas fa-check box-checked"></i>
                     <% end %>
                     <p class="align-middle cross-name"><%= shopping_list_ingredient_name  %></p>

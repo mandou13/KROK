@@ -7,27 +7,77 @@
 </div>
 
 <div class='text-center'>
-  <h2 class='' id='editable-shopping-list-name'> <%= @planner.name %> </h2>
+  <h3 class='' id='editable-shopping-list-name'> Your Shopping List </h3>
+  <h4 class='' id='editable-shopping-list-name'> <%= @planner.name %> </h4>
 </div>
 
 
-<div class='container pb-5'>
-  <% @categories.each do |category| %>
-    <h3><%= category %></h3>
+<div class='container shopping-list-card to-buy-ingredients'>
+    <h5 class='title-shopping-list'>To buy</h5>
     <% @shopping_lists.each do |shopping_list| %>
     <ul>
-      <% if shopping_list.category == category %>
-        <li>
+        <li class='remove-dots'>
+          <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
           <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
-            <%= shopping_list.quantity / 1000 %> kg <%= shopping_list.ingredient_name %>
+            <% shopping_list_quantity = shopping_list.quantity / 1000 %>
+            <% shopping_list_unit = 'kg' %>
           <% elsif  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'ml'%>
-            <%= shopping_list.quantity / 1000 %> l <%= shopping_list.ingredient_name %>
+            <% shopping_list_quantity = shopping_list.quantity / 1000 %>
+            <% shopping_list_unit = 'l' %>
           <% else %>
-            <%= shopping_list.quantity %> <%= shopping_list.unit %> <%= shopping_list.ingredient_name %>
+            <% shopping_list_quantity = shopping_list.quantity%>
+            <% shopping_list_unit = shopping_list.unit %>
+          <% end %>
+          <% unless shopping_list.bought %>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex ">
+              <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch do  %>
+                <i class="far fa-square box-to-check"></i>
+              <% end %>
+              <p class="align-middle"><%= shopping_list_ingredient_name  %></p>
+            </div>
+            <div class="d-flex">
+              <p class="mr-1"> <%= shopping_list_quantity %> </p>
+              <p> <%= shopping_list_unit %> </p>
+            </div>
+          </div>
           <% end %>
         </li>
-      <% end %>
       </ul>
     <% end %>
-  <% end %>
+</div>
+
+<div class='container shopping-list-card bought-ingredients'>
+    <h5 class='title-shopping-list'>I got</h5>
+    <% @shopping_lists.each do |shopping_list| %>
+    <ul>
+        <li class='remove-dots'>
+          <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
+          <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
+            <% shopping_list_quantity = shopping_list.quantity / 1000 %>
+            <% shopping_list_unit = 'kg' %>
+          <% elsif  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'ml'%>
+            <% shopping_list_quantity = shopping_list.quantity / 1000 %>
+            <% shopping_list_unit = 'l' %>
+          <% else %>
+            <% shopping_list_quantity = shopping_list.quantity%>
+            <% shopping_list_unit = shopping_list.unit %>
+          <% end %>
+          <% if shopping_list.bought %>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex ">
+              <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch do  %>
+                <i class="fas fa-check box-checked"></i>
+              <% end %>
+              <p class="align-middle cross-name"><%= shopping_list_ingredient_name  %></p>
+            </div>
+            <div class="d-flex">
+              <p class="mr-1"> <%= shopping_list_quantity %> </p>
+              <p> <%= shopping_list_unit %> </p>
+            </div>
+          </div>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
 </div>

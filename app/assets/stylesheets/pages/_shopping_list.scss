@@ -1,0 +1,41 @@
+.shopping-list-card {
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-bottom: 0px;
+  margin-top: 30px;
+
+  .title-shopping-list {
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    padding-left: 0px;
+    margin-bottom: 4px;
+  }
+  .remove-dots {
+    list-style-type: none;
+  }
+  p {
+    margin: 0px;
+  }
+  a {
+    vertical-align: middle;
+    color: $green;
+    margin-right: 10px;
+    font-size: 18px;
+  }
+
+  .cross-name {
+    text-decoration: line-through;
+  }
+
+  .box-checked {
+    font-size: 15px;
+  }
+
+}
+  .bought-ingredients {
+    font-style: italic;
+  }

@@ -6,8 +6,8 @@
   </div>
   <div class="ml-2">
     <div class="card-title d-flex justify-content-between">
-      <%= link_to recipe_path(liked_recipe.recipe), class: 'text-decoration-none' do  %>
-        <h6><%= liked_recipe.recipe.name.truncate(45) %></h6>
+      <%= link_to recipe_path(liked_recipe.recipe), class: 'text-decoration-none mr-2' do  %>
+        <h6><%= liked_recipe.recipe.name.truncate(40) %></h6>
       <% end %>
       <%= link_to liked_recipe_path(liked_recipe), method: :delete do %>
         <i class="fas fa-times btn-cross"></i>

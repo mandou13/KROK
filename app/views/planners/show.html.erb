@@ -28,11 +28,11 @@
                   <% unless params[:id].to_i < current_user.planners.last.id %>
                     <div class="card-img-icon-cooked" id="">
                       <% if planner_recipe.cooked %>
-                        <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
+                        <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'cooked'), method: :patch, remote: true do  %>
                           <i class="fas fa-drumstick-bite btn-cooked"></i>
                         <% end %>
                       <% elsif !planner_recipe.cooked && planner_recipe.recipe.already_rated?(current_user) %>
-                        <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
+                        <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'not-cooked'), method: :patch, remote: true do  %>
                           <i class="fas fa-drumstick-bite btn-not-cooked" ></i>
                         <% end %>
                       <% else %>
@@ -56,7 +56,13 @@
                       <% end %>
                     </div>
                     <div class= 'recipe-servings-planner'>
-                      <i class="far fa-minus-square btn-grey fa-lg" id='btn-minus-recipe-planner'></i> <span class='pl-3 pr-3' id='recipe-servings-planner'><%= Recipe.find(planner_recipe.recipe_id).servings %> </span> <i class="far fa-plus-square btn-grey fa-lg" id='btn-plus-recipe-planner'></i><!-- <a href="" class='btn btn-grey pt-1' id='btn-plus-recipe-planner'> + </a> -->
+                      <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'minus' ), class: "add", method: :patch do %>
+                        <i class="far fa-minus-square btn-grey fa-lg" id='btn-minus-recipe-planner'></i>
+                      <% end %>
+                      <span class='pl-3 pr-3' id='recipe-servings-planner'><%= planner_recipe.servings %></span>
+                      <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'plus'), class: "add", method: :patch do %>
+                        <i class="far fa-plus-square btn-grey fa-lg" id='btn-plus-recipe-planner'></i>
+                      <% end %>
                     </div>
                   <% end %>
                   <!-- not exist when coming from past planners -->

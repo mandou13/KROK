@@ -1,5 +1,24 @@
-<% raise %>
 
-document.querySelector("[data-shopping-list-id='<%= shopping_list.id %>']").addEventListener('click' => {
-  console.log('TEST');
-})
+function launchAjaxForIngredient() {
+  console.log('GO to update.js.erb')
+  const shoppingListIngredientTargetedToBuy = document.querySelectorAll(".data-shopping-list-id-<%=@shopping_item.id%>-to-buy")
+  const shoppingListIngredientTargetedBought = document.querySelectorAll(".data-shopping-list-id-<%=@shopping_item.id%>-bought")
+  if (shoppingListIngredientTargetedToBuy) {
+    shoppingListIngredientTargetedToBuy.forEach(element => {
+      element.remove();
+    })
+  }
+  if (shoppingListIngredientTargetedBought) {
+    shoppingListIngredientTargetedBought.forEach(element => {
+      element.remove();
+    })
+  }
+
+
+
+};
+
+launchAjaxForIngredient();
+
+
+

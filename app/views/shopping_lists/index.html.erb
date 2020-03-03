@@ -30,7 +30,7 @@
           <h5 class='title-shopping-list'>I need</h5>
           <% @shopping_lists.each do |shopping_list| %>
           <ul>
-              <li data-shopping-list-id="<%= shopping_list.id %>" class='remove-dots'>
+              <li class="data-shopping-list-id-<%= shopping_list.id %>-to-buy remove-dots">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -64,7 +64,7 @@
           <h5 class='title-shopping-list'>I got</h5>
           <% @shopping_lists.each do |shopping_list| %>
           <ul>
-              <li data-shopping-list-id="<%= shopping_list.id %>" class='remove-dots'>
+              <li class="data-shopping-list-id-<%= shopping_list.id %>-bought remove-dots">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -122,7 +122,7 @@
           <h5 class='title-shopping-list'>I need</h5>
           <% @shopping_lists_per_category.each do |shopping_list| %>
           <ul>
-              <li data-shopping-list-id="<%= shopping_list.id %>" class='remove-dots'>
+              <li class="data-shopping-list-id-<%= shopping_list.id %>-to-buy remove-dots">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -156,7 +156,7 @@
           <h5 class='title-shopping-list'>I got</h5>
           <% @shopping_lists_per_category.each do |shopping_list| %>
           <ul>
-              <li data-shopping-list-id="<%= shopping_list.id %>" class='remove-dots'>
+              <li class="data-shopping-list-id-<%= shopping_list.id %>-bought remove-dots">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -214,7 +214,7 @@
           <h5 class='title-shopping-list'>I need</h5>
           <% @shopping_lists_other.each do |shopping_list| %>
           <ul>
-              <li data-shopping-list-id="<%= shopping_list.id %>" class='remove-dots'>
+              <li class="data-shopping-list-id-<%= shopping_list.id %>-to-buy remove-dots">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -248,7 +248,7 @@
           <h5 class='title-shopping-list'>I got</h5>
           <% @shopping_lists_other.each do |shopping_list| %>
           <ul>
-              <li data-shopping-list-id="<%= shopping_list.id %>" class='remove-dots'>
+              <li class="data-shopping-list-id-<%= shopping_list.id %>-bought remove-dots">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>

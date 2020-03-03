@@ -101,7 +101,8 @@
   <% @shopping_lists_per_category = [] %>
   <% @shopping_lists.each do |shopping_list| %>
     <% @shopping_lists_per_category << shopping_list if shopping_list.category == category %>
-<% end %>
+  <% end %>
+<% if @categories.include?(category) %>
 <div class="accordion mt-3" id="accordion-shopping">
   <div class="card card-shopping-<%=category.split(" ").first.downcase%>">
     <button class="btn collapsed before-collapse-<%=category.split(" ").first.downcase%> " type="button" data-toggle="collapse" data-target="#collapse<%= index %>" aria-expanded="false" aria-controls="collapse<%= index %>">
@@ -184,10 +185,11 @@
               </li>
             </ul>
           <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <% end %>
 <% end %>
 <% @shopping_lists_other = [] %>
 <% @shopping_lists.each do |shopping_list| %>

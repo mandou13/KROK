@@ -5,8 +5,8 @@ class ShoppingListsController < ApplicationController
     @categories = []
     @shopping_lists.each {|shopping_list| @categories  << shopping_list.category}
     @categories = @categories.uniq.sort
-    @categories_all_except_other = ["Vegetable", "Bakery", "Dairy", "Fish", "Fruit", "Herb and Spice"]
-    @categories_other = ["Condiment", "Dry",  "Dish", "Nuts & Seed"]
+    @categories_all_except_other = ["Vegetable", "Meat", "Beverage Alcoholic", "Bakery", "Dairy", "Fish", "Fruit", "Herb and Spice", "Canned  Goods"]
+    @categories_other = ["Condiment", "Dry", "Flower"  "Dish", "Nuts & Seed", "Beverage" "Dairy Substitute", "Plant"]
 
   end
 

@@ -1,3 +1,30 @@
+.card-shopping-all {
+  // border-radius: 20px;
+  // border-radius: 10px;
+  margin-left:15px;
+  margin-right:15px;
+  text-decoration: none;
+  background-color: white;
+  border: none;
+  color: black;
+  .before-collapse {
+    // background-color: $green;
+    border-radius: 20px;
+    height: 100px;
+    border: 2px solid $green;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+  .circle-notif-shopping {
+    font-size: 10px;
+    color: red;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+  }
+}
+
 .shopping-list-card {
   padding-left: 35px;
   padding-right: 35px;
@@ -7,7 +34,6 @@
   .title-shopping-list {
     font-weight: 700;
     font-style: italic;
-    margin-bottom: 10px;
   }
 
   ul {
@@ -39,3 +65,226 @@
   .bought-ingredients {
     font-style: italic;
   }
+
+.mg-high {
+  margin-bottom: 80px;
+}
+
+
+.text-center {
+  h4 {
+    margin-bottom: 40px;
+  }
+}
+
+.card-shopping-vegetable {
+  border-radius: 20px;
+  margin-left:15px;
+  margin-right:15px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  .before-collapse-vegetable {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1518843875459-f738682238a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1326&q=80);
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    h4, h5 {
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2)
+    }
+  }
+  .circle-notif-shopping {
+  font-size: 10px;
+  color: red;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  }
+}
+
+.card-shopping-bakery {
+  border-radius: 20px;
+  margin-left:15px;
+  margin-right:15px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  .before-collapse-bakery {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1515823808611-65fd8e56c71a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    h4, h5 {
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2)
+    }
+  }
+  .circle-notif-shopping {
+  font-size: 10px;
+  color: red;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  }
+}
+
+.card-shopping-dairy {
+  border-radius: 20px;
+  margin-left:15px;
+  margin-right:15px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  .before-collapse-dairy {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1552593050-477020c5af3f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80);
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    h4, h5 {
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2)
+    }
+  }
+  .circle-notif-shopping {
+  font-size: 10px;
+  color: red;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  }
+}
+
+.card-shopping-fish {
+  border-radius: 20px;
+  margin-left:15px;
+  margin-right:15px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  .before-collapse-fish {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1510130387422-82bed34b37e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80);
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    h4, h5 {
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2)
+    }
+  }
+  .circle-notif-shopping {
+  font-size: 10px;
+  color: red;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  }
+}
+
+.card-shopping-fruit {
+  border-radius: 20px;
+  margin-left:15px;
+  margin-right:15px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  .before-collapse-fruit {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1507654304600-18d902b183b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=639&q=80);
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    h4, h5 {
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2)
+   }
+  }
+  .circle-notif-shopping {
+  font-size: 10px;
+  color: red;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  }
+}
+
+.card-shopping-herb {
+  border-radius: 20px;
+  margin-left:15px;
+  margin-right:15px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  .before-collapse-herb {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1569783221530-20e82d1915fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80);
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    h4, h5 {
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2)
+    }
+  }
+  .circle-notif-shopping {
+  font-size: 10px;
+  color: red;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  }
+}
+
+.card-shopping-all-other {
+  border-radius: 20px;
+  margin-left:15px;
+  margin-right:15px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  .before-collapse-other {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    h4, h5 {
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2)
+    }
+  }
+  .circle-notif-shopping {
+  font-size: 10px;
+  color: red;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  }
+}
+

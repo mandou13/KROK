@@ -11,7 +11,7 @@ import { navBackChangeWithScrollPos } from '../components/navbar_back_bgchange_w
 import { changeClassWhenSelect } from '../components/multiselect_searchbox';
 import { addFiltersToSearch } from '../components/add_search_to_searchbox';
 import { handleClickOnTab } from '../components/handleClickOnTab';
-import { handleColorBtnAddOldPlanner } from '../components/handleColorBtnAddOldPlanner';
+// import { handleColorBtnAddOldPlanner } from '../components/handleColorBtnAddOldPlanner';
 
 
 

@@ -1,7 +1,6 @@
 <!-- <h1>ShoppingLists#index</h1>
 <p>Find me in app/views/shopping_lists/index.html.erb</p>
  -->
-
 <div class='text-center'>
   <h1 class='underligned-green pb-2 pt-4'> Your Shopping List </h1>
 </div>
@@ -29,7 +28,7 @@
       <div class='container shopping-list-card to-buy-ingredients'>
           <h5 class='title-shopping-list'>I need</h5>
           <% @shopping_lists.each do |shopping_list| %>
-          <ul>
+          <ul class="ingredients-all-to-buy">
               <li class="data-shopping-list-id-<%= shopping_list.id %>-to-buy remove-dots">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
@@ -63,7 +62,7 @@
       <div class='container shopping-list-card bought-ingredients'>
           <h5 class='title-shopping-list'>I got</h5>
           <% @shopping_lists.each do |shopping_list| %>
-          <ul>
+          <ul class="ingredients-all-bought">
               <li class="data-shopping-list-id-<%= shopping_list.id %>-bought remove-dots">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>

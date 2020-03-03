@@ -1,4 +1,9 @@
 
+function addIngredient(ingredient, status) {
+  const ingredientsAll = document.querySelector(`.ingredients-all${status}` );
+  ingredientsAll.insertAdjacentHTML('afterbegin', ingredient);
+}
+
 function launchAjaxForIngredient() {
   console.log('GO to update.js.erb')
   const shoppingListIngredientTargetedToBuy = document.querySelectorAll(".data-shopping-list-id-<%=@shopping_item.id%>-to-buy")
@@ -6,7 +11,8 @@ function launchAjaxForIngredient() {
   if (shoppingListIngredientTargetedToBuy) {
     shoppingListIngredientTargetedToBuy.forEach(element => {
       element.remove();
-    })
+    });
+    addIngredient('<%= j render "ingredient-bought", shopping_list: @shopping_item.reload, @planner: @planner.reload %>', '-bought')
   }
   if (shoppingListIngredientTargetedBought) {
     shoppingListIngredientTargetedBought.forEach(element => {

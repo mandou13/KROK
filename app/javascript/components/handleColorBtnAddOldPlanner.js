@@ -1,5 +1,5 @@
 const countClicks = () => {
-    let counts = localStorage.getItem('btn-add-previous-planner');//You can use
+    let counts = localStorage.getItem('clickCount');//You can use
     if (counts!==null){
         var newClick = parseInt(counts) + 1;
         localStorage.setItem('click-counts', newClick);

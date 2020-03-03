@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container container-krok">
 
-  <div class="search-box" id ='searchbox-recipe-index-before'>
-   <%= form_tag recipes_path, method: :get do %>
-     <%= text_field_tag :query,
-       params[:query],
-       class: "form-control",
-       placeholder: "What to Krok?"
-     %>
-   <% end %>
-  </div>
+    <div class="search-box" id ='searchbox-recipe-index-before'>
+     <%= form_tag recipes_path, method: :get do %>
+       <%= text_field_tag :query,
+         params[:query],
+         class: "form-control",
+         placeholder: "What to Krok?"
+       %>
+     <% end %>
+    </div>
 
   <div id="recipes" class="row">
     <% @recipes.each_with_index do |recipe, index| %>

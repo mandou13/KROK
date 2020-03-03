@@ -1,6 +1,10 @@
 .top-navbar {
-  height: 5vh;
+  height: 9vh;
+  background-color: white;
   // background-color: $green;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
   img {
     width: 70px;
     height: 70px;

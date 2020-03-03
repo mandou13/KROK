@@ -2,11 +2,7 @@
   <div class="" id='title_to_update'>
     <div class="planner-title-card d-flex">
       <h3 class='planner-title'><%= @planner.name%></h3>
-      <!-- not exist when coming from past planners -->
-      <% unless params[:id].to_i < current_user.planners.last.id %>
-        <i class="fas fa-edit p-2" id="title_update_launch"></i>
-      <% end %>
-      <!-- not exist when coming from past planners -->
+      <i class="fas fa-edit p-2" id="title_update_launch"></i>
     </div>
   </div>
   <%= render 'shared/form' %>

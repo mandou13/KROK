@@ -13,4 +13,10 @@ class PlannerRecipe < ApplicationRecord
       self.save
     end
   end
+
+  def repeatedly_created?(planner)
+    answer = []
+    planner.planner_recipes.each { |pr| answer << (pr.recipe.id == self.recipe.id) }
+    answer.include?(true)
+  end
 end

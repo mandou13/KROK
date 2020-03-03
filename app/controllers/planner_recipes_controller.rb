@@ -7,22 +7,9 @@ class PlannerRecipesController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @planner_recipe.recipe = @recipe
 
-    if @planner_recipe.save
-      if URI(request.referer).path.index("planners") == 1
-        redirect_to planner_path(@planner)
-      elsif URI(request.referer).path.index("recipes/#{@recipe.id}") == 1
-        redirect_to recipe_path(@recipe)
-      else
-        redirect_to recipes_path
-      end
-    else
-      redirect_to recipes_path, alert: 'You can only have greater than or equal to 1 servings'
-    end
-
+    # shopping list
     @recipe.ingredients.each do |ingredient|
-
       shopping_lists = ShoppingList.where("planner_id = ? AND ingredient_name = ?", @planner.id, ingredient.name)
-
       quotient = @planner_recipe.servings.to_i.fdiv(@planner_recipe.recipe.servings.to_i)
       ingredient.quantity = (quotient * ingredient.quantity)
       ingredient = ingredient.convert_ingredient_to_krok_unit unless ingredient.krok_unit?
@@ -43,8 +30,21 @@ class PlannerRecipesController < ApplicationController
         shopping_list_reference.save!
       end
     end
+    # shopping list
 
+    if @planner_recipe.save
+      if URI(request.referer).path.index("planners") == 1
+        redirect_to planner_path(@planner)
+      elsif URI(request.referer).path.index("recipes/#{@recipe.id}") == 1
+        redirect_to recipe_path(@recipe)
+      else
+        redirect_to recipes_path
+      end
+    else
+      redirect_to recipes_path, alert: 'You can only have greater than or equal to 1 servings'
+    end
   end
+
 
   def update
     @planner = Planner.find(params[:planner_id])

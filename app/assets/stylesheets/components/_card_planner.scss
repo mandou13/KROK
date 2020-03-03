@@ -2,7 +2,7 @@
   border: none;
   width: 80vw;
   .card-title h5 {
-    color: $green;
+    color: #444;
     margin-bottom: 0;
     }
   .planner-recipe-img {
@@ -11,5 +11,8 @@
   .planner-recipe-img img {
     width: 100%;
     padding-right: 1px;
+  }
+  .btn-add-previous-planner {
+    color: $green;
   }
 }

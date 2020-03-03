@@ -44,6 +44,28 @@ class PlannersController < ApplicationController
     end
   end
 
+  def add_from_previous_planner
+    @old_planner = Planner.find(params[:id])
+    @new_planner = current_user.planners.last
+
+    @old_planner.planner_recipes.each do |old_pr|
+      new_pr = PlannerRecipe.new(recipe_id: old_pr.recipe.id, planner_id: @new_planner.id, servings: old_pr.servings)
+
+      if new_pr.repeatedly_created?(@new_planner)
+        @new_planner.planner_recipes.each do |pr|
+          if pr.recipe.id == new_pr.recipe.id
+            pr.servings += new_pr.servings
+            pr.save
+          end
+        end
+      else
+        new_pr.save
+      end
+    end
+
+    redirect_to planner_path(@new_planner)
+  end
+
   private
 
   def set_planner_params

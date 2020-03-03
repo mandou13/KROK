@@ -1,6 +1,9 @@
 import "bootstrap";
 import "components/navbar";
 import "packs/plugin/profile.js";
+import 'select2/dist/css/select2.css';
+import { initSelect2 } from '../components/init_select2';
+
 
 import { initLikedRecipeNav } from "components/init_like_recipe_nav";
 import { display_add_or_random } from '../components/add_or_random';
@@ -17,6 +20,12 @@ display_title();
 display_searchbar();
 display_filter();
 initLikedRecipeNav();
+initSelect2();
+
+
+//  window.onload = function(){
+//    setTimeout(display_add_or_random, 5000)
+// };
 display_add_or_random();
 navBackChangeWithScrollPos();
 changeClassWhenSelect();

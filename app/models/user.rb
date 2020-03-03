@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :planners
   has_many :liked_recipes
+  has_many :preferences
+  has_many :ingredients, through: :preferences
   has_many :ratings
   has_many :planner_recipes, through: :planners
   has_many :shopping_lists, through: :planners

@@ -1,9 +1,9 @@
 <div class="search-box" >
- <%= form_tag recipes_path, method: :get do %>
+ <%= form_tag liked_recipes_path, method: :get do %>
    <%= text_field_tag :query,
      params[:query],
      class: "form-control",
-     placeholder: "What to Krok?"
+     placeholder: "Find your star recipes"
    %>
    <%#= submit_tag "Search", class: "btn btn-primary" %>
  <% end %>

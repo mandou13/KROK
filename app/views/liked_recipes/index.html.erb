@@ -4,13 +4,14 @@
   <div class="dish-type-nav">
     <ul class="nav d-flex justify-content-center">
       <li class="nav-item flex-grow-1">
-        <button class="btn w-100" id="btn-starter">STARTER</button>
+        <!-- opacity button -->
+        <button class="btn w-100 <%= "btn-no-search-result" unless @starter %>" id="btn-starter">STARTER</button>
       </li>
       <li class="nav-item flex-grow-1">
-        <button class="btn w-100 btn-liked-active" id="btn-main">MAIN</button>
+        <button class="btn w-100 btn-liked-active <%= "btn-no-search-result" unless @main %>" id="btn-main">MAIN</button>
       </li>
       <li class="nav-item flex-grow-1">
-        <button class="btn w-100" id="btn-dessert">DESSERT</button>
+        <button class="btn w-100 <%= "btn-no-search-result" unless @dessert %>" id="btn-dessert">DESSERT</button>
       </li>
     </ul>
   </div>
@@ -72,6 +73,10 @@
 
     </div>
   </div>
-
-
 </div>
+
+<!-- search result -->
+<div id="main" data-any='<%= @main %>'></div>
+<div id="starter" data-any='<%= @starter %>'></div>
+<div id="dessert" data-any='<%= @dessert %>'></div>
+

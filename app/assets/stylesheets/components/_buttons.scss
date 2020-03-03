@@ -54,6 +54,7 @@
  padding: 5px 5px;
 }
 
+
 .btn-searchbar-filter-go {
   margin: 20px auto;
   color: white;
@@ -61,4 +62,7 @@
   border-radius: 20px;
   padding: 5px;
   transition: opacity 0.3s ease;
+
+.btn-add-recipe {
+  color: $green;
 }

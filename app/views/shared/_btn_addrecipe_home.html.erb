@@ -1,23 +1,23 @@
-<% if current_user.nil? %>
-  <div class="circle-add-recipe">
+<div class="circle-icon">
+  <% if current_user.nil? %>
     <%= link_to new_user_session_path do %>
-      <i class="fas fa-utensils btn-add-recipe" id ="recipe-show-btn-add"></i>
+      <i class="fas fa-utensils btn-add-recipe"></i>
     <% end %>
-  </div>
-<% else %>
-  <% if recipe.added?(current_user) %>
-    <div class="circle-add-recipe circle-add-recipe-cliked">
-      <%= link_to planner_planner_recipe_path(current_user.planners.last, PlannerRecipe.find_by(recipe: recipe, planner: current_user.planners.last)), method: :delete do %>
-        <i class="fas fa-utensils btn-add-recipe btn-add-recipe-cliked" id ="recipe-show-btn-add"></i>
-      <% end %>
-    </div>
   <% else %>
-    <div class="circle-add-recipe">
+
+    <% has_recipe_in = current_user.planners.last.recipes.include?(recipe) %>
+    <% if has_recipe_in %>
+      <%= link_to recipe_planner_recipe_path(recipe, PlannerRecipe.find_by(recipe: recipe, planner: @planner)), method: :delete do  %>
+        <i class="fas fa-utensils btn-add-recipe-done-orange"></i>
+      <% end %>
+    <% else %>
       <%#= link_to recipe_planner_recipes_path(recipe), method: :post do %>
-        <!-- <i class="fas fa-utensils btn-add-recipe" id ="recipe-show-btn-add"></i> -->
+        <!-- <i class="fas fa-utensils btn-add-recipe"></i> -->
       <%# end %>
       <!-- modal -->
-      <i class="fas fa-utensils btn-add-recipe" id ="recipe-show-btn-add" data-toggle="modal" data-target="#recipe-<%= recipe.id %>"></i>
+      <i class="fas fa-utensils btn-add-recipe" data-toggle="modal" data-target="#recipe-<%= recipe.id %>"></i>
+<!--       <button class="fas fa-utensils btn-add-recipe" data-toggle="modal" data-target="#recipe-<%= recipe.id %>">
+      </button> -->
       <div class="modal fade" id="recipe-<%= recipe.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -42,7 +42,7 @@
         </div>
       </div>
       <!-- modal -->
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 

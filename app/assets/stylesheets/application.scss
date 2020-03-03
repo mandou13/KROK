@@ -14,10 +14,15 @@
 
 
 .container {
-  margin: 40px auto;
+  margin-bottom: 40px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 body {
   background-color: white;
 }
 
+.container-krok {
+  margin-top: 85px;
+}

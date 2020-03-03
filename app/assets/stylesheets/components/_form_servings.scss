@@ -1,0 +1,11 @@
+#new_planner_recipe {
+  display: flex;
+  justify-content: space-between;
+  .form-input {
+    border: 0.5px solid rgba(200, 200, 200, 0.4);
+  }
+  .btn {
+    width: 60%;
+    margin: 0px 0px 0px 10px;
+  }
+}

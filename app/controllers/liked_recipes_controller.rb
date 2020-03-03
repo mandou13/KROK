@@ -8,6 +8,7 @@ class LikedRecipesController < ApplicationController
       unless Ingredient.search_by_ingredient(params[:query]).empty?
         Ingredient.search_by_ingredient(params[:query]).each do |ingredient|
           current_user.liked_recipes.each do |liked_recipe|
+            @liked_recipes.each { |lr| @liked_recipes = [] << lr }
             @liked_recipes << liked_recipe if liked_recipe.recipe.id == ingredient.recipe_id
           end
         end

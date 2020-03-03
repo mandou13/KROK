@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root to: 'recipes#index'
 
-  resource :profile, only: :show # attendre la reconfiguration du devise
+  resource :profile, only: :show
 
   resources :recipes do
     resources :planner_recipes, only: [:create, :destroy]
@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :planners, only: [:show, :create, :update] do
+    member do
+      post 'add_from_previous_planner'
+    end
     resources :planner_recipes, only: [:destroy, :update]
     resources :shopping_lists, only: [:index, :update]
   end

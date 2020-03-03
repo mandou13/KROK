@@ -1,5 +1,4 @@
 const handleClickOnTab = () => {
-  console.log('handleClickOnTab')
   const main = document.getElementById('main');
   const starter = document.getElementById('starter');
   const dessert = document.getElementById('dessert');

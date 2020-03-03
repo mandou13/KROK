@@ -18,8 +18,13 @@ class ShoppingListsController < ApplicationController
     if @shopping_item.save
       respond_to do |format|
         format.html { redirect_to planner_shopping_lists_path(@planner) }
-        format.js
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
       end
-  end
+    else
+      respond_to do |format|
+        format.html { redirect_to planner_shopping_lists_path(@planner) }
+        format.js  # <-- idem
+      end
+    end
   end
 end

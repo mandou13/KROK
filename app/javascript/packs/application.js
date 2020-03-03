@@ -20,7 +20,6 @@ display_title();
 display_searchbar();
 display_filter();
 initLikedRecipeNav();
-btnAddRecipeToggle();
 initSelect2();
 
 

@@ -1,0 +1,45 @@
+<%= link_to planner_path(planner), html: { class: "past-planner-link" } do  %>
+  <div class="card card-planner d-flex mb-3">
+    <div class="row">
+
+      <div class="col-6">
+        <div class="card-img">
+          <div class="row d-flex justify-content-between">
+            <% if planner.recipes.size >=3 %>
+              <% planner.recipes.first(3).each do |recipe| %>
+                <div class="col-4 planner-recipe-img">
+                  <%= cl_image_tag recipe.photo.key %>
+                </div>
+              <% end %>
+            <% elsif planner.recipes.size == 2 %>
+              <% planner.recipes.each do |recipe| %>
+                <div class="col-4 planner-recipe-img">
+                  <%= cl_image_tag recipe.photo.key %>
+                </div>
+              <% end %>
+              <div class="col-4 planner-recipe-img bg-light">
+              </div>
+            <% else %>
+              <% planner.recipes.each do |recipe| %>
+                <div class="col-4 planner-recipe-img">
+                  <%= cl_image_tag recipe.photo.key %>
+                </div>
+              <% end %>
+              <div class="col-4 planner-recipe-img bg-light", style="padding-right: 1px;">
+              </div>
+              <div class="col-4 planner-recipe-img bg-light">
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 d-flex flex-column justify-content-center p-0">
+        <div class="card-title mb-0">
+          <h5><%= planner.name %></h5>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<% end %>

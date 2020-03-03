@@ -28,6 +28,13 @@ class RecipesController < ApplicationController
       end
     end
     @recipes = @recipes.uniq
+    if  (params[:query_dish_type] || params[:query_prep_time] || params[:query_dish_origin] || params[:query_difficulty]).present?
+      dish_type = params[:query_dish_type].present? ? params[:query_dish_type].downcase.split("%") : Recipe::DISH_TYPE
+      prep_time = params[:query_prep_time].present? ? params[:query_prep_time].downcase.split("%").map {|time| time[0...-3].to_i}.max : 200
+      dish_origin = params[:query_dish_origin].present? ? params[:query_dish_origin].split("%") : Recipe::DISH_ORIGIN
+      difficulty = params[:query_difficulty].present? ? params[:query_difficulty].split("%") : Recipe::DIFFICULTY
+      @recipes = Recipe.where(dish_type: dish_type, dish_origin: dish_origin, difficulty: difficulty).where("prep_time <= #{prep_time}")
+    end
   end
 
   def show
@@ -70,5 +77,4 @@ class RecipesController < ApplicationController
   def find_recipe
     @recipe = Recipe.find(params[:id])
   end
-
 end

@@ -1,0 +1,48 @@
+<% if current_user.nil? %>
+  <div class="circle-add-recipe">
+    <%= link_to new_user_session_path do %>
+      <i class="fas fa-utensils btn-add-recipe" id ="recipe-show-btn-add"></i>
+    <% end %>
+  </div>
+<% else %>
+  <% if recipe.added?(current_user) %>
+    <div class="circle-add-recipe circle-add-recipe-cliked">
+      <%= link_to planner_planner_recipe_path(current_user.planners.last, PlannerRecipe.find_by(recipe: recipe, planner: current_user.planners.last)), method: :delete do %>
+        <i class="fas fa-utensils btn-add-recipe btn-add-recipe-cliked" id ="recipe-show-btn-add"></i>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="circle-add-recipe">
+      <%#= link_to recipe_planner_recipes_path(recipe), method: :post do %>
+        <!-- <i class="fas fa-utensils btn-add-recipe" id ="recipe-show-btn-add"></i> -->
+      <%# end %>
+      <!-- modal -->
+      <i class="fas fa-utensils btn-add-recipe" id ="recipe-show-btn-add" data-toggle="modal" data-target="#recipe-<%= recipe.id %>"></i>
+      <div class="modal fade" id="recipe-<%= recipe.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">How many servings you want to prepare?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center align-middle">
+
+              <div class="form-box font-italic" id='title_updated'>
+                <% planner_recipe = PlannerRecipe.new %>
+                <%= form_for [recipe, planner_recipe] do |f| %>
+                <%= f.number_field :servings, collection: (1..20), class: 'form-input', placeholder: "#{recipe.servings}", value: recipe.servings  %>
+                <%= f.submit 'Add', class: "btn btn-krok-little" %>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- modal -->
+    </div>
+  <% end %>
+<% end %>
+

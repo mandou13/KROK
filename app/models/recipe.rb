@@ -1,4 +1,10 @@
 class Recipe < ApplicationRecord
+
+  DISH_TYPE = ["dessert", "main", "starter"]
+  PREP_TIME = ["20", "30", "45", "60"]
+  DISH_ORIGIN = ["Italian", "German", "French", "American", "English", "Middle East", "British", "Mexican", "Spanish", "Indian"]
+  DIFFICULTY = ["Easy", "Medium"]
+
   belongs_to :user
   has_many   :ingredients
   has_many   :planner_recipes
@@ -23,6 +29,7 @@ class Recipe < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+
   def avg_rating
     sum = 0
     self.ratings.each do |rating|
@@ -32,23 +39,19 @@ class Recipe < ApplicationRecord
   end
 
   def liked?(user)
-   unless user.nil?
-      answer = []
-      self.liked_recipes.each do |liked_recipe|
-        answer << (liked_recipe.user.id == user.id)
-      end
-      answer.include?(true)
+    answer = []
+    self.liked_recipes.each do |liked_recipe|
+      answer << (liked_recipe.user.id == user.id)
     end
+    answer.include?(true)
   end
 
   def added?(user)
-   unless user.nil?
-      answer = []
-      user.planners.last.planner_recipes.each do |planner_recipe|
-        answer << (planner_recipe.recipe == self)
-      end
-      answer.include?(true)
+    answer = []
+    user.planners.last.planner_recipes.each do |planner_recipe|
+      answer << (planner_recipe.recipe == self)
     end
+    answer.include?(true)
   end
 
   def already_rated?(user)

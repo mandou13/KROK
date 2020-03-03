@@ -25,18 +25,19 @@
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion-profile {
   background-color:  white;
-  display:          flex;
+  display:           flex;
   color:             #444;
   cursor:            pointer;
   padding:           18px;
-  margin-top:        20px;
+  margin:            20px auto;
   width:             96%;
   text-align:        center;
   border:            none;
   outline:           none;
-  border:      1px solid;
+  border:            1px solid;
   border-radius:     18px;
   align-items:       center;
+
 }
 
 /* Style the accordion panel. Note: hidden by default */

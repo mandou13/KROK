@@ -16,60 +16,73 @@ class ShoppingList < ApplicationRecord
     # en faisant gaffe avec les unités
     all_ingredients = ShoppingList.all.select{ |item| item.planner_id == self.planner.id }
     ingredient_array = all_ingredients.select{ |ingredient| ingredient.ingredient_name == self.ingredient_name }
-    p ingredient_array
     # p ingredient_array = ShoppingList.where(planner: self.planner, ingredient_name: self.ingredient_name)
     ingredient_array.length > 1
     # ShoppingList.where(planner: self.planner, ingredient_name: self.ingredient_name).present?
   end
 
-  def merge
+  def merge(reference)
+
+    # j'ai 2 instances, une réference et l'autre
+
+    reference.quantity += self.quantity
+    reference.save!
+    self.destroy
+
+
     ingredients_hash = {}
+
+
     # all_ingredients = ShoppingList.all.select{ |item| item.planner_id == self.planner.id }
-    shopping_lists = ShoppingList.where(planner: self.planner)
-    # p shopping_lists
+    self.ingredient_name
+    shopping_lists = ShoppingList.where(planner: self.planner, ingredient_name: self.ingredient_name).delete(self)
+
     shopping_lists.each do |shopping_list|
-      if ingredients_hash.key?(shopping_list.ingredient_name)
-        ingredients_hash[shopping_list.ingredient_name] << [shopping_list.quantity, shopping_list.unit]
-      else
-        ingredients_hash[shopping_list.ingredient_name] = [[shopping_list.quantity, shopping_list.unit]]
-      end
+
+      unit = shopping_list.unit
+      quantity = shopping_list.quantity
+
     end
-    p ingredients_hash
-    # ingredients_hash.each do |key, value|
-    #   ingredient = ShoppingList.where(ingredient_name: key)
-    #   units    = []
-    #   quantity = []
-    #   value.each do |array|
-    #     quantity << array[0]
-    #     # p quantity
-    #     units    << array[1]
+
+    # iterer sur les shopping_lists
+
+
+
+
+    # ingredient_array = shopping_lists.select{ |ingredient| ingredient == self }
+    ingredient_array.each do |ingredient|
+
+      ingredients_hash[ingredient.ingredient_name] << [ingredient.quantity, ingredient.unit]
+    end
+    ingredients_hash[self.ingredient_name] << [self.quantity, self.unit]
+    # p shopping_lists
+    # shopping_lists.each do |shopping_list|
+    #   if ingredients_hash.key?(shopping_list.ingredient_name)
+    #     ingredients_hash[shopping_list.ingredient_name] << [shopping_list.quantity, shopping_list.unit]
+    #   else
+    #     ingredients_hash[shopping_list.ingredient_name] = [[shopping_list.quantity, shopping_list.unit]]
     #   end
-    #   if units.uniq.length == 1
-    #     good_values = [quantity.sum, units[0]]
-    #     p good_values
-    #   elsif units.include?('g')
-    #     unit_converter  = {}
-    #     unit_converter["tbsp"] = 12
-    #     unit_converter["tsp"] = 5
-    #     unit_converter["kg"] = 1000
-    #     unit_converter["bunch"] = 100
-    #     unit_converter["clove"] = 5
-    #     unit_converter["g"]  = 1
-    #     unit_converter[nil] = 60
-    #     good_quantity = units.each_with_index.map {|unit, index| unit_converter[unit] * quantity[index]}
-    #     good_values = [good_quantity.sum,"g"]
-    #     p good_values
-    #   elsif units.include?('ml')
-    #     unit_converter  = {}
-    #     unit_converter["tbsp"] = 12
-    #     unit_converter["tsp"] = 5
-    #     unit_converter["ml"] = 1
-    #     unit_converter["l"] = 1000
-    #     good_quantity = units.each_with_index.map {|unit, index| unit_converter[unit] * quantity[index]}
-    #     good_values = [good_quantity.sum,"ml"]
-    #     p good_values
-    #   end
-    #   ingredient.update(quantity: good_values[0], unit: good_values[1])
     # end
+    p ingredients_hash
+    good_values = []
+    ingredients_hash.each do |key, value|
+      ingredient = ShoppingList.where(ingredient_name: key)
+      units    = []
+      quantity = []
+      value.each do |array|
+        quantity << array[0]
+        # p quantity
+        units    << array[1]
+      end
+      if units.uniq.length == 1
+        good_values = [quantity.sum, units[0]]
+        p "good quantities"
+        p good_values
+      end
+
+      ingredient.update(quantity: good_values[0], unit: good_values[1])
+      p ingredient
+    end
   end
+
 end

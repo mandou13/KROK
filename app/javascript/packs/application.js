@@ -1,6 +1,9 @@
 import "bootstrap";
 import "components/navbar";
 import "packs/plugin/profile.js";
+import 'select2/dist/css/select2.css';
+import { initSelect2 } from '../components/init_select2';
+
 
 import { btnHeartToggle } from "components/btn_heart_toggle";
 import { initLikedRecipeNav } from "components/init_like_recipe_nav";
@@ -17,6 +20,7 @@ display_filter();
 btnHeartToggle();
 initLikedRecipeNav();
 btnAddRecipeToggle();
+initSelect2();
 
 
 //  window.onload = function(){

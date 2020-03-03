@@ -16,18 +16,19 @@
     </div>
       <div id="food-preference" class="panel-profile d-none search-box">
         <%= simple_form_for @preference do |t| %>
-          <%= t.label 'What do you want to remove?'  %>
-          <%= t.input :ingredient, collection: @ingredients, placeholder:'x' %>
-          <%= t.submit "add", class: 'btn-krok-pref'%>
+          <%= t.input :ingredient, collection: @ingredients, input_html: {class: "select2"} %>
+          <%= t.submit "Dislike", class: 'btn-krok-pref'%>
         <%end %>
         <p>Hidden Ingredients : </p>
         <div class="container-preferences">
-          <% @user_ingredients.each do |ingredient| %>
-          <div>
-            <p class="preferences-tags"><%= ingredient.name %></p>
-            <%= button_to "x", @preference, :method => :destroy, class: 'delete-preference' %>
+          <div class="row">
+            <% @user_preferences.each do |preference| %>
+            <div class="col-6 mt-3">
+              <p class="preferences-tags"><%= preference.ingredient.name %></p>
+              <%= button_to "x", preference_path(preference), method: :delete, class: 'delete-preference' %>
+            </div>
+            <% end %>
           </div>
-          <% end %>
         </div>
       </div>
     <div id = "previous-lists" class="accordion-profile"><i class="fas fa-clock fa-lg"></i><div class="item-text">PREVIOUS SHOPPING LIST</div><i class="fas fa-sort-down"></i></div>

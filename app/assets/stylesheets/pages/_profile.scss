@@ -47,9 +47,9 @@
   width: 100%;
   background-color: white;
   border-radius: 20px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  // display: flex;
+  // align-items: center;
+  // flex-direction: column;
   // -webkit-transition: all 0.5s ease-in-out;
   // -moz-transition: all 0.5s ease-in-out;
   // -ms-transition: all 0.5s ease-in-out;
@@ -87,20 +87,18 @@ text-align:        center;
 }
 
 .container-preferences{
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
 .preferences-tags {
     background-color: #EEEEEE;
     border-radius: 63px;
     font-size: lighter;
-    padding: 1px 15px;
+    padding: 3px 14px;
     -webkit-transition: opacity 0.3s ease;
     transition: opacity 0.3s ease;
-    margin-bottom: 15px;
+    margin: auto;
     position: absolute;
-    display: block;
 }
 
 .delete-preference{
@@ -108,9 +106,10 @@ text-align:        center;
   width: 20px;
   height: 20px;
   position: relative;
- left: -13px;
- top: -14px;
- font-size: 10px;
+  left: -69px;
+  top: -13px;
+  font-size: 10px;
+  border-style: none;
 }
 
 label.select.required{
@@ -120,16 +119,33 @@ label.select.required{
 
 
 .btn-krok-pref{
- background-color: #73C88B;
-  color: white;
-  font-weight: bold;
-  border-radius: 2px;
-  padding: 2px;
-  margin-left: 3px;
-  margin-bottom: 15px;
+    background-color: #73C88B;
+    color: white;
+    width: 72px;
+    height: 32px;
+    border-radius: 11px;
+    padding: 0px;
+    margin-left: 3px;
+    margin-bottom: 7px;
+    margin-top: 0;
 }
 
+label.select.required {
+  display: none;
+}
 
+// div#food-preference.panel-profile{
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: column;
+// }
 
+.select2{
+  width: 150px;
+  height: 33px;
+}
 
+div.form-group{
+  margin-bottom: 5px;
+}
 

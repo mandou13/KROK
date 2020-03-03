@@ -5,7 +5,6 @@ class PreferencesController < ApplicationController
       user_id: current_user.id,
       ingredient_id: params[:preference][:ingredient]
       )
-
     if @preference.save
       redirect_to profile_path
     else

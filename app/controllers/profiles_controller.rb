@@ -3,6 +3,6 @@ class ProfilesController < ApplicationController
     @user = current_user
     @ingredients = Ingredient.all
     @preference = Preference.new
-    @user_ingredients = current_user.ingredients
+    @user_preferences = current_user.preferences
   end
 end

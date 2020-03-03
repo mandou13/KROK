@@ -1,6 +1,26 @@
 class LikedRecipesController < ApplicationController
   def index
-    @liked_recipes = current_user.liked_recipes
+    if params[:query].present?
+      @liked_recipes = []
+      unless LikedRecipe.global_search(params[:query]).empty?
+        @liked_recipes = LikedRecipe.global_search(params[:query])
+      end
+      unless Ingredient.search_by_ingredient(params[:query]).empty?
+        Ingredient.search_by_ingredient(params[:query]).each do |ingredient|
+          current_user.liked_recipes.each do |liked_recipe|
+            @liked_recipes.each { |lr| @liked_recipes = [] << lr }
+            @liked_recipes << liked_recipe if liked_recipe.recipe.id == ingredient.recipe_id
+          end
+        end
+      end
+    else
+      @liked_recipes = current_user.liked_recipes
+    end
+
+    @main = @liked_recipes.select { |liked_recipe| liked_recipe.recipe.dish_type == 'main' }.size > 0
+    @starter = @liked_recipes.select { |liked_recipe| liked_recipe.recipe.dish_type == 'starter' }.size > 0
+    @dessert = @liked_recipes.select { |liked_recipe| liked_recipe.recipe.dish_type == 'dessert' }.size > 0
+
   end
 
   def create

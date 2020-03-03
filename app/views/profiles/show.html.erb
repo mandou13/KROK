@@ -1,7 +1,11 @@
 <div class= "profile container container-krok">
   <div class="profile-header">
     <div class="profile-header-item">
-      <%= cl_image_tag current_user.photo.key, class: 'avatar-profile'%>
+      <% if  current_user.photo.attachment.nil? %>
+       <i class="fas fa-user navbar-icon"></i>
+      <% else %>
+        <%= cl_image_tag current_user.photo.key, class: 'avatar-profile'%>
+      <% end %>
     </div>
     <div class="profile-header-item underligned-green">
       <%= current_user.username %>
@@ -14,9 +18,22 @@
       <div class="item-text">Food Preferences</div>
       <i class="fas fa-sort-down"></i>
     </div>
-      <div id="food-preference" class="panel-profile d-none mt-2">
-        <p>Disliked Ingredients : </p>
-        <p class="filtering-tags-profile"> Cucumber</p>
+      <div id="food-preference" class="panel-profile d-none search-box">
+        <%= simple_form_for @preference do |t| %>
+          <%= t.input :ingredient, collection: @ingredients, input_html: {class: "select2"} %>
+          <%= t.submit "Dislike", class: 'btn-krok-pref'%>
+        <%end %>
+        <p>Hidden Ingredients : </p>
+        <div class="container-preferences">
+          <div class="row">
+            <% @user_preferences.each do |preference| %>
+            <div class="col-6 mt-3">
+              <p class="preferences-tags"><%= preference.ingredient.name %></p>
+              <%= button_to "x", preference_path(preference), method: :delete, class: 'delete-preference' %>
+            </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     <div id = "previous-lists" class="accordion-profile"><i class="fas fa-clock fa-lg"></i><div class="item-text">Previous planners</div><i class="fas fa-sort-down"></i></div>
       <div class="panel-profile d-none mt-2 mx-3">

@@ -3,8 +3,9 @@
     <%= link_to new_user_session_path do %>
       <i class="fas fa-utensils btn-add-recipe"></i>
     <% end %>
+  <% elsif current_user.planners.empty? %>
+    <% Planner.create!(user_id: current_user.id, name: Time.now.strftime("%D"))  %>
   <% else %>
-
     <% has_recipe_in = current_user.planners.last.recipes.include?(recipe) %>
     <% if has_recipe_in %>
       <%= link_to recipe_planner_recipe_path(recipe, PlannerRecipe.find_by(recipe: recipe, planner: @planner)), method: :delete do  %>

@@ -162,13 +162,15 @@
     </div>
   <% end %>
   <!-- not exist when coming from past planners -->
-  <% unless params[:id].to_i < current_user.planners.last.id %>
     <div class="row justify-content-center">
       <div class="planner-new">
-        <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
+        <% if params[:id].to_i < current_user.planners.last.id %>
+          <%= link_to 'Add to current planner', add_from_previous_planner_planner_path(@planner), method: :post, class: 'btn btn-krok' %>
+        <% else %>
+          <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
+        <% end %>
       </div>
     </div>
-  <% end %>
   <!-- not exist when coming from past planners -->
 </div>
 

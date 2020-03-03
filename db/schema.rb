@@ -85,6 +85,15 @@ ActiveRecord::Schema.define(version: 2020_03_02_175223) do
     t.index ["user_id"], name: "index_planners_on_user_id"
   end
 
+  create_table "preferences", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "ingredient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_preferences_on_ingredient_id"
+    t.index ["user_id"], name: "index_preferences_on_user_id"
+  end
+
   create_table "ratings", force: :cascade do |t|
     t.integer "rating"
     t.bigint "user_id"
@@ -142,6 +151,8 @@ ActiveRecord::Schema.define(version: 2020_03_02_175223) do
   add_foreign_key "planner_recipes", "planners"
   add_foreign_key "planner_recipes", "recipes"
   add_foreign_key "planners", "users"
+  add_foreign_key "preferences", "ingredients"
+  add_foreign_key "preferences", "users"
   add_foreign_key "ratings", "recipes"
   add_foreign_key "ratings", "users"
   add_foreign_key "recipes", "users"

@@ -1,9 +1,9 @@
 class Recipe < ApplicationRecord
 
-    DISH_TYPE = ["dessert", "main", "starter"]
-    PREP_TIME = ["20", "30", "45", "60"]
-    DISH_ORIGIN = ["Italian", "German", "French", "American", "English", "Middle East", "British", "Mexican", "Spanish", "Indian"]
-    DIFFICULTY = ["Easy", "Medium"]
+  DISH_TYPE = ["dessert", "main", "starter"]
+  PREP_TIME = ["20", "30", "45", "60"]
+  DISH_ORIGIN = ["Italian", "German", "French", "American", "English", "Middle East", "British", "Mexican", "Spanish", "Indian"]
+  DIFFICULTY = ["Easy", "Medium"]
 
   belongs_to :user
   has_many   :ingredients
@@ -79,4 +79,15 @@ class Recipe < ApplicationRecord
     end
   end
 
+  def is_rejected?(user)
+    unless user.nil?
+      self.ingredients.each do |ingredient|
+        # return true if user.ingredients.include?(ingredient.name)
+        user.ingredients.each do |user_ingredient|
+          return true if user_ingredient.name == ingredient.name
+        end
+      end
+      return false
+    end
+  end
 end

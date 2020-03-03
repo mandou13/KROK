@@ -61,7 +61,10 @@
           <span class="mr-3"><i class="fas fa-globe-europe icon-green"></i> <%= @recipe.dish_origin %></span>
           <span class="mr-3"><i class="fas fa-mountain icon-green"></i> <%= @recipe.difficulty %></span>
           <span class="mr-3"><i class="fas fa-hourglass-half icon-green mr-1"></i><%= @recipe.optim_prep_time %></span>
-          <span><i class="fas fa-users icon-green"></i> <%= @recipe.servings %></span>
+<!-- <i class="fas fa-users icon-green"> -->
+        </div>
+        <div class='text-center'>
+          Servings : <a href="" class='btn btn-green ml-2' id='btn-minus-recipe'> - </a> <strong class='pl-3 pr-3' id='recipe-servings'><%= @recipe.servings %> </strong> <a href="" class='btn btn-green pt-1' id='btn-plus-recipe'> + </a>
         </div>
         <!-- icons design -->
         <!-- step design -->
@@ -77,7 +80,7 @@
                   <% if ingredient.category == category %>
                     <p>
                       <span class="mr-2"><%= ingredient.name.capitalize %></span>
-                      <%= ingredient.quantity.round %>
+                      <span class='ingredient-quantity' data-quantity="<%= ingredient.quantity / @recipe.servings %>"> <%= ingredient.quantity.round %> </span>
                       <%= ingredient.unit %>
                     </p>
                   <% end %>

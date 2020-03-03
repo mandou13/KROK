@@ -71,7 +71,7 @@ class PlannerRecipesController < ApplicationController
       if !shopping_list.empty?
         shopping_list.first.quantity -= ingredient.quantity
         if shopping_list.first.quantity <= 0
-          shopping_list.first.destroy!
+          shopping_list.first.destroy
         else
           shopping_list.first.save!
         end

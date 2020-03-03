@@ -1,3 +1,4 @@
+
 <div class="container container-krok">
   <div class="" id='title_to_update'>
     <div class="planner-title-card d-flex">
@@ -18,22 +19,24 @@
             <div class="col-6 col-lg-3">
               <div class="card-show">
                 <div class="card-img-top d-flex justify-content-center">
-                <%= link_to recipe_path(planner_recipe.recipe) do  %>
-                  <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill %>
-                <% end %>
+                  <div>
+                    <%= link_to recipe_path(planner_recipe.recipe) do  %>
+                      <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill %>
+                    <% end %>
+                  </div>
                   <!-- not exist when coming from past planners -->
                   <% unless params[:id].to_i < current_user.planners.last.id %>
                     <div class="card-img-icon-cooked" id="">
                       <% if planner_recipe.cooked %>
                         <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
-                          <i class="fas fa-check btn-cooked"></i>
+                          <i class="fas fa-drumstick-bite btn-cooked"></i>
                         <% end %>
                       <% elsif !planner_recipe.cooked && planner_recipe.recipe.already_rated?(current_user) %>
                         <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
-                          <i class="fas fa-check btn-not-cooked" ></i>
+                          <i class="fas fa-drumstick-bite btn-not-cooked" ></i>
                         <% end %>
                       <% else %>
-                        <button type="button" class="fas fa-check btn-not-cooked" data-toggle="modal" data-target="#planner-recipe-<%= planner_recipe.id %>">
+                        <button type="button" class="fas fa-drumstick-bite btn-not-cooked" data-toggle="modal" data-target="#planner-recipe-<%= planner_recipe.id %>">
                         </button>
                         <div class="modal fade" id="planner-recipe-<%= planner_recipe.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -51,6 +54,9 @@
                           </div>
                         </div>
                       <% end %>
+                    </div>
+                    <div class= 'recipe-servings-planner'>
+                      <i class="far fa-minus-square btn-grey fa-lg" id='btn-minus-recipe-planner'></i> <span class='pl-3 pr-3' id='recipe-servings-planner'><%= Recipe.find(planner_recipe.recipe_id).servings %> </span> <i class="far fa-plus-square btn-grey fa-lg" id='btn-plus-recipe-planner'></i><!-- <a href="" class='btn btn-grey pt-1' id='btn-plus-recipe-planner'> + </a> -->
                     </div>
                   <% end %>
                   <!-- not exist when coming from past planners -->

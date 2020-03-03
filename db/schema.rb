@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_175223) do
   end
 
   create_table "planners", force: :cascade do |t|
-    t.string "name", default: "03/02/20"
+    t.string "name", default: "03/03/20"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

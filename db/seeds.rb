@@ -20,6 +20,7 @@ Recipe.destroy_all
 PlannerRecipe.destroy_all
 ShoppingList.destroy_all
 User.destroy_all
+Preference.destroy_all
 
 puts "#{User.count} users"
 puts "#{Rating.count} ratings"

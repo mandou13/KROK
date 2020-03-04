@@ -1,0 +1,256 @@
+uuid;quantity;unit;name;category
+3b4a5a7efce616b9c720;1;;lemon;Fruit
+6a273fc5bda281a1050d;1;;lemon;Fruit
+5f4db89807d5d1f23946;2;;lemon;Fruit
+5f4db89807d5d1f23946;1;;chili;Vegetable
+6944a360615d3b68389a;1;;avocado;Fruit
+d6727f46fef9807326a2;1;;avocado;Fruit
+ee73890b0f9fee414386;2;;avocado;Fruit
+2ca0b7790c3238d9f9a3;250;g;rice;Dry
+2aa986ba97ac6c0ba09f;2;l;beef stock;Meat
+de519abd9941bdff93c8;155;g;hazelnut;Nuts & Seed
+6944a360615d3b68389a;1;;brioche;Bakery
+0412d199f71146f42257;300;g;broccoli;Vegetable
+ee73890b0f9fee414386;1;bunch;coriander;Herb and Spice
+6a273fc5bda281a1050d;1;bunch;coriander;Herb and Spice
+edb04312c7426eb32fe9;1;bunch;thyme;Herb and Spice
+32010bd86b84dee27a6c;50;g;butter;Dairy
+4a98aa675da5bb5e445a;25;g;butter;Dairy
+0412d199f71146f42257;85;g;butter;Dairy
+dde21de18e237baabd12;140;g;butter;Dairy
+e23a94d2d97032cbae31;85;g;butter;Dairy
+5e08887a47fcf4a5b68f;100;ml;buttermilk;Dairy
+0f6117099c5fb8356d62;250;ml;buttermilk;Dairy
+3e7d26c4653d6de4140d;400;g;beans;Dry
+d6727f46fef9807326a2;400;g;tomato;Vegetable
+3e7d26c4653d6de4140d;400;g;tomato;Vegetable
+86073e779a756565efb9;400;g;tomato;Vegetable
+5f4db89807d5d1f23946;400;g;tomato;Vegetable
+d6727f46fef9807326a2;196;g;corn;Dry
+0f6117099c5fb8356d62;325;g;corn;Dry
+202ae5a14e53772af2a6;2;tbsp;celeriac;Vegetable
+0412d199f71146f42257;3;tbsp;celeriac;Vegetable
+3b4a5a7efce616b9c720;175;g;cheddar;Dairy
+e23a94d2d97032cbae31;600;g;cherry tomatoes;Fruit
+6944a360615d3b68389a;2;tbsp;cherry tomatoes;Fruit
+6944a360615d3b68389a;1;;chicken breasts;Meat
+7b4a75c7a63924bacb2a;2;tbsp;chicken breasts;Meat
+5f4db89807d5d1f23946;2;tbsp;chicken breasts;Meat
+202ae5a14e53772af2a6;1;l;vegetable stock;Vegetable
+15b882b5e7589eb10aab;1;tbsp;chicken stock;Meat
+6a273fc5bda281a1050d;2;tbsp;chicken stock;Meat
+15b882b5e7589eb10aab;8;tbsp;chicken thighs;Meat
+3e7d26c4653d6de4140d;1;bunch;coriander;Herb and Spice
+2ca0b7790c3238d9f9a3;1;bunch;coriander;Herb and Spice
+4a98aa675da5bb5e445a;140;g;butter;Dairy
+5e08887a47fcf4a5b68f;50;g;butter;Dairy
+de519abd9941bdff93c8;110;g;butter;Dairy
+3b4a5a7efce616b9c720;50;g;butter;Dairy
+d6727f46fef9807326a2;1;bunch;coriander;Herb and Spice
+ffc9de576eb8ce1deb32;1;tbsp;courgette;Vegetable
+598fccc8ab06e9a83389;1;kg;courgette;Vegetable
+b75f44023b45c1d6a82e;1;bunch;coriander;Herb and Spice
+31ba495e2804d81a76db;1;g;soured cream;Dairy
+5e08887a47fcf4a5b68f;1;;eggs;Meat
+edb04312c7426eb32fe9;1;;eggs;Meat
+e23a94d2d97032cbae31;1;;eggs;Meat
+4a98aa675da5bb5e445a;2;;eggs;Meat
+ee73890b0f9fee414386;4;;eggs;Meat
+91696ebacc6c4ddfd3b4;4;;eggs;Meat
+dde21de18e237baabd12;250;g;cheddar;Dairy
+91696ebacc6c4ddfd3b4;140;g;cheddar;Dairy
+598fccc8ab06e9a83389;100;g;cheddar;Dairy
+86073e779a756565efb9;1;bunch;coriander;Herb and Spice
+0f6117099c5fb8356d62;250;g;corn;Dry
+32010bd86b84dee27a6c;200;g;flour;Dry
+202ae5a14e53772af2a6;500;g;potatoes;Vegetable
+15b882b5e7589eb10aab;1;bunch;coriander;Herb and Spice
+91696ebacc6c4ddfd3b4;2;;bay leaf;Herb and Spice
+7b4a75c7a63924bacb2a;2;;chili;Vegetable
+0412d199f71146f42257;100;g;peas;Dry
+31ba495e2804d81a76db;1;clove;garlic;Herb and Spice
+3e7d26c4653d6de4140d;2;clove;garlic;Herb and Spice
+2aa986ba97ac6c0ba09f;8;clove;garlic;Herb and Spice
+5f4db89807d5d1f23946;4;clove;garlic;Herb and Spice
+86073e779a756565efb9;3;clove;garlic;Herb and Spice
+d6727f46fef9807326a2;2;clove;garlic;Herb and Spice
+2ca0b7790c3238d9f9a3;4;clove;garlic;Herb and Spice
+2aa986ba97ac6c0ba09f;50;g;ginger;Herb and Spice
+32010bd86b84dee27a6c;75;g;cheddar;Dairy
+598fccc8ab06e9a83389;1;;nutmeg;Herb and Spice
+91696ebacc6c4ddfd3b4;1;tbsp;mustard;Vegetable
+2ca0b7790c3238d9f9a3;450;ml;vegetable stock;Vegetable
+0f6117099c5fb8356d62;50;g;chili;Vegetable
+15b882b5e7589eb10aab;1;;lemon;Fruit
+0412d199f71146f42257;1;;potatoes;Vegetable
+5f4db89807d5d1f23946;1;l;chicken stock;Meat
+15b882b5e7589eb10aab;1;;avocado;Fruit
+0f6117099c5fb8356d62;4;;eggs;Meat
+3e7d26c4653d6de4140d;1;;onion;Vegetable
+15b882b5e7589eb10aab;1;;onion;Vegetable
+d6727f46fef9807326a2;1;;onion;Vegetable
+de4fd04b5b2a6b3ad7bd;3;g;sage;Herb and Spice
+15b882b5e7589eb10aab;4;tbsp;soured cream;Dairy
+3b4a5a7efce616b9c720;2;;corn;Dry
+7b4a75c7a63924bacb2a;1;;lemon;Fruit
+3e7d26c4653d6de4140d;1;;lime;Fruit
+6944a360615d3b68389a;1;;lime;Fruit
+d6727f46fef9807326a2;1;;lime;Fruit
+4a98aa675da5bb5e445a;140;g;cheddar;Dairy
+202ae5a14e53772af2a6;200;g;cheddar;Dairy
+de519abd9941bdff93c8;225;g;cheddar;Dairy
+5e08887a47fcf4a5b68f;100;g;cheddar;Dairy
+edb04312c7426eb32fe9;75;g;cheddar;Dairy
+0f6117099c5fb8356d62;200;g;cheddar;Dairy
+de4fd04b5b2a6b3ad7bd;50;g;cheddar;Dairy
+edb04312c7426eb32fe9;2;;courgette;Vegetable
+de519abd9941bdff93c8;1;;eggs;Meat
+86073e779a756565efb9;1;;onion;Vegetable
+32010bd86b84dee27a6c;150;ml;milk;Dairy
+91696ebacc6c4ddfd3b4;425;ml;milk;Dairy
+747c44e9b1a166711116;140;g;cheddar;Dairy
+ffc9de576eb8ce1deb32;500;g;potatoes;Vegetable
+91696ebacc6c4ddfd3b4;10;g;nutmeg;Herb and Spice
+6b44db6764041db8a381;6;;lime;Fruit
+5f4db89807d5d1f23946;1;;onion;Vegetable
+31ba495e2804d81a76db;1;;onion;Vegetable
+b75f44023b45c1d6a82e;1;;onion;Vegetable
+2ca0b7790c3238d9f9a3;1;;onion;Vegetable
+6a273fc5bda281a1050d;1;;onion;Vegetable
+202ae5a14e53772af2a6;3;;onion;Vegetable
+d6727f46fef9807326a2;1;;pepper;Condiment
+0412d199f71146f42257;300;g;cheddar;Dairy
+2ca0b7790c3238d9f9a3;2;tbsp;pepper;Condiment
+6944a360615d3b68389a;34;g;pepper;Condiment
+15b882b5e7589eb10aab;200;g;chorizo;Meat
+2ca0b7790c3238d9f9a3;10;g;pepper;Condiment
+0412d199f71146f42257;75;g;flour;Dry
+0f6117099c5fb8356d62;100;g;flour;Dry
+de519abd9941bdff93c8;100;g;flour;Dry
+e23a94d2d97032cbae31;175;g;flour;Dry
+4a98aa675da5bb5e445a;280;g;flour;Dry
+0412d199f71146f42257;170;g;yogurt;Dairy
+edb04312c7426eb32fe9;284;ml;buttermilk;Dairy
+4a98aa675da5bb5e445a;284;ml;cream;Dairy
+91696ebacc6c4ddfd3b4;142;ml;cream;Dairy
+31ba495e2804d81a76db;800;g;potatoes;Vegetable
+598fccc8ab06e9a83389;500;g;potatoes;Vegetable
+ee73890b0f9fee414386;250;g;cherry tomatoes;Fruit
+6a273fc5bda281a1050d;140;g;quinoa;Dry
+3e7d26c4653d6de4140d;10;g;chili;Vegetable
+ee73890b0f9fee414386;10;g;chili;Vegetable
+ee73890b0f9fee414386;1;;onion;Vegetable
+3e7d26c4653d6de4140d;1;;pepper;Condiment
+6a273fc5bda281a1050d;2;;pepper;Condiment
+15b882b5e7589eb10aab;2;;pepper;Condiment
+ffc9de576eb8ce1deb32;7;g;yeast;Vegetable
+747c44e9b1a166711116;35;g;paprika;Herb and Spice
+202ae5a14e53772af2a6;4;g;sage;Herb and Spice
+202ae5a14e53772af2a6;10;g;sage;Herb and Spice
+6b44db6764041db8a381;10;g;tabasco;condiment
+3b4a5a7efce616b9c720;350;g;flour;Dry
+5e08887a47fcf4a5b68f;225;g;flour;Dry
+edb04312c7426eb32fe9;400;g;flour;Dry
+0412d199f71146f42257;850;ml;milk;Dairy
+3b4a5a7efce616b9c720;175;ml;milk;Dairy
+6a273fc5bda281a1050d;4;;chicken breasts;Meat
+86073e779a756565efb9;4;;chicken breasts;Meat
+6944a360615d3b68389a;12;g;cheese;Dairy
+0f6117099c5fb8356d62;50;g;buttermilk;Dairy
+0412d199f71146f42257;500;g;leek;Vegetable
+3e7d26c4653d6de4140d;1;;avocado;Fruit
+6944a360615d3b68389a;1;clove;garlic;Herb and Spice
+4a98aa675da5bb5e445a;500;g;onion;Vegetable
+91696ebacc6c4ddfd3b4;1;;onion;Vegetable
+86073e779a756565efb9;1;;onion;Vegetable
+598fccc8ab06e9a83389;20;g;onion;Vegetable
+2aa986ba97ac6c0ba09f;4;kg;beef;Meat
+202ae5a14e53772af2a6;2;;lemon;Fruit
+ffc9de576eb8ce1deb32;85;g;cheddar;Dairy
+e23a94d2d97032cbae31;85;g;cheddar;Dairy
+ffc9de576eb8ce1deb32;500;g;flour;Dry
+b75f44023b45c1d6a82e;750;g;potatoes;Vegetable
+202ae5a14e53772af2a6;1;tbsp;butter;Dairy
+91696ebacc6c4ddfd3b4;4;tbsp;butter;Dairy
+2aa986ba97ac6c0ba09f;4;tbsp;chipotle paste;Herb and Spice
+6a273fc5bda281a1050d;3;tbsp;chipotle paste;Herb and Spice
+b75f44023b45c1d6a82e;1;tbsp;chipotle paste;Herb and Spice
+edb04312c7426eb32fe9;1;tbsp;honey;Bakery
+e23a94d2d97032cbae31;4;tbsp;soured cream;Dairy
+e23a94d2d97032cbae31;2;tbsp;mustard;Vegetable
+2aa986ba97ac6c0ba09f;1;tbsp;oregano;Herb and Spice
+5e08887a47fcf4a5b68f;1;tbsp;sage;Herb and Spice
+0f6117099c5fb8356d62;1;tbsp;caster sugar;Bakery
+2aa986ba97ac6c0ba09f;1;tbsp;cumin;Herb and Spice
+de4fd04b5b2a6b3ad7bd;1;tbsp;mayonnaise;Condiment
+31ba495e2804d81a76db;1;tbsp;olive oil;Condiment
+7b4a75c7a63924bacb2a;2;tbsp;olive oil;Condiment
+6a273fc5bda281a1050d;1;tbsp;olive oil;Condiment
+15b882b5e7589eb10aab;1;tbsp;olive oil;Condiment
+5f4db89807d5d1f23946;2;tbsp;olive oil;Condiment
+2ca0b7790c3238d9f9a3;2;tbsp;olive oil;Condiment
+de4fd04b5b2a6b3ad7bd;1;tbsp;olive oil;Condiment
+ffc9de576eb8ce1deb32;2;tbsp;olive oil;Condiment
+91696ebacc6c4ddfd3b4;7;tbsp;flour;Dry
+2aa986ba97ac6c0ba09f;1;tbsp;flour;Dry
+6b44db6764041db8a381;4;tbsp;salt;Condiment
+6a273fc5bda281a1050d;1;tbsp;sugar;Bakery
+2ca0b7790c3238d9f9a3;1;tbsp;tomato sauce;Canned Goods
+86073e779a756565efb9;1;tbsp;sunflower oil;Condiment
+b75f44023b45c1d6a82e;1;tbsp;sunflower oil;Condiment
+dde21de18e237baabd12;1;tbsp;mustard;Vegetable
+de4fd04b5b2a6b3ad7bd;45;g;chorizo;Meat
+dde21de18e237baabd12;10;g;thyme;Herb and Spice
+ffc9de576eb8ce1deb32;10;g;thyme;Herb and Spice
+3b4a5a7efce616b9c720;10;g;thyme;Herb and Spice
+e23a94d2d97032cbae31;10;g;thyme;Herb and Spice
+2aa986ba97ac6c0ba09f;1;tsp;sunflower oil;Condiment
+3b4a5a7efce616b9c720;1;tsp;baking powder;Bakery
+0f6117099c5fb8356d62;2;tsp;baking powder;Bakery
+edb04312c7426eb32fe9;1;tsp;baking powder;Bakery
+0f6117099c5fb8356d62;1;tsp;baking powder;Bakery
+31ba495e2804d81a76db;1;tsp;pepper;Condiment
+6944a360615d3b68389a;1;tsp;chipotle paste;Herb and Spice
+86073e779a756565efb9;1;tsp;chipotle paste;Herb and Spice
+7b4a75c7a63924bacb2a;1;bunch;coriander;Herb and Spice
+31ba495e2804d81a76db;1;tsp;cumin;Herb and Spice
+ee73890b0f9fee414386;1;tsp;cumin;Herb and Spice
+d6727f46fef9807326a2;1;tsp;cumin;Herb and Spice
+2ca0b7790c3238d9f9a3;1;tsp;cumin;Herb and Spice
+86073e779a756565efb9;1;tsp;caster sugar;Bakery
+15b882b5e7589eb10aab;2;tsp;cumin;Herb and Spice
+0412d199f71146f42257;2;tsp;mustard;Vegetable
+3b4a5a7efce616b9c720;2;tsp;mustard;Vegetable
+5e08887a47fcf4a5b68f;1;tsp;mustard;Vegetable
+7b4a75c7a63924bacb2a;1;;lime;Fruit
+3b4a5a7efce616b9c720;1;tsp;paprika;Herb and Spice
+2aa986ba97ac6c0ba09f;2;tsp;cinnamon;Herb and Spice
+d6727f46fef9807326a2;1;tsp;coriander;Herb and Spice
+3e7d26c4653d6de4140d;1;tsp;coriander;Herb and Spice
+3e7d26c4653d6de4140d;1;tsp;cumin;Herb and Spice
+5f4db89807d5d1f23946;1;tsp;cumin;Herb and Spice
+31ba495e2804d81a76db;1;;chili;Vegetable
+d6727f46fef9807326a2;2;tsp;chili;Vegetable
+3e7d26c4653d6de4140d;2;tsp;chili;Vegetable
+7b4a75c7a63924bacb2a;1;tsp;caster sugar;Bakery
+31ba495e2804d81a76db;1;tsp;paprika;Herb and Spice
+7b4a75c7a63924bacb2a;1;tsp;paprika;Herb and Spice
+d6727f46fef9807326a2;1;tsp;sunflower oil;Condiment
+3e7d26c4653d6de4140d;2;tsp;sunflower oil;Condiment
+d6727f46fef9807326a2;1;tsp;vegetable stock;Vegetable
+3e7d26c4653d6de4140d;1;tsp;vegetable stock;Vegetable
+0412d199f71146f42257;1;tsp;mustard;Vegetable
+7b4a75c7a63924bacb2a;6;clove;garlic;Herb and Spice
+b75f44023b45c1d6a82e;1;tbsp;vegetable stock;Vegetable
+598fccc8ab06e9a83389;2;tbsp;vegetable stock;Vegetable
+2aa986ba97ac6c0ba09f;4;tbsp;onion;Vegetable
+d6727f46fef9807326a2;100;g;penne;Dry
+15b882b5e7589eb10aab;300;g;beans;Dry
+6a273fc5bda281a1050d;400;g;beans;Dry
+747c44e9b1a166711116;400;g;beans;Dry
+2aa986ba97ac6c0ba09f;400;g;tomato sauce;Canned Goods
+6a273fc5bda281a1050d;400;g;tomato sauce;Canned Goods
+747c44e9b1a166711116;400;g;tomato sauce;Canned Goods
+ee73890b0f9fee414386;400;g;beans;Dry
+15b882b5e7589eb10aab;400;g;tomato;Vegetable
+2aa986ba97ac6c0ba09f;400;g;beans;Dry

@@ -21,12 +21,13 @@ class ScrappingRecipes
 
     recipes = []
     ingredients = []
+    photo_urls = []
 
     names.each_with_index do |recipe, index|
       recipe_page = Nokogiri::HTML(open(url_meals[index]), nil, 'utf-8')
       servings = recipe_page.at("//span[@itemprop = 'recipeYield']").children.text.scan(/\d/)[0]
       steps = scrapping_search(recipe_page, ".method__list")
-      photo_urls = recipe_page.xpath("//img[@itemprop = 'image']").map { |t| t[:src].remove(/\/{2}/) }
+      photo_urls << recipe_page.xpath("//img[@itemprop = 'image']").map { |t| t[:src].remove(/\/{2}/) }.first
       uuid = SecureRandom.hex(10)
       recipes << [uuid, names[index], steps.first, meal_type, meal_origin, prep_times[index], servings, description[index], difficulty[index], photo_urls[index]]
 
@@ -38,6 +39,13 @@ class ScrappingRecipes
         ingredients << [uuid, quantity, unit, name]
         p ingredients.first(5)
       end
+    end
+
+    photo_urls = []
+    names.each_with_index do |recipe, index|
+      recipe_page = Nokogiri::HTML(open(url_meals[index]), nil, 'utf-8')
+      photo_urls = recipe_page.xpath("//img[@itemprop = 'image']").map { |t| t[:src].remove(/\/{2}/) }.first
+      p photo_urls
     end
 
     CSV.open(Rails.root.join('db', 'datas', 'ingredients.csv'), 'ab', csv_options) do |csv|

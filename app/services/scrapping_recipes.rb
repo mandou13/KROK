@@ -10,7 +10,7 @@ class ScrappingRecipes
   URL_BBC = 'https://www.bbcgoodfood.com/'
 
   def self.scrapping(meal_type, meal_origin)
-    csv_options = { col_sep: ',', force_quotes: true, quote_char: '"' }
+    csv_options = { col_sep: ';', force_quotes: true, quote_char: '"' }
     url_search  = URL_BBC + 'search/recipes?query='  + meal_type + ' ' +meal_origin
     doc         = Nokogiri::HTML(open(url_search), nil, 'utf-8')
     names       = scrapping_search(doc, ".teaser-item__title")

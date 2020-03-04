@@ -1,0 +1,63 @@
+var number_in_done = ""
+
+function addIngredient(type, ingredient, status) {
+  const ingredientsByType = document.querySelector(`.ingredients-${type}-${status}`);
+  const ingredientsAll = document.querySelector(`.ingredients-all-${status}`);
+  ingredientsAll.insertAdjacentHTML('afterbegin', ingredient);
+  console.log(ingredient)
+  if(ingredientsByType){
+    ingredientsByType.insertAdjacentHTML('afterbegin', ingredient);
+  } else {
+    const ingredientsOther = document.querySelector(`.ingredients-other-${status}`);
+    ingredientsOther.insertAdjacentHTML('afterbegin', ingredient);
+  }
+}
+
+function launchAjaxForIngredient() {
+  const shopping_list_number_in_done = document.querySelector('#shopping_list_number_in_done')
+  const shoppingListIngredientTargetedToBuy = document.querySelectorAll(".data-shopping-list-id-<%=@shopping_item.id%>-to-buy")
+  const shoppingListIngredientTargetedBought = document.querySelectorAll(".data-shopping-list-id-<%=@shopping_item.id%>-bought")
+  let elementType = ""
+  number_in_done = parseInt(shopping_list_number_in_done.innerText.slice(0,-1))
+
+  if (shoppingListIngredientTargetedBought) {
+    shoppingListIngredientTargetedBought.forEach(element => {
+      element.remove();
+    })
+  }
+  if (shoppingListIngredientTargetedToBuy) {
+    shoppingListIngredientTargetedToBuy.forEach(element => {
+      element.remove();
+    });
+  }
+
+// elementType= "test"
+  if(shoppingListIngredientTargetedToBuy.length === 0){
+    elementType = shoppingListIngredientTargetedBought[0].dataset.type
+  } else {
+    elementType = shoppingListIngredientTargetedToBuy[0].dataset.type
+  }
+  // elementTypeBought = shoppingListIngredientTargetedBought[0].dataset.type
+  console.log(elementType)
+
+
+  <% if @shopping_item.bought %>
+  console.log(number_in_done)
+      shopping_list_number_in_done.innerText = `${number_in_done + 1}/`
+      addIngredient(elementType, '<%= j render "shopping_lists/ingredient-bought", shopping_list: @shopping_item, planner: @planner %>', 'bought')
+  <% else %>
+  console.log(number_in_done)
+
+      // number_in_done = parseInt(shopping_list_number_in_done.innerText.slice(0,-1))
+      shopping_list_number_in_done.innerText = `${number_in_done - 1}/`
+      addIngredient(elementType, '<%= j render "shopping_lists/ingredient-to-buy", shopping_list: @shopping_item, planner: @planner %>', 'to-buy')
+  <% end %>
+};
+
+
+
+console.log(number_in_done)
+launchAjaxForIngredient();
+
+
+

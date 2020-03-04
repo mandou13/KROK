@@ -38,10 +38,8 @@ function launchAjaxForIngredient() {
   console.log(elementType)
 
   <% if @shopping_item.bought %>
-      console.log('true')
       addIngredient(elementType, '<%= j render "shopping_lists/ingredient-bought", shopping_list: @shopping_item, planner: @planner %>', 'bought')
   <% else %>
-      console.log('false')
       addIngredient(elementType, '<%= j render "shopping_lists/ingredient-to-buy", shopping_list: @shopping_item, planner: @planner %>', 'to-buy')
   <% end %>
 };

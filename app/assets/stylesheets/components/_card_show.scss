@@ -1,9 +1,28 @@
+.row-planner {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 25px;
+
+}
+.column-planner {
+  padding-right: 5px;
+  padding-left: 5px;
+
+}
+
+#card_to_hide {
+  .card-show {
+    margin-bottom: 10px;
+
+  }
+}
 
 .card-show {
-  height: 22vh;
+  height: 16vh;
+  width: 100%;
   border: none;
-
-
+  margin-bottom: 42px;
   .card-img-icon-cooked {
     position: absolute;
     top: 2px;
@@ -80,8 +99,8 @@
 
   .card-img-top {
     position: relative;
-    height: 16vh;
-    // width: 44vw;
+    height: 100%;
+    width: 100%;
   }
 
   img {
@@ -96,12 +115,13 @@
 .background-alone {
 background-color: #EDF6EF;
 position: relative;
+border-radius: 5px;
 }
 
 
 .background-random {
 background-color: rgba(150, 150, 150, 0.7);
-height: 16vh;
+height: 100%;
 width: 44vw;
 // opacity: 0.3;
 // position: relative;
@@ -113,7 +133,7 @@ width: 44vw;
 }
 
 .planner-new {
-  margin-bottom: 42px;
+  // margin-bottom: 10px;
 }
 
 i.fa-grin-hearts{
@@ -126,5 +146,17 @@ i.fa-grin-hearts{
 .recipe-servings-planner {
   position: absolute;
   bottom: -31px;
-  left: 41px;
+  left: 33px;
+}
+
+.planner-dish-type-card {
+  h5 {
+    margin-bottom: 15px;
+    margin-left: 2px;
+    span {
+      padding-left: 3px;
+      padding-right: 3px;
+      border-bottom: 3px solid $green;
+    }
+  }
 }

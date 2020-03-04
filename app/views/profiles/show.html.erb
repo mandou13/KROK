@@ -20,7 +20,7 @@
     </div>
       <div id="food-preference" class="panel-profile d-none search-box">
         <%= simple_form_for @preference do |t| %>
-          <%= t.input :ingredient, collection: @ingredients, input_html: {class: "select2"} %>
+          <%= t.input :ingredient, collection: @ingredients_sorted , input_html: {class: "select2"} %>
           <%= t.submit "Dislike", class: 'btn-krok-pref'%>
         <%end %>
         <p>Hidden Ingredients : </p>
@@ -37,7 +37,7 @@
       </div>
     <div id = "previous-lists" class="accordion-profile"><i class="fas fa-clock fa-lg"></i><div class="item-text">Previous planners</div><i class="fas fa-sort-down"></i></div>
       <div class="panel-profile d-none mt-2 mx-3">
-        <% current_user.planners.first(current_user.planners.size-1).each do |planner| %>
+        <% current_user.planners.first(current_user.planners.size-1).sort.reverse.each do |planner| %>
           <!-- planner card design -->
           <%= render 'shared/card_planner', planner: planner %>
           <!-- planner card design -->

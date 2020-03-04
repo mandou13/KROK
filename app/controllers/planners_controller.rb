@@ -3,6 +3,8 @@ class PlannersController < ApplicationController
   before_action :set_planner_recipes_to_seen, only: [:show]
 
   def show
+
+
     @recipes = Recipe.all
     @recipes_starter = Recipe.where(dish_type: 'starter')
     @recipes_main = Recipe.where(dish_type: 'main')
@@ -29,7 +31,7 @@ class PlannersController < ApplicationController
 
   def create
     @planner = Planner.new(
-      name: Time.now.strftime("%D"),
+      name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu",
       user_id: current_user.id)
     @planner.save
     redirect_to planner_path(@planner)

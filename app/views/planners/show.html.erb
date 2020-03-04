@@ -1,16 +1,25 @@
 
-<div class="container">
-  <div class="" id='title_to_update'>
-    <div class="planner-title-card d-flex">
-      <h3 class='planner-title'><%= @planner.name%></h3>
-      <i class="fas fa-edit p-2" id="title_update_launch"></i>
+<div class="container container-krok">
+  <div class="row justify-content-center">
+    <div class="col-12">
+
+      <div class="" id='title_to_update'>
+        <div class="planner-title-card d-flex">
+          <h3 class='planner-title'><%= @planner.name%></h3>
+          <i class="fas fa-edit p-2" id="title_update_launch"></i>
+        </div>
+      </div>
+      <%= render 'shared/form' %>
     </div>
-  </div>
-  <%= render 'shared/form' %>
-  <% [0,1,2].each do |index| %>
-    <div class="planner-dish-type-card m-2">
-      <h5 class="dish-type-title"> <%= @recipes_all[index].first.dish_type.capitalize %></h5>
-      <div class="row justify-content-center">
+
+    <% [0,1,2].each do |index| %>
+
+      <div class="col-12">
+        <h5 class="dish-type-title"> <%= @recipes_all[index].first.dish_type.capitalize %></h5>
+      </div>
+
+
+      <!-- <div class="row justify-content-center"> -->
         <% if @planner_recipes_all[index].blank? && params[:id].to_i < current_user.planners.last.id %>
           <% a = @recipes_all[index].first.dish_type == "main" ? "#{@recipes_all[index].first.dish_type} course" : @recipes_all[index].first.dish_type.capitalize %>
           <p>No <%= a %>s</p>
@@ -158,19 +167,19 @@
             </div>
           </div>
         <% end %>
-      </div>
-    </div>
-  <% end %>
+      <!-- </div> -->
+    <% end %>
+  </div>
   <!-- not exist when coming from past planners -->
-    <div class="row justify-content-center">
-      <div class="planner-new">
-        <% if params[:id].to_i < current_user.planners.last.id %>
-          <%= link_to 'Add to current planner', add_from_previous_planner_planner_path(@planner), method: :post, class: 'btn btn-krok' %>
-        <% else %>
-          <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
-        <% end %>
-      </div>
+  <div class="row justify-content-center">
+    <div class="planner-new">
+      <% if params[:id].to_i < current_user.planners.last.id %>
+        <%= link_to 'Add to current planner', add_from_previous_planner_planner_path(@planner), method: :post, class: 'btn btn-krok' %>
+      <% else %>
+        <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
+      <% end %>
     </div>
+  </div>
   <!-- not exist when coming from past planners -->
 </div>
 

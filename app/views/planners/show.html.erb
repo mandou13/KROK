@@ -1,6 +1,6 @@
 
 <div class="container">
-  <div class="" id='title_to_update'>
+  <div class="mb-3" id='title_to_update'>
     <div class="planner-title-card d-flex">
       <h3 class='planner-title'><%= @planner.name%></h3>
       <i class="fas fa-edit p-2" id="title_update_launch"></i>
@@ -8,16 +8,17 @@
   </div>
   <%= render 'shared/form' %>
   <% [0,1,2].each do |index| %>
-    <div class="planner-dish-type-card m-2">
-      <h5 class="dish-type-title"> <%= @recipes_all[index].first.dish_type.capitalize %></h5>
-      <div class="row justify-content-center">
+    <div class="planner-dish-type-card">
+      <h5 class="dish-type-title"><span><%= @recipes_all[index].first.dish_type.capitalize %></span></h5>
+      <div class="row justify-content-between row-planner">
         <% if @planner_recipes_all[index].blank? && params[:id].to_i < current_user.planners.last.id %>
           <% a = @recipes_all[index].first.dish_type == "main" ? "#{@recipes_all[index].first.dish_type} course" : @recipes_all[index].first.dish_type.capitalize %>
           <p>No <%= a %>s</p>
         <% else %>
           <% @planner_recipes_all[index].each do |planner_recipe| %>
-            <div class="col-6 col-lg-3">
-              <div class="card-show">
+            <div class="col-6 col-lg-3 column-planner">
+              <!-- card design -->
+              <div class="card card-show d-flex flex-column shadow-sm">
                 <div class="card-img-top d-flex justify-content-center">
                   <div>
                     <%= link_to recipe_path(planner_recipe.recipe) do  %>
@@ -55,15 +56,6 @@
                         </div>
                       <% end %>
                     </div>
-                    <div class= 'recipe-servings-planner'>
-                      <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'minus' ), class: "add", method: :patch do %>
-                        <i class="far fa-minus-square btn-grey fa-lg" id='btn-minus-recipe-planner'></i>
-                      <% end %>
-                      <span class='pl-3 pr-3' id='recipe-servings-planner'><%= planner_recipe.servings %></span>
-                      <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'plus'), class: "add", method: :patch do %>
-                        <i class="far fa-plus-square btn-grey fa-lg" id='btn-plus-recipe-planner'></i>
-                      <% end %>
-                    </div>
                   <% end %>
                   <!-- not exist when coming from past planners -->
                   <!-- not exist when coming from past planners -->
@@ -76,14 +68,28 @@
                   <% end %>
                   <!-- not exist when coming from past planners -->
                 </div>
+                <!-- btn -/+ -->
+                <% unless params[:id].to_i < current_user.planners.last.id %>
+                  <div class='recipe-servings-planner'>
+                    <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'minus' ), class: "add", method: :patch do %>
+                      <i class="far fa-minus-square btn-grey fa-lg" id='btn-minus-recipe-planner'></i>
+                    <% end %>
+                    <span class='pl-3 pr-3' id='recipe-servings-planner'><%= planner_recipe.servings %></span>
+                    <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'plus'), class: "add", method: :patch do %>
+                      <i class="far fa-plus-square btn-grey fa-lg" id='btn-plus-recipe-planner'></i>
+                    <% end %>
+                  </div>
+                <% end %>
+                <!-- btn -/+ -->
               </div>
+              <!-- card design -->
             </div>
           <% end %>
         <% end %>
 
         <!-- not exist when coming from past planners -->
         <% unless params[:id].to_i < current_user.planners.last.id %>
-          <div class="col-6 col-lg-3" id='card_to_hide'>
+          <div class="col-6 col-lg-3 column-planner" id='card_to_hide'>
             <div class="card-show">
               <div class="card-img-top d-flex justify-content-center background-alone">
                 <div class="card-img-icon-add" id="card-img-icon-add">
@@ -92,7 +98,7 @@
               </div>
             </div>
           </div>
-          <div class="col-6 col-lg-3 d-none" id="card_to_display">
+          <div class="col-6 col-lg-3 column-planner d-none" id="card_to_display">
             <div class="card-show">
               <div class="card-img-top d-flex justify-content-center background-alone">
                 <div class="card-img-icon-search" id="card-img-icon-search">
@@ -109,7 +115,7 @@
         <% end %>
         <!-- not exist when coming from past planners -->
         <% @recipes_all[index].sample(10).each do |planner_recipe_random| %>
-          <div class="col-6 col-lg-3 d-none card_random_to_hide-<%=index%>" id="card_random_to_hide">
+          <div class="col-6 col-lg-3 column-planner d-none card_random_to_hide-<%=index%>" id="card_random_to_hide">
             <div class="card-show">
               <div class="card-img-top d-flex background-random">
                 <%= cl_image_tag planner_recipe_random.photo.key, crop: :fill %>

@@ -1,9 +1,13 @@
 .top-navbar {
+  display: flex;
+  justify-content: center;
   height: 9vh;
   background-color: white;
+  margin-bottom: 15px;
   // background-color: $green;
-  position: fixed;
-  z-index: 999;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
   width: 100%;
   border-bottom: 3px solid rgba(115, 200, 139, 0.3);
   img {

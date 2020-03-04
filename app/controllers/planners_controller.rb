@@ -3,6 +3,8 @@ class PlannersController < ApplicationController
   before_action :set_planner_recipes_to_seen, only: [:show]
 
   def show
+
+
     @recipes = Recipe.all
     @recipes_starter = Recipe.where(dish_type: 'starter')
     @recipes_main = Recipe.where(dish_type: 'main')

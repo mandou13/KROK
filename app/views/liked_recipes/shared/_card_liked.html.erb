@@ -10,7 +10,7 @@
         <h6><%= liked_recipe.recipe.name.truncate(40) %></h6>
       <% end %>
       <%= link_to liked_recipe_path(liked_recipe), method: :delete do %>
-        <i class="fas fa-times btn-cross"></i>
+        <i class="fas fa-times btn-cross-gray"></i>
       <% end %>
     </div>
     <div class="card-text">

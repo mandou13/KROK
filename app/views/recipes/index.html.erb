@@ -1,6 +1,6 @@
 <div class="container container-krok">
 
-    <div class="search-box" id ='searchbox-recipe-index-before'>
+    <div class="search-box" id ='searchbox-recipe-index-before' data-click="<%= true if params[:addRecipe] %>">
      <%= form_tag recipes_path, method: :get do %>
        <%= text_field_tag :query,
          params[:query],

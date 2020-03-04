@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: 'recipes#index'
-
+  resources :supermarckets, only: :index
   resource :profile, only: :show
 
   resources :recipes do

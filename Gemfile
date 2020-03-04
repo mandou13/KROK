@@ -3,6 +3,7 @@ ruby '2.6.5'
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
+gem 'geocoder'
 
 gem 'bootsnap', require: false
 gem 'devise'

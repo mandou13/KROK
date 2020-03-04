@@ -29,7 +29,7 @@
           <h5 class='title-shopping-list'>I need</h5>
           <% @shopping_lists.each do |shopping_list| %>
           <ul class="ingredients-all-to-buy">
-              <li class="data-shopping-list-id-<%= shopping_list.id %>-to-buy remove-dots">
+              <li class="data-shopping-list-id-<%= shopping_list.id %>-to-buy remove-dots" data-type="<%= shopping_list.category.split(" ").first.downcase %>">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -63,7 +63,7 @@
           <h5 class='title-shopping-list'>I got</h5>
           <% @shopping_lists.each do |shopping_list| %>
           <ul class="ingredients-all-bought">
-              <li class="data-shopping-list-id-<%= shopping_list.id %>-bought remove-dots">
+              <li class="data-shopping-list-id-<%= shopping_list.id %>-bought remove-dots"  data-type="<%= shopping_list.category.split(" ").first.downcase %>">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -120,8 +120,8 @@
       <div class='container shopping-list-card to-buy-ingredients'>
           <h5 class='title-shopping-list'>I need</h5>
           <% @shopping_lists_per_category.each do |shopping_list| %>
-          <ul>
-              <li class="data-shopping-list-id-<%= shopping_list.id %>-to-buy remove-dots">
+          <ul class="ingredients-<%= shopping_list.category.split(" ").first.downcase%>-to-buy">
+              <li class="data-shopping-list-id-<%= shopping_list.id %>-to-buy remove-dots" data-type="<%= shopping_list.category.split(" ").first.downcase %>" >
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -154,8 +154,8 @@
       <div class='container shopping-list-card bought-ingredients'>
           <h5 class='title-shopping-list'>I got</h5>
           <% @shopping_lists_per_category.each do |shopping_list| %>
-          <ul>
-              <li class="data-shopping-list-id-<%= shopping_list.id %>-bought remove-dots">
+          <ul class="ingredients-<%= shopping_list.category.split(" ").first.downcase%>-bought">
+              <li class="data-shopping-list-id-<%= shopping_list.id %>-bought remove-dots" data-type="<%= shopping_list.category.split(" ").first.downcase %>">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -212,8 +212,8 @@
       <div class='container shopping-list-card to-buy-ingredients'>
           <h5 class='title-shopping-list'>I need</h5>
           <% @shopping_lists_other.each do |shopping_list| %>
-          <ul>
-              <li class="data-shopping-list-id-<%= shopping_list.id %>-to-buy remove-dots">
+          <ul class="ingredients-other-to-buy">
+              <li class="data-shopping-list-id-<%= shopping_list.id %>-to-buy remove-dots" data-type="<%= shopping_list.category.split(" ").first.downcase %>">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>
@@ -246,8 +246,8 @@
       <div class='container shopping-list-card bought-ingredients'>
           <h5 class='title-shopping-list'>I got</h5>
           <% @shopping_lists_other.each do |shopping_list| %>
-          <ul>
-              <li class="data-shopping-list-id-<%= shopping_list.id %>-bought remove-dots">
+          <ul class="ingredients-other-bought">
+              <li class="data-shopping-list-id-<%= shopping_list.id %>-bought remove-dots" data-type="<%= shopping_list.category.split(" ").first.downcase %>">
                 <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
                 <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
                   <% shopping_list_quantity = shopping_list.quantity / 1000 %>

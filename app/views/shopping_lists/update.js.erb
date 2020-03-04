@@ -1,27 +1,49 @@
 
-function addIngredient(ingredient, status) {
-  const ingredientsAll = document.querySelector(`.ingredients-all${status}` );
+function addIngredient(type, ingredient, status) {
+  const ingredientsByType = document.querySelector(`.ingredients-${type}-${status}`);
+  const ingredientsAll = document.querySelector(`.ingredients-all-${status}`);
   ingredientsAll.insertAdjacentHTML('afterbegin', ingredient);
+  console.log(ingredient)
+  if(ingredientsByType){
+    ingredientsByType.insertAdjacentHTML('afterbegin', ingredient);
+  } else {
+    const ingredientsOther = document.querySelector(`.ingredients-other-${status}`);
+    ingredientsOther.insertAdjacentHTML('afterbegin', ingredient);
+  }
 }
 
 function launchAjaxForIngredient() {
-  console.log('GO to update.js.erb')
   const shoppingListIngredientTargetedToBuy = document.querySelectorAll(".data-shopping-list-id-<%=@shopping_item.id%>-to-buy")
   const shoppingListIngredientTargetedBought = document.querySelectorAll(".data-shopping-list-id-<%=@shopping_item.id%>-bought")
-  if (shoppingListIngredientTargetedToBuy) {
-    shoppingListIngredientTargetedToBuy.forEach(element => {
-      element.remove();
-    });
-    addIngredient('<%= j render "ingredient-bought", shopping_list: @shopping_item.reload, @planner: @planner.reload %>', '-bought')
-  }
+  let elementType = ""
+
   if (shoppingListIngredientTargetedBought) {
     shoppingListIngredientTargetedBought.forEach(element => {
       element.remove();
     })
   }
+  if (shoppingListIngredientTargetedToBuy) {
+    shoppingListIngredientTargetedToBuy.forEach(element => {
+      element.remove();
+    });
+  }
 
+// elementType= "test"
+  if(shoppingListIngredientTargetedToBuy.length === 0){
+    elementType = shoppingListIngredientTargetedBought[0].dataset.type
+  } else {
+    elementType = shoppingListIngredientTargetedToBuy[0].dataset.type
+  }
+  // elementTypeBought = shoppingListIngredientTargetedBought[0].dataset.type
+  console.log(elementType)
 
-
+  <% if @shopping_item.bought %>
+      console.log('true')
+      addIngredient(elementType, '<%= j render "shopping_lists/ingredient-bought", shopping_list: @shopping_item, planner: @planner %>', 'bought')
+  <% else %>
+      console.log('false')
+      addIngredient(elementType, '<%= j render "shopping_lists/ingredient-to-buy", shopping_list: @shopping_item, planner: @planner %>', 'to-buy')
+  <% end %>
 };
 
 launchAjaxForIngredient();

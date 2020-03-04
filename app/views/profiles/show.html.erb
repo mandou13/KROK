@@ -1,7 +1,11 @@
 <div class= "profile container container-krok">
   <div class="profile-header">
     <div class="profile-header-item">
-      <%= cl_image_tag current_user.photo.key, class: 'avatar-profile'%>
+      <% if  current_user.photo.attachment.nil? %>
+       <i class="fas fa-user navbar-icon"></i>
+      <% else %>
+        <%= cl_image_tag current_user.photo.key, class: 'avatar-profile'%>
+      <% end %>
     </div>
     <div class="profile-header-item underligned-green">
       <%= current_user.username %>

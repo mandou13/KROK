@@ -1,3 +1,4 @@
+
 <div class="container container-krok">
   <div class="" id='title_to_update'>
     <div class="planner-title-card d-flex">
@@ -18,22 +19,24 @@
             <div class="col-6 col-lg-3">
               <div class="card-show">
                 <div class="card-img-top d-flex justify-content-center">
-                <%= link_to recipe_path(planner_recipe.recipe) do  %>
-                  <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill %>
-                <% end %>
+                  <div>
+                    <%= link_to recipe_path(planner_recipe.recipe) do  %>
+                      <%= cl_image_tag planner_recipe.recipe.photo.key, crop: :fill %>
+                    <% end %>
+                  </div>
                   <!-- not exist when coming from past planners -->
                   <% unless params[:id].to_i < current_user.planners.last.id %>
                     <div class="card-img-icon-cooked" id="">
                       <% if planner_recipe.cooked %>
-                        <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
-                          <i class="fas fa-check btn-cooked"></i>
+                        <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'cooked'), method: :patch, remote: true do  %>
+                          <i class="fas fa-drumstick-bite btn-cooked"></i>
                         <% end %>
                       <% elsif !planner_recipe.cooked && planner_recipe.recipe.already_rated?(current_user) %>
-                        <%= link_to planner_planner_recipe_path(@planner, planner_recipe), method: :patch do  %>
-                          <i class="fas fa-check btn-not-cooked" ></i>
+                        <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'not-cooked'), method: :patch, remote: true do  %>
+                          <i class="fas fa-drumstick-bite btn-not-cooked" ></i>
                         <% end %>
                       <% else %>
-                        <button type="button" class="fas fa-check btn-not-cooked" data-toggle="modal" data-target="#planner-recipe-<%= planner_recipe.id %>">
+                        <button type="button" class="fas fa-drumstick-bite btn-not-cooked" data-toggle="modal" data-target="#planner-recipe-<%= planner_recipe.id %>">
                         </button>
                         <div class="modal fade" id="planner-recipe-<%= planner_recipe.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -50,6 +53,15 @@
                             </div>
                           </div>
                         </div>
+                      <% end %>
+                    </div>
+                    <div class= 'recipe-servings-planner'>
+                      <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'minus' ), class: "add", method: :patch do %>
+                        <i class="far fa-minus-square btn-grey fa-lg" id='btn-minus-recipe-planner'></i>
+                      <% end %>
+                      <span class='pl-3 pr-3' id='recipe-servings-planner'><%= planner_recipe.servings %></span>
+                      <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'plus'), class: "add", method: :patch do %>
+                        <i class="far fa-plus-square btn-grey fa-lg" id='btn-plus-recipe-planner'></i>
                       <% end %>
                     </div>
                   <% end %>
@@ -109,16 +121,19 @@
                 </div>
                 <div class="card-img-icon-random-valid" id="card-img-icon-random-valid">
                   <!-- <input type="hidden" name="dashboardredirect" value="1"/> -->
-                  <%= link_to recipe_planner_recipes_path(planner_recipe_random), method: :post do %>
+                  <%= link_to recipe_planner_recipes_path(planner_recipe_random), method: :post, remote: true do %>
 
                   <% end %>
                   <!-- servings modal -->
-                  <i class="fas fa-grin-hearts btn-random-valid" data-toggle="modal" data-target="#recipe-<%= planner_recipe_random.id %>"></i>
-                  <div class="modal fade" id="recipe-<%= planner_recipe_random.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <%= link_to recipe_planner_recipes_path(planner_recipe_random), method: :post, remote: true do %>
+                    <i class="fas fa-grin-hearts btn-random-valid" data-toggle="modal" data-target="#recipe-<%= planner_recipe_random.id %>"></i>
+                  <% end %>
+
+                  <!-- <div class="modal fade" id="recipe-<%= planner_recipe_random.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">How many servings you want to prepare?</h5>
+                          <h5 class="modal-title" id="exampleModalLongTitle">Number of Pax/Servings :  </h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
@@ -126,17 +141,17 @@
                         <div class="modal-body d-flex justify-content-center align-middle">
 
                           <div class="form-box font-italic" id='title_updated'>
-                            <% planner_recipe = PlannerRecipe.new %>
-                            <%= form_for [planner_recipe_random, planner_recipe] do |f| %>
-                            <%= f.number_field :servings, collection: (1..20), class: 'form-input', placeholder: "#{planner_recipe_random.servings}", value: planner_recipe_random.servings  %>
-                            <%= f.submit 'Add', class: "btn btn-krok-little" %>
-                            <% end %>
+                            <#% planner_recipe = PlannerRecipe.new %>
+                            <#%= form_for [planner_recipe_random, planner_recipe] do |f| %>
+                            <#%= f.number_field :servings, collection: (1..20), class: 'form-input', placeholder: "#{planner_recipe_random.servings}", value: planner_recipe_random.servings  %>
+                            <#%= f.submit 'Add', class: "btn btn-krok-little" %>
+                            <#% end %>
                           </div>
 
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <!--  servings modal -->
                 </div>
               </div>

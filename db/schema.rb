@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_175223) do
+ActiveRecord::Schema.define(version: 2020_03_04_110549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,15 +56,6 @@ ActiveRecord::Schema.define(version: 2020_03_02_175223) do
     t.index ["user_id"], name: "index_liked_recipes_on_user_id"
   end
 
-  create_table "pg_search_documents", force: :cascade do |t|
-    t.text "content"
-    t.string "searchable_type"
-    t.bigint "searchable_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
-  end
-
   create_table "planner_recipes", force: :cascade do |t|
     t.boolean "cooked", default: false
     t.integer "servings"
@@ -78,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_175223) do
   end
 
   create_table "planners", force: :cascade do |t|
-    t.string "name", default: "03/03/20"
+    t.string "name", default: "04/03 Menu"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

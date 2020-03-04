@@ -13,14 +13,17 @@
 @import "pages/index";
 
 
-.container {
-  margin-bottom: 90px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 95px;
-}
 
 body {
   background-color: white;
 }
 
+
+.container-krok{
+  margin-bottom: 90px;
+}
+
+
+.container-krok-xl{
+  padding-bottom: 90px;
+}

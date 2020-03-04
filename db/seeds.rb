@@ -161,17 +161,17 @@ end
 # Ingredient.create(name: 'Carrot', quantity: 3, recipe_id: second_recipe.id)
 
 # Planner.create(
-#   name: Time.now.strftime("%D"),
+#   name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu",
 #   user_id: maxence.id
 # )
 
 Planner.create(
-  name: Time.now.strftime("%D"),
+  name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu",
   user_id: louis.id
 )
 
 Planner.create(
-  name: Time.now.strftime("%D"),
+  name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu",
   user_id: pauline.id
 )
 

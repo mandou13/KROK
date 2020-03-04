@@ -27,6 +27,11 @@
     <!-- meta tags for pwa -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable"  content="yes">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+
+    <%= render 'shared/ios_pwa_links' %>
+
+
   </head>
   <body>
     <%= render 'shared/top_navbar' unless (params[:controller] == 'recipes' && params[:action] == 'show') %>

@@ -2,8 +2,8 @@ const display_searchbar = () => {
   const SearchBarIndex = document.getElementById('searchbox-recipe-index-before');
   if (SearchBarIndex) {
     SearchBarIndex.addEventListener("click", (event) => {
-      document.getElementById('recipes').classList.toggle("d-none");
-      document.getElementById('searchbox-recipe-index-after').classList.toggle("d-none");
+      document.getElementById('recipes').classList.add("d-none");
+      document.getElementById('searchbox-recipe-index-after').classList.remove("d-none");
     });
   }
 }

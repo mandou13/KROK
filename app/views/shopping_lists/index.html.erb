@@ -1,9 +1,6 @@
 <!-- <h1>ShoppingLists#index</h1>
 <p>Find me in app/views/shopping_lists/index.html.erb</p>
  -->
-<div class='text-center'>
-  <h1 class='underligned-green pb-2 pt-4'> Your Shopping List </h1>
-</div>
 
 <div class='text-center'>
   <h3 class='' id='editable-shopping-list-name'> Your Shopping List </h3>
@@ -17,7 +14,7 @@
       <div class="d-flex">
         <% bought_ingredients = 0 %>
         <% @shopping_lists.each {|shopping_list| bought_ingredients += 1 if shopping_list.bought == true}  %>
-        <h5><%= bought_ingredients %>/</h5>
+        <h5 id='shopping_list_number_in_done'><%= bought_ingredients %>/</h5>
         <h5> <%= @shopping_lists.count %> </h5>
       </div>
     </button>

@@ -1,13 +1,13 @@
 import mapboxgl from 'mapbox-gl';
 
 const mapElement = document.getElementById('map');
-const buildMap = (longitude, latitude) => {
 
-  mapboxgl.accessToken = 'pk.eyJ1IjoibG91aXNnYXQiLCJhIjoiY2s3ZGdwZjhmMDljNTNpbndmMzF1aDU5YiJ9.kQg6aiNLAWiWfu4mYa7M9w';
+const buildMap = (longitude, latitude) => {
+  mapboxgl.accessToken = mapElement.dataset.mapboxapikey;
   return new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10',
-    zoom: 13,
+    zoom: 15,
     center: [longitude, latitude]
   });
 };
@@ -30,9 +30,12 @@ const initMapbox = () => {
   if (mapElement) {
     navigator.geolocation.getCurrentPosition((data) => {
       const map = buildMap(data.coords.longitude, data.coords.latitude);
-      const markers = JSON.parse(mapElement.dataset.markers);
-      addMarkersToMap(map, markers);
-      fitMapToMarkers(map, markers);
+
+      if (mapElement.dataset.markers) {
+        const markers = JSON.parse(mapElement.dataset.markers);
+        addMarkersToMap(map, markers);
+        fitMapToMarkers(map, markers);
+      }
   });
 
   }

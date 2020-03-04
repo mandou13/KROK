@@ -1,5 +1,11 @@
-meta_product_name: "Krok"
-meta_title: "Krok - Your meal planner"
-meta_description: "Planning your meals and grocery shopping become easier with Krok! "
+# meta_product_name: "Krok"
+# meta_title: "Krok - Your meal planner"
+# meta_description: "Planning your meals and grocery shopping become easier with Krok! "
+# meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@CombarelM"   # required for Twitter Cards
+
+meta_product_name: "Product Name"
+meta_title: "Product name - Product tagline"
+meta_description: "Relevant description"
 meta_image: "cover.png" # should exist in `app/assets/images/`
-twitter_account: "@CombarelM"   # required for Twitter Cards
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

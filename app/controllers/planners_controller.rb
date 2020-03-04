@@ -29,7 +29,7 @@ class PlannersController < ApplicationController
 
   def create
     @planner = Planner.new(
-      name: Time.now.strftime("%D"),
+      name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu",
       user_id: current_user.id)
     @planner.save
     redirect_to planner_path(@planner)

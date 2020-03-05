@@ -3,7 +3,7 @@ import { deleteFakeHome } from './deleteFakeHome'
 const scrollToNavbarTop = () => {
 
   const downArrow = document.querySelector('.downArrow');
-  const fakeHome = document.querySelector('.home');
+  let fakeHome = document.querySelector('.home');
 
   if (downArrow || fakeHome) {
     downArrow.addEventListener('click', () => {
@@ -13,12 +13,11 @@ const scrollToNavbarTop = () => {
         left: 100,
         behavior: 'smooth'
       });
-
     });
 
     document.addEventListener('scroll', (event) => {
-
-      if (window.pageYOffset >= window.innerHeight) {
+      fakeHome = document.querySelector('.home');
+      if (window.pageYOffset >= window.innerHeight && fakeHome) {
         deleteFakeHome();
         window.scroll(0,0);
       }

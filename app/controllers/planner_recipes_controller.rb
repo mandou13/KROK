@@ -11,6 +11,7 @@ class PlannerRecipesController < ApplicationController
     @recipe.ingredients.each do |ingredient|
       shopping_lists = ShoppingList.where("planner_id = ? AND ingredient_name = ?", @planner.id, ingredient.name)
       quotient = @planner_recipe.servings.to_i.fdiv(@planner_recipe.recipe.servings.to_i)
+
       ingredient.quantity = (quotient * ingredient.quantity)
       ingredient = ingredient.convert_ingredient_to_krok_unit unless ingredient.krok_unit?
 

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'shopping_lists/update'
   devise_for :users
 
-  root to: 'recipes#index'
+  root to: 'pages#home'
 
   resource :profile, only: :show
 

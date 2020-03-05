@@ -73,19 +73,19 @@
       <p class="filtering-tags filtering-tags-unselected input-dish-origin">Indian</p>
       <p class="filtering-tags filtering-tags-unselected input-dish-origin">Mexican</p>
       <p class="filtering-tags filtering-tags-unselected input-dish-origin">Middle East</p>
-      <p class="filtering-tags filtering-tags-unselected input-dish-origin">Spansish</p>
+      <p class="filtering-tags filtering-tags-unselected input-dish-origin">Spanish</p>
 
       <h3 class='h3-tagtitle'>Difficulty</h3>
       <p class="filtering-tags filtering-tags-unselected input-difficulty">Easy</p>
       <p class="filtering-tags filtering-tags-unselected input-difficulty">Medium</p>
 
       <%= form_tag recipes_path, method: :get do %>
-        <%= text_field_tag :query_dish_type, params[:query_dish_type],class: "form-control specific-input-search-dish-type d-none"%>
+        <%= text_field_tag :query_dish_type, params[:query_dish_type], required: true,class: "form-control specific-input-search-dish-type d-none"%>
         <%= text_field_tag :query_prep_time, params[:query_prep_time],class: "form-control specific-input-search-prep-time d-none"%>
         <%= text_field_tag :query_dish_origin, params[:query_dish_origin],class: "form-control specific-input-search-dish-origin d-none"%>
         <%= text_field_tag :query_difficulty, params[:query_difficulty],class: "form-control specific-input-search-difficulty d-none"%>
         <%= submit_tag "Search", class: "btn btn-searchbar-filter-go" %>
-    <% end %>
+      <% end %>
     </div>
   </div>
 </div>

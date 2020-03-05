@@ -3,6 +3,7 @@ import "components/navbar";
 import "packs/plugin/profile.js";
 import 'select2/dist/css/select2.css';
 import { initSelect2 } from '../components/init_select2';
+import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 
 
 import { initLikedRecipeNav } from "components/init_like_recipe_nav";
@@ -16,6 +17,10 @@ import { addFiltersToSearch } from '../components/add_search_to_searchbox';
 import { update_servings } from '../components/recipe_servings';
 import { update_servings_planner } from '../components/recipe_servings_planner';
 import { handleClickOnTab } from '../components/handleClickOnTab';
+import { getGeoloc } from '../components/get_geoloc';
+
+
+import { initMapbox } from '../plugins/init_mapbox';
 import { plannerSearchClick } from './plugin/plannerSearchSimulateClick';
 import { scrollToNavbarTop  } from '../components/scrollToNavbarTop'
 // import { handleColorBtnAddOldPlanner } from '../components/handleColorBtnAddOldPlanner';
@@ -39,5 +44,11 @@ update_servings_planner();
 handleClickOnTab();
 plannerSearchClick();
 // handleColorBtnAddOldPlanner();
+
+initMapbox();
+
+getGeoloc();
+
 scrollToNavbarTop();
+
 

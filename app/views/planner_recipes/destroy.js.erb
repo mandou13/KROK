@@ -1,0 +1,40 @@
+console.log('hello');
+
+function updateCounter() {
+  const counterElement = document.querySelector('.pastille-notif-inner');
+  if (counterElement.innerText === '1') {
+    counterElement.remove();
+  } else {
+    counterElement.innerText = parseInt(counterElement.innerText) - 1
+  }
+}
+
+function refreshLink() {
+
+  const seen = "<%= @planner_recipe.seen %>" === 'true';
+  const counter = document.querySelector('.pastille-notif-inner');
+
+  if (counter && !seen) {
+    updateCounter();
+  }
+
+  const link = document.getElementById('delete-link-planner-<%= @recipe.id %>');
+
+  link.parentElement.innerHTML = `
+    <a rel="nofollow"
+      id="create-link-planner-<%= @recipe.id %>"
+      data-remote="true"
+      data-method="post"
+      href="/recipes/<%= @recipe.id %>/planner_recipes"
+    >
+      <i class="fas fa-utensils btn-add-recipe"></i>
+    </a>
+`
+}
+
+
+
+refreshLink();
+
+
+

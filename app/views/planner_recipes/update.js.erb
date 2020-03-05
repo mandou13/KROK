@@ -1,1 +1,9 @@
-console.log("hey")
+
+
+function refreshServings() {
+  const servings = document.getElementById('recipe-servings-planner-<%= @planner_recipe.id %>');
+  servings.innerHTML = '<%= @planner_recipe.servings %>';
+}
+
+refreshServings();
+

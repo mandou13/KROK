@@ -5,7 +5,7 @@ const scrollToNavbarTop = () => {
   const downArrow = document.querySelector('.downArrow');
   let fakeHome = document.querySelector('.home');
 
-  if (downArrow || fakeHome) {
+  if (downArrow && fakeHome) {
     downArrow.addEventListener('click', () => {
 
       window.scroll({

@@ -7,6 +7,18 @@
     <h5 id='editable-shopping-list-name'> <%= @planner.name %> </h5>
   </div>
 
+  <div class="container">
+    <div class="row justify-content-end mb-3 mr-2">
+
+    <%= form_tag supermarckets_path, method: :get do %>
+        <%= text_field_tag :query_geoloc, params[:query_geoloc],class: "form-control specific-input-for-geoloc-type"%>
+        <%= button_tag(type: "submit", class: "btn btn-green") do %>
+          <i class="fas fa-map-marked-alt"></i>
+        <% end %>
+    <% end %>
+    </div>
+  </div>
+
   <div class="accordion mt-30" id="accordion-shopping">
     <div class="card card-shopping-all">
       <button class="btn collapsed before-collapse" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">

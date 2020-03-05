@@ -17,6 +17,9 @@ import { addFiltersToSearch } from '../components/add_search_to_searchbox';
 import { update_servings } from '../components/recipe_servings';
 import { update_servings_planner } from '../components/recipe_servings_planner';
 import { handleClickOnTab } from '../components/handleClickOnTab';
+import { getGeoloc } from '../components/get_geoloc';
+
+
 import { initMapbox } from '../plugins/init_mapbox';
 import { plannerSearchClick } from './plugin/plannerSearchSimulateClick';
 // import { handleColorBtnAddOldPlanner } from '../components/handleColorBtnAddOldPlanner';
@@ -42,4 +45,6 @@ plannerSearchClick();
 // handleColorBtnAddOldPlanner();
 
 initMapbox();
+
+getGeoloc();
 

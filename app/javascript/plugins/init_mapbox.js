@@ -6,7 +6,7 @@ const buildMap = (longitude, latitude) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxapikey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10',
+    style: 'mapbox://styles/louisgat/ck7erw8v006591imb3p9lp9h4',
     zoom: 15,
     center: [longitude, latitude]
   });
@@ -20,8 +20,8 @@ const addMarkersToMap = (map, markers) => {
       element.style.backgroundImage = `url('${marker.image_url}')`;
       element.style.backgroundSize = 'contain';
       element.style.backgroundRepeat = "repeat-x"
-      element.style.width = '45px';
-      element.style.height = '45px';
+      element.style.width = '40px';
+      element.style.height = '40px';
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup)

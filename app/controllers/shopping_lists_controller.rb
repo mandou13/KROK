@@ -7,7 +7,7 @@ class ShoppingListsController < ApplicationController
     @categories = @categories.uniq.sort
     @categories_all_except_other = ["Vegetable", "Meat", "Beverage Alcoholic", "Bakery", "Dairy", "Fish", "Fruit", "Herb and Spice", "Canned  Goods"]
     @categories_other = ["Condiment", "Dry", "Flower"  "Dish", "Nuts & Seed", "Beverage" "Dairy Substitute", "Plant"]
-
+    @shopping_lists_index = true
   end
 
   def update

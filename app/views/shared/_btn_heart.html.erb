@@ -1,7 +1,7 @@
 <div class="circle-icon">
   <% if current_user.nil? %>
     <%= link_to new_user_session_path do %>
-      <i class="fas fa-utensils btn-heart"></i>
+      <i class="far fa-heart btn-heart"></i>
     <% end %>
   <% else %>
     <% if recipe.liked?(current_user) %>

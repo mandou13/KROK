@@ -1,0 +1,29 @@
+console.log('hello');
+
+
+function refreshLink() {
+
+  const counter = document.querySelector('.pastille-notif-inner');
+  const seen = "<%= @planner_recipe.seen %>" === 'true';
+
+  if (!seen) {
+    if (counter) {
+      counter.innerText = parseInt(counter.innerText) + 1
+    } else {
+      document.getElementById('logo-fork').innerHTML += `<p class="pastille-notif-inner">1</p>`
+    }
+  }
+
+  const link = document.getElementById('create-link-planner-<%= @recipe.id %>');
+
+  link.parentElement.innerHTML = `
+    <a id="delete-link-planner-<%= @recipe.id %>" data-remote="true" rel="nofollow" data-method="delete" href="/recipes/<%= @recipe.id %>/planner_recipes/<%= @planner_recipe.id %>">
+      <i class="fas fa-utensils btn-add-recipe-done-orange"></i>
+    </a>
+`
+}
+
+refreshLink();
+
+
+

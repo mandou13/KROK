@@ -38,7 +38,10 @@ class PlannerRecipesController < ApplicationController
       elsif URI(request.referer).path.index("recipes/#{@recipe.id}") == 1
         redirect_to recipe_path(@recipe)
       else
-        redirect_to recipes_path
+        respond_to do |format|
+          format.html { redirect_to recipes_path }
+          format.js
+        end
       end
     else
       redirect_to recipes_path, alert: 'You can only have greater than or equal to 1 servings'
@@ -47,6 +50,7 @@ class PlannerRecipesController < ApplicationController
 
 
   def update
+
 
     @planner = Planner.find(params[:planner_id])
     @planner_recipe = PlannerRecipe.find(params[:id])
@@ -67,13 +71,14 @@ class PlannerRecipesController < ApplicationController
       end
       # redirect_to planner_path(@planner)
       respond_to do  |format|
-          format.html{redirect_to planner_path(@planner)}
+          format.html {redirect_to planner_path(@planner)}
           format.js
         end
     end
   end
 
   def destroy
+
     @planner = params[:planner_id].nil? ? current_user.planners.last : Planner.find(params[:planner_id])
     @planner_recipe = PlannerRecipe.find(params[:id])
     @recipe = Recipe.find(@planner_recipe.recipe_id)
@@ -103,7 +108,10 @@ class PlannerRecipesController < ApplicationController
     elsif URI(request.referer).path.index("recipes/#{@planner_recipe.recipe.id}") == 1
       redirect_to recipe_path(@planner_recipe.recipe)
     else
-      redirect_to recipes_path
+      respond_to do |format|
+        format.html { redirect_to recipes_path }
+        format.js
+      end
     end
   end
 

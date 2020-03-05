@@ -18,12 +18,17 @@ body {
   background-color: white;
 }
 
-
-.container-krok{
-  margin-bottom: 90px;
+a:hover {
+  text-decoration: none;
 }
 
 
-.container-krok-xl{
-  padding-bottom: 90px;
+.container-krok{
+  margin-bottom: 90px;
+  // margin-top: 10px;
+}
+
+// title of each page
+h3 {
+  margin-top: 15px;
 }

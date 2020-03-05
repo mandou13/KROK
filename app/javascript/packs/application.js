@@ -17,6 +17,7 @@ import { update_servings } from '../components/recipe_servings';
 import { update_servings_planner } from '../components/recipe_servings_planner';
 import { handleClickOnTab } from '../components/handleClickOnTab';
 import { plannerSearchClick } from './plugin/plannerSearchSimulateClick';
+import { scrollToNavbarTop  } from '../components/scrollToNavbarTop'
 // import { handleColorBtnAddOldPlanner } from '../components/handleColorBtnAddOldPlanner';
 
 display_title();
@@ -38,3 +39,5 @@ update_servings_planner();
 handleClickOnTab();
 plannerSearchClick();
 // handleColorBtnAddOldPlanner();
+scrollToNavbarTop();
+

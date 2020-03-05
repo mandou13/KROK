@@ -2,7 +2,7 @@
   <div class="profile-header">
     <div class="profile-header-item">
       <% if  current_user.photo.attachment.nil? %>
-       <i class="fas fa-user navbar-icon"></i>
+       <%=image_tag 'marx.jpg', class: 'avatar-profile'%>
       <% else %>
         <%= cl_image_tag current_user.photo.key, class: 'avatar-profile'%>
       <% end %>

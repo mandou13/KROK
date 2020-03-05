@@ -3,8 +3,6 @@
     <%= link_to new_user_session_path do %>
       <i class="fas fa-utensils btn-add-recipe"></i>
     <% end %>
-  <% elsif current_user.planners.empty? %>
-    <% Planner.create!(user_id: current_user.id, name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu")  %>
   <% else %>
     <% has_recipe_in = current_user.planners.last.recipes.include?(recipe) %>
     <% if has_recipe_in %>

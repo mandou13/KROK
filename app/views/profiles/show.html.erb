@@ -18,25 +18,28 @@
       <div class="item-text">Food Preferences</div>
       <i class="fas fa-sort-down"></i>
     </div>
-      <div id="food-preference" class="panel-profile d-none search-box">
-        <%= simple_form_for @preference do |t| %>
-          <%= t.input :ingredient, collection: @ingredients_sorted , input_html: {class: "select2"} %>
-          <%= t.submit "Dislike", class: 'btn-krok-pref'%>
-        <%end %>
-        <p>Hidden Ingredients : </p>
-        <div class="container-preferences">
-          <div class="row row-krok">
-            <% @user_preferences.each do |preference| %>
-            <div class="col-6 mt-3">
-              <p class="preferences-tags"><%= preference.ingredient.name %></p>
-              <%= button_to "x", preference_path(preference), method: :delete, class: 'delete-preference' %>
+      <div id="food-preference" class="panel-profile panel-profile-preference d-none my-3">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <%= simple_form_for @preference do |t| %>
+            <%= t.input :ingredient, collection: @ingredients_sorted , input_html: {class: "select2"} %>
+            <%= t.submit "Dislike", class: 'btn-krok-pref'%>
+          <%end %>
+          <p class="mb-1">Hidden Ingredients : </p>
+          <div class="container-preferences px-2">
+            <div class="row mx-n2">
+              <% @user_preferences.each do |preference| %>
+              <div class="col-4 mt-1 column-preference px-2">
+                  <h6 class="preferences-tag text-center"><%= preference.ingredient.name %></h6>
+                  <%= button_to "x", preference_path(preference), method: :delete, class: 'delete-preference' %>
+              </div>
+              <% end %>
             </div>
-            <% end %>
           </div>
         </div>
+
       </div>
     <div id = "previous-lists" class="accordion-profile"><i class="fas fa-clock fa-lg"></i><div class="item-text">Previous planners</div><i class="fas fa-sort-down"></i></div>
-      <div class="panel-profile d-none mt-2">
+      <div class="panel-profile d-none my-3">
         <% current_user.planners.first(current_user.planners.size-1).sort.reverse.each do |planner| %>
           <!-- planner card design -->
           <%= render 'shared/card_planner', planner: planner %>
@@ -44,17 +47,17 @@
         <% end %>
       </div>
     <div id = "edit-profile" class="accordion-profile"><i class="fas fa-cog fa-lg"></i><div class="item-text">Settings</div><i class="fas fa-sort-down"></i></div>
-      <div class="panel-profile d-none mt-2">
+      <div class="panel-profile d-none my-3">
         <div class="edit-profile">
-          <i class="fas fa-unlock-alt"></i>
+          <i class="fas fa-unlock-alt mr-1"></i>
           <%= link_to "Change password", edit_user_registration_path, class: "item-text" %>
         </div>
         <div class="edit-profile">
-          <i class="fas fa-pencil-alt"></i>
+          <i class="fas fa-pencil-alt mr-1"></i>
           <%= link_to "Update profil", edit_user_registration_path, class: "item-text" %>
         </div>
         <div class="edit-profile">
-          <i class="fas fa-door-closed"></i>
+          <i class="fas fa-door-closed mr-1"></i>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "item-text" %>
         </div>
       </div>

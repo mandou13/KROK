@@ -8,7 +8,8 @@ class SupermarcketsController < ApplicationController
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.630125,3.013894&radius=800000&keyword=Grocery store&key=AIzaSyCci3T2TVK23rtk8I6cpjXUrhgyCWEPz4w'
     supermarckets_serialized = open(url).read
     @supermarckets = JSON.parse(supermarckets_serialized)["results"]
-    url2 = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=carrefour&location=50.630125,3.013894&radius=800000&key=AIzaSyCci3T2TVK23rtk8I6cpjXUrhgyCWEPz4w'
+    supermarcket_type = "carrefour"
+    url2 = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{supermarcket_type}&location=50.630125,3.013894&radius=800000&key=AIzaSyCci3T2TVK23rtk8I6cpjXUrhgyCWEPz4w"
     supermarckets_serialized2 = open(url2).read
     @supermarckets2 = JSON.parse(supermarckets_serialized2)["results"]
     # @supermarcket_markers = []
@@ -17,7 +18,7 @@ class SupermarcketsController < ApplicationController
         lat: supermarcket["geometry"]["location"]["lat"],
         lng: supermarcket["geometry"]["location"]["lng"],
         infoWindow: render_to_string(partial: "info_window", locals: { supermarcket: supermarcket }),
-        image_url: helpers.asset_url('logo-krok.png')
+        image_url: helpers.asset_url("#{supermarcket_type}.png")
       }
     end
   end

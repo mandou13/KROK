@@ -34,12 +34,13 @@
 
   </head>
   <body>
-    <%= render 'shared/top_navbar' unless (params[:controller] == 'recipes' && params[:action] == 'show') %>
-    <%= render 'shared/flashes' %>
+      <%= render 'shared/home' if @fake_home %>
 
-    <%= yield %>
+      <%= render 'shared/top_navbar' unless (params[:controller] == 'recipes' && params[:action] == 'show' ||  @home) %>
 
-    <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    <%= render 'shared/navbar'  unless @home%>
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

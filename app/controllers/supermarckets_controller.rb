@@ -5,16 +5,13 @@ class SupermarcketsController < ApplicationController
 
   def index
     coordonates = '50.630125,3.013894'
-    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.630125,3.013894&radius=800000&keyword=Grocery store&key=AIzaSyCci3T2TVK23rtk8I6cpjXUrhgyCWEPz4w'
-    supermarckets_serialized = open(url).read
-    @supermarckets = JSON.parse(supermarckets_serialized)["results"]
     supermarcket_types = ["carrefour", "monoprix", "lidl", "auchan"]
     @markers = []
     supermarcket_types.each do |supermarcket_type|
-      url2 = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{supermarcket_type}&location=50.630125,3.013894&radius=800000&key=AIzaSyCci3T2TVK23rtk8I6cpjXUrhgyCWEPz4w"
-      supermarckets_serialized2 = open(url2).read
-      @supermarckets2 = JSON.parse(supermarckets_serialized2)["results"]
-      @markers_supermarcket_type = @supermarckets2.map do |supermarcket|
+      url_supermarcket_type = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{supermarcket_type}&location=50.630125,3.013894&radius=10000&key=AIzaSyCci3T2TVK23rtk8I6cpjXUrhgyCWEPz4w"
+      supermarckets_type_serialized = open(url_supermarcket_type).read
+      @supermarckets_type = JSON.parse(supermarckets_type_serialized)["results"]
+      @markers_supermarcket_type = @supermarckets_type.map do |supermarcket|
         {
           lat: supermarcket["geometry"]["location"]["lat"],
           lng: supermarcket["geometry"]["location"]["lng"],

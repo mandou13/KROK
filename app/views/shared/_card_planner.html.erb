@@ -35,10 +35,10 @@
       <% end %>
     </div>
 
-    <div class="col-7 d-flex flex-column justify-content-center p-0">
+    <div class="col-7 d-flex flex-column justify-content-center align-items-end p-0">
       <%= link_to planner_path(planner), html: { class: "past-planner-link" } do  %>
         <div class="card-title d-flex mb-0 align-items-center justify-content-center">
-          <h5 class="mr-2"><%= planner.name %></h5>
+          <h6 class="mr-2"><%= planner.name %></h6>
           <%# if click one time %>
             <%= link_to add_from_previous_planner_planner_path(planner), method: :post do  %>
               <i class="fas fa-utensils btn-add-previous-planner"></i>

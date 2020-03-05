@@ -1,10 +1,10 @@
 .top-navbar {
   display: flex;
   justify-content: center;
-  height: 9vh;
+  align-items: center;
+  height: 11vh;
   background-color: white;
-  margin-bottom: 15px;
-  // background-color: $green;
+  // margin-bottom: 15px;
   position: sticky;
   top: 0;
   z-index: 1020;

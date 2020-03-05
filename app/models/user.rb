@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  after_create :create_first_planner
+
   has_many :recipes
   has_many :planners
   has_many :liked_recipes
@@ -14,4 +16,9 @@ class User < ApplicationRecord
   has_many :shopping_lists, through: :planners
 
   has_one_attached :photo
+
+
+  def create_first_planner
+    Planner.create!(user: self, name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu");
+  end
 end

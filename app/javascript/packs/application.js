@@ -22,6 +22,7 @@ import { getGeoloc } from '../components/get_geoloc';
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { plannerSearchClick } from './plugin/plannerSearchSimulateClick';
+import { scrollToNavbarTop  } from '../components/scrollToNavbarTop'
 // import { handleColorBtnAddOldPlanner } from '../components/handleColorBtnAddOldPlanner';
 
 display_title();
@@ -43,8 +44,12 @@ update_servings_planner();
 handleClickOnTab();
 plannerSearchClick();
 // handleColorBtnAddOldPlanner();
+<<<<<<< HEAD
 
 initMapbox();
 
 getGeoloc();
+=======
+scrollToNavbarTop();
+>>>>>>> master
 

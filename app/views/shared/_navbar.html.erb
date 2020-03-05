@@ -1,5 +1,6 @@
 <div class='navbar-container d-flex align-items-center <%= "d-none  home-navbar" if params[:controller] == 'pages' && params[:action] == 'home'%>'>
 
+  <!-- home icon -->
   <div id="logo-home" class="navbar d-flex text-center">
     <% if (params[:controller] == "recipes" && params[:action] == "index") || (params[:controller] == "pages" && params[:action] == "home") %>
       <%= link_to recipes_path do  %>
@@ -12,19 +13,14 @@
     <% end %>
   </div>
 
+  <!-- fork icon -->
   <div id="logo-fork" class="navbar navbar-logo d-flex text-center">
-    <% if current_user.nil? %>
-      <%= link_to profile_path do  %> <!-- mettre profile_path -->
-        <i class="fas fa-utensils"></i>
-      <% end %>
-    <% else %>
-      <% Planner.create!(user_id: current_user.id, name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu") if current_user.planners.empty? %>
-      <% if params[:controller] == "planners" && params[:action] == "show" %>
+      <% if user_signed_in? %>
         <%= link_to planner_path(current_user.planners.last) do  %>
-          <i class="fas fa-utensils pastille-notif-outer navbar-icon navbar-icon-green"></i>
+          <i class="fas fa-utensils pastille-notif-outer navbar-icon <%= 'navbar-icon-green' if @planners_show %>"></i>
         <% end %>
       <% else %>
-        <%= link_to planner_path(current_user.planners.last) do  %>
+        <%= link_to profile_path do  %>
           <i class="fas fa-utensils pastille-notif-outer navbar-icon"></i>
         <% end %>
       <% end %>
@@ -34,29 +30,22 @@
           <p class='pastille-notif-inner'> <%= @number_of_unseen_planner_recipes %></p>
         <% end %>
       <% end %>
-    <% end %>
   </div>
+
+  <!-- list icon  -->
   <div id="logo-list" class="navbar navbar-logo d-flex text-center">
-    <% if current_user.nil? %>
-      <%= link_to profile_path do %>
-        <i class="fas fa-list-ul"></i>
-      <% end %>
-    <% elsif params[:controller] == "shopping_lists" && params[:action] == "index" %>
-        <%= link_to planner_shopping_lists_path(current_user.planners.last) do  %>
-          <i class="fas fa-list-ul navbar-icon navbar-icon-green"></i>
-        <% end %>
-    <% else %>
+    <% if user_signed_in? %>
       <%= link_to planner_shopping_lists_path(current_user.planners.last) do  %>
+        <i class="fas fa-list-ul navbar-icon <%= 'navbar-icon-green' if @shopping_lists_index %>"></i>
+      <% end %>
+    <% else %>
+      <%= link_to profile_path do %>
         <i class="fas fa-list-ul navbar-icon"></i>
       <% end %>
     <% end %>
   </div>
 
-<!--   <div id="logo-heart" class="navbar navbar-logo d-flex text-center">
-    <#%= link_to liked_recipes_path do  %>  mettre liked_recipes_path -->
-      <!-- <i class="fas fa-heart"></i> -->
-<!--     <#% end %>
-  </div> -->
+  <!-- heart icon  -->
   <div id="logo-heart" class="navbar navbar-logo d-flex text-center">
     <% if params[:controller] == "liked_recipes" && params[:action] == "index" %>
       <%= link_to liked_recipes_path do  %>
@@ -69,6 +58,7 @@
     <% end %>
   </div>
 
+  <!-- profile icon  -->
   <div id="logo-profile" class="navbar navbar-logo d-flex text-center">
     <% if current_user.nil? %>
       <%= link_to profile_path do  %> <!-- mettre profile_path -->

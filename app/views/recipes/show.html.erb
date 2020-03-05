@@ -7,7 +7,7 @@
    <!--        <#%= link_to liked_recipes_path do %>
             <i class="fas fa-chevron-left btn-back"></i>
           <#% end %> -->
-        <% elsif URI(request.referer).path.index("planners/#{current_user.planners.last.id}") == 1 %>
+        <% elsif URI(request.referer).path.index("planners") == 1 %>
           <%= link_to planner_path(current_user.planners.last) do %>
             <i class="fas fa-chevron-left btn-back"></i>
           <% end %>
@@ -66,7 +66,9 @@
 <!-- <i class="fas fa-users icon-green"> -->
         </div>
         <div class='text-center'>
-          <% if current_user.planners.last.recipes.include?(@recipe) %>
+          <% if current_user.nil? %>
+            Servings : <a href="" class='btn btn-green ml-2' id='btn-minus-recipe'> - </a> <strong class='pl-3 pr-3' id='recipe-servings'><%= @recipe.servings %> </strong> <a href="" class='btn btn-green pt-1' id='btn-plus-recipe'> + </a>
+          <% elsif current_user.planners.last.recipes.include?(@recipe) %>
             Servings : <a href="" class='btn btn-green ml-2' id='btn-minus-recipe'> - </a> <strong class='pl-3 pr-3' id='recipe-servings'><%= current_user.planners.last.planner_recipes.where(recipe_id: @recipe.id).first.servings %> </strong> <a href="" class='btn btn-green pt-1' id='btn-plus-recipe'> + </a>
           <% else %>
             Servings : <a href="" class='btn btn-green ml-2' id='btn-minus-recipe'> - </a> <strong class='pl-3 pr-3' id='recipe-servings'><%= @recipe.servings %> </strong> <a href="" class='btn btn-green pt-1' id='btn-plus-recipe'> + </a>
@@ -86,7 +88,10 @@
                   <% if ingredient.category == category %>
                     <p>
                       <span class="mr-2"><%= ingredient.name.capitalize %></span>
-                      <% if current_user.planners.last.recipes.include?(@recipe) %>
+                      <% if current_user.nil? %>
+                        <span class='ingredient-quantity' data-quantity="<%= ingredient.quantity / @recipe.servings %>"> <%= ingredient.quantity.round %> </span>
+                        <%= ingredient.unit %>
+                      <% elsif current_user.planners.last.recipes.include?(@recipe) %>
                         <span class='ingredient-quantity' data-quantity="<%= ingredient.quantity / @recipe.servings %>"> <%= ((ingredient.quantity / @recipe.servings) * current_user.planners.last.planner_recipes.where(recipe_id: @recipe.id).first.servings).round %> </span>
                         <%= ingredient.unit %>
                       <% else %>

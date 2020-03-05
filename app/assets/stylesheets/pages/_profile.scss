@@ -151,3 +151,13 @@ div.form-group{
   margin-bottom: 5px;
 }
 
+.rating-card{
+  position: relative;
+  bottom: -76px;
+}
+
+i.fa-star{
+  color: $green;
+  opacity: 0.9;
+}
+

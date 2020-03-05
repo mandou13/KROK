@@ -63,6 +63,12 @@
                           </div>
                         </div>
                       <% end %>
+                        <div class="rating-card">
+                          <% star = '<i class="fas fa-star"></i>' %>
+                          <% unless @planner.user.ratings.where(recipe_id: planner_recipe.recipe_id).blank?  %>
+                          <%= (star * @planner.user.ratings.where(recipe_id: planner_recipe.recipe_id).first.rating).html_safe %>
+                        <% end %>
+                        </div>
                     </div>
                     <div class= 'recipe-servings-planner'>
                       <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'minus' ), class: "add", method: :patch do %>

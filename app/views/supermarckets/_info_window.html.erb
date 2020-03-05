@@ -1,0 +1,6 @@
+<h4> <%= supermarcket["name"] %> </h4>
+<p> <%= supermarcket["formatted_address"] %></p>
+<p> Open : <%= supermarcket["opening_hours"]["open_now"] unless supermarcket["opening_hours"].nil?  %></p>
+<p> note : <%= supermarcket["rating"] %></p>
+<p> <%= supermarcket["user_ratings_total"] %> avis laissés </p>
+

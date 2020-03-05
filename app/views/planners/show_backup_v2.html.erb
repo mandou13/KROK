@@ -1,4 +1,28 @@
+<!-- =======
 <div class="container container-krok">
+  <div class="row justify-content-center">
+    <div class="col-12">
+
+      <div class="" id='title_to_update'>
+        <div class="planner-title-card d-flex">
+          <h3 class='planner-title'><%#= @planner.name%></h3>
+          <i class="fas fa-edit p-2" id="title_update_launch"></i>
+        </div>
+      </div>
+      <%#= render 'shared/form' %>
+    </div>
+
+    <%# [0,1,2].each do |index| %>
+
+      <div class="col-12">
+        <h5 class="dish-type-title"> <%#= @recipes_all[index].first.dish_type.capitalize %></h5>
+      </div>
+
+
+       <div class="row justify-content-center"> -->
+<!-- >>>>>>> 914e39db2b30363fc5be54f6edd2805c731c7401 -->
+
+<div class="container">
   <div class="mb-3" id='title_to_update'>
     <div class="planner-title-card d-flex">
       <h3 class='planner-title'><%= @planner.name%></h3>
@@ -54,12 +78,6 @@
                           </div>
                         </div>
                       <% end %>
-                        <div class="rating-card">
-                          <% star = '<i class="fas fa-star"></i>' %>
-                          <% unless @planner.user.ratings.where(recipe_id: planner_recipe.recipe_id).blank?  %>
-                          <%= (star * @planner.user.ratings.where(recipe_id: planner_recipe.recipe_id).first.rating).html_safe %>
-                        <% end %>
-                        </div>
                     </div>
                   <% end %>
                   <!-- not exist when coming from past planners -->
@@ -107,7 +125,7 @@
             <div class="card-show">
               <div class="card-img-top d-flex justify-content-center background-alone">
                 <div class="card-img-icon-search" id="card-img-icon-search">
-                  <%= link_to '/recipes?addRecipe=true' do %>
+                  <%= link_to recipes_path do %>
                     <i class="fas fa-search"></i>
                   <% end %>
                 </div>
@@ -150,6 +168,7 @@
                           </button>
                         </div>
                         <div class="modal-body d-flex justify-content-center align-middle">
+
                           <div class="form-box font-italic" id='title_updated'>
                             <#% planner_recipe = PlannerRecipe.new %>
                             <#%= form_for [planner_recipe_random, planner_recipe] do |f| %>
@@ -157,6 +176,7 @@
                             <#%= f.submit 'Add', class: "btn btn-krok-little" %>
                             <#% end %>
                           </div>
+
                         </div>
                       </div>
                     </div>
@@ -167,18 +187,23 @@
             </div>
           </div>
         <% end %>
-      </div>
-    </div>
-  <% end %>
+      <!-- </div> -->
+    <% end %>
+  </div>
   <!-- not exist when coming from past planners -->
-    <div class="row justify-content-center">
-      <div class="planner-new">
-        <% if params[:id].to_i < current_user.planners.last.id %>
-          <%= link_to 'Add to current planner', add_from_previous_planner_planner_path(@planner), method: :post, class: 'btn btn-krok' %>
-        <% else %>
-          <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
-        <% end %>
-      </div>
+  <div class="row justify-content-center">
+    <div class="planner-new">
+      <% if params[:id].to_i < current_user.planners.last.id %>
+        <%= link_to 'Add to current planner', add_from_previous_planner_planner_path(@planner), method: :post, class: 'btn btn-krok' %>
+      <% else %>
+        <%= link_to 'Create a new planner',planners_path, method: :post, class: 'btn btn-krok'  %>
+      <% end %>
     </div>
+  </div>
   <!-- not exist when coming from past planners -->
 </div>
+
+
+
+
+

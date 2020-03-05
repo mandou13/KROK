@@ -1,0 +1,27 @@
+<li class="data-shopping-list-id-<%= shopping_list.id %>-bought remove-dots" data-type="<%= shopping_list.category.split(" ").first.downcase %>">
+  <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
+  <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
+    <% shopping_list_quantity = shopping_list.quantity / 1000 %>
+    <% shopping_list_unit = 'kg' %>
+  <% elsif  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'ml'%>
+    <% shopping_list_quantity = shopping_list.quantity / 1000 %>
+    <% shopping_list_unit = 'l' %>
+  <% else %>
+    <% shopping_list_quantity = shopping_list.quantity%>
+    <% shopping_list_unit = shopping_list.unit %>
+  <% end %>
+  <% if shopping_list.bought %>
+  <div class="d-flex justify-content-between">
+    <div class="d-flex ">
+      <%= link_to planner_shopping_list_path(planner, shopping_list), method: :patch, remote: true do  %>
+        <i class="fas fa-check box-checked"></i>
+      <% end %>
+      <p class="align-middle cross-name"><%= shopping_list_ingredient_name  %></p>
+    </div>
+    <div class="d-flex">
+      <p class="mr-1"> <%= shopping_list_quantity %> </p>
+      <p> <%= shopping_list_unit %> </p>
+    </div>
+  </div>
+  <% end %>
+</li>

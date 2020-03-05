@@ -5,8 +5,8 @@ class ShoppingListsController < ApplicationController
     @categories = []
     @shopping_lists.each {|shopping_list| @categories  << shopping_list.category}
     @categories = @categories.uniq.sort
-    @categories_all_except_other = ["Vegetable", "Bakery", "Dairy", "Fish", "Fruit", "Herb and Spice"]
-    @categories_other = ["Condiment", "Dry",  "Dish", "Nuts & Seed"]
+    @categories_all_except_other = ["Vegetable", "Meat", "Beverage Alcoholic", "Bakery", "Dairy", "Fish", "Fruit", "Herb and Spice", "Canned  Goods"]
+    @categories_other = ["Condiment", "Dry", "Flower"  "Dish", "Nuts & Seed", "Beverage" "Dairy Substitute", "Plant"]
 
   end
 
@@ -15,6 +15,16 @@ class ShoppingListsController < ApplicationController
     @shopping_item  = ShoppingList.find(params[:id])
     @shopping_item.bought = !@shopping_item.bought
     @shopping_item.save
-    redirect_to planner_shopping_lists_path(@planner)
+    if @shopping_item.save
+      respond_to do |format|
+        format.html { redirect_to planner_shopping_lists_path(@planner) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to planner_shopping_lists_path(@planner) }
+        format.js  # <-- idem
+      end
+    end
   end
 end

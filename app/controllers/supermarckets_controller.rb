@@ -4,7 +4,7 @@ require 'open-uri'
 class SupermarcketsController < ApplicationController
 
   def index
-    @planner = Planner.all.last
+    @planner = current_user.planners.last
     coord = params[:query_geoloc]
     supermarcket_types = ["carrefour", "monoprix", "lidl", "auchan"]
     @markers = []

@@ -140,11 +140,12 @@ div.form-group{
   margin-bottom: 5px;
 }
 
+.row-krok {
+    display: flex;
+    justify-content: space-between;
+    margin-right: -15px;
+    margin-left: -15px;
+}
 .container-preferences {
   width: 100%;
 }
-
-
-
-
-

@@ -6,11 +6,14 @@
   <% else %>
     <% has_recipe_in = current_user.planners.last.recipes.include?(recipe) %>
     <% if has_recipe_in %>
-      <%= link_to recipe_planner_recipe_path(recipe, PlannerRecipe.find_by(recipe: recipe, planner: @planner)), method: :delete do  %>
+      <!-- remove from planner -->
+
+      <%= link_to recipe_planner_recipe_path(recipe, PlannerRecipe.find_by(recipe: recipe, planner: @planner)), method: :delete, id: "delete-link-planner-#{recipe.id}", remote: true do  %>
         <i class="fas fa-utensils btn-add-recipe-done-orange"></i>
       <% end %>
     <% else %>
-      <%= link_to recipe_planner_recipes_path(recipe), method: :post do %>
+      <!-- add to planner btn -->
+      <%= link_to recipe_planner_recipes_path(recipe), method: :post, id: "create-link-planner-#{recipe.id}", remote: true do %>
         <i class="fas fa-utensils btn-add-recipe"></i>
       <% end %>
       <!-- modal -->

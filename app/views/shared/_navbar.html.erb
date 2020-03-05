@@ -1,12 +1,12 @@
-<div class='navbar-container d-flex align-items-center'>
+<div class='navbar-container d-flex align-items-center <%= "d-none  home-navbar" if params[:controller] == 'pages' && params[:action] == 'home'%>'>
 
   <div id="logo-home" class="navbar d-flex text-center">
     <% if (params[:controller] == "recipes" && params[:action] == "index") || (params[:controller] == "pages" && params[:action] == "home") %>
-      <%= link_to root_path do  %>
+      <%= link_to recipes_path do  %>
         <i class="fas fa-home navbar-icon navbar-icon-green"></i>
       <% end %>
     <% else %>
-      <%= link_to root_path do  %>
+      <%= link_to recipes_path do  %>
         <i class="fas fa-home navbar-icon"></i>
       <% end %>
     <% end %>

@@ -3,6 +3,8 @@ class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update]
 
   def index
+    @fake_home = params[:home]
+
     @recipes = Recipe.all
     @planner = current_user.planners.last unless current_user.nil?
     # @recipes = Recipe.all.shuffle.first(30)

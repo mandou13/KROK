@@ -1,5 +1,11 @@
 
-<%  %>
+<div class="container">
+  <div class="row justify-content-start ml-1 mb-3">
+    <%= link_to planner_shopping_lists_path(@planner), class: 'btn btn-green' do  %>
+    Back
+    <% end %>
+  </div>
+</div>
 
 <div
   id="map"
@@ -8,3 +14,5 @@
   data-markers="<%= @markers.to_json %>"
   data-mapboxApiKey="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+
+

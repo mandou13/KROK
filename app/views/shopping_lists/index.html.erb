@@ -11,7 +11,7 @@
     <div class="row justify-content-end mb-3 mr-2">
 
     <%= form_tag supermarckets_path, method: :get do %>
-        <%= text_field_tag :query_geoloc, params[:query_geoloc],class: "form-control specific-input-for-geoloc-type"%>
+        <%= text_field_tag :query_geoloc, params[:query_geoloc],class: "form-control specific-input-for-geoloc-type d-none"%>
         <%= button_tag(type: "submit", class: "btn btn-green") do %>
           <i class="fas fa-map-marked-alt"></i>
         <% end %>

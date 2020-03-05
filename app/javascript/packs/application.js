@@ -44,12 +44,11 @@ update_servings_planner();
 handleClickOnTab();
 plannerSearchClick();
 // handleColorBtnAddOldPlanner();
-<<<<<<< HEAD
 
 initMapbox();
 
 getGeoloc();
-=======
+
 scrollToNavbarTop();
->>>>>>> master
+
 

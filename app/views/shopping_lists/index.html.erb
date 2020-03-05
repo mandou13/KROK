@@ -9,7 +9,6 @@
 
   <div class="container">
     <div class="row justify-content-end mb-3 mr-2">
-
     <%= form_tag supermarckets_path, method: :get do %>
         <%= text_field_tag :query_geoloc, params[:query_geoloc],class: "form-control specific-input-for-geoloc-type d-none"%>
         <%= button_tag(type: "submit", class: "btn btn-green") do %>
@@ -18,79 +17,6 @@
     <% end %>
     </div>
   </div>
-
-  <div class="accordion mt-30" id="accordion-shopping">
-    <div class="card card-shopping-all">
-      <button class="btn collapsed before-collapse" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-        <h5>All ingredients</h5>
-        <div class="d-flex">
-          <% bought_ingredients = 0 %>
-          <% @shopping_lists.each {|shopping_list| bought_ingredients += 1 if shopping_list.bought == true}  %>
-          <h5 id='shopping_list_number_in_done'><%= bought_ingredients %>/</h5>
-          <h5> <%= @shopping_lists.count %> </h5>
-        </div>
-      </button>
-      <% if bought_ingredients < @shopping_lists.count %>
-        <i class="fas fa-circle circle-notif-shopping"></i>
-      <% end %>
-      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion-shopping">
-        <div class='container shopping-list-card to-buy-ingredients'>
-            <h5 class='title-shopping-list'>I need</h5>
-            <% @shopping_lists.each do |shopping_list| %>
-            <ul class="ingredients-all-to-buy">
-                <li class="data-shopping-list-id-<%= shopping_list.id %>-to-buy remove-dots" data-type="<%= shopping_list.category.split(" ").first.downcase %>">
-                  <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
-                  <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
-                    <% shopping_list_quantity = shopping_list.quantity / 1000 %>
-                    <% shopping_list_unit = 'kg' %>
-                  <% elsif  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'ml'%>
-                    <% shopping_list_quantity = shopping_list.quantity / 1000 %>
-                    <% shopping_list_unit = 'l' %>
-                  <% else %>
-                    <% shopping_list_quantity = shopping_list.quantity%>
-                    <% shopping_list_unit = shopping_list.unit %>
-                  <% end %>
-                  <% unless shopping_list.bought %>
-                  <div class="d-flex justify-content-between">
-                    <div class="d-flex ">
-                      <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch, remote: true  do  %>
-                        <i class="far fa-square box-to-check"></i>
-                      <% end %>
-                      <p class="align-middle"><%= shopping_list_ingredient_name  %></p>
-                    </div>
-                    <div class="d-flex">
-                      <p class="mr-1"> <%= shopping_list_quantity %> </p>
-                      <p> <%= shopping_list_unit %> </p>
-                    </div>
-                  </div>
-                  <% end %>
-                </li>
-              </ul>
-            <% end %>
-        </div>
-        <div class='container shopping-list-card bought-ingredients'>
-            <h5 class='title-shopping-list'>I got</h5>
-            <% @shopping_lists.each do |shopping_list| %>
-            <ul class="ingredients-all-bought">
-                <li class="data-shopping-list-id-<%= shopping_list.id %>-bought remove-dots"  data-type="<%= shopping_list.category.split(" ").first.downcase %>">
-                  <% shopping_list_ingredient_name = shopping_list.ingredient_name%>
-                  <% if  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'g' %>
-                    <% shopping_list_quantity = shopping_list.quantity / 1000 %>
-                    <% shopping_list_unit = 'kg' %>
-                  <% elsif  !shopping_list.quantity.nil? && shopping_list.quantity >= 1000  && shopping_list.unit == 'ml'%>
-                    <% shopping_list_quantity = shopping_list.quantity / 1000 %>
-                    <% shopping_list_unit = 'l' %>
-                  <% else %>
-                    <% shopping_list_quantity = shopping_list.quantity%>
-                    <% shopping_list_unit = shopping_list.unit %>
-                  <% end %>
-                  <% if shopping_list.bought %>
-                  <div class="d-flex justify-content-between">
-                    <div class="d-flex ">
-                      <%= link_to planner_shopping_list_path(@planner, shopping_list), method: :patch, remote: true do  %>
-                        <i class="fas fa-check box-checked"></i>
-                      <% end %>
-                      <p class="align-middle cross-name"><%= shopping_list_ingredient_name  %></p>
 
   <% if @shopping_lists.empty? %>
     <h5> Add recipes to your planner !</h5>

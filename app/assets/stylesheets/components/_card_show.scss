@@ -61,22 +61,30 @@
     object-fit: cover;
 
   }
+
+  .background-alone {
+  background-color: #EDF6EF;
+  // position: relative;
+  border-radius: 5px;
+  }
+
   .card-img-icon-add {
-    position: absolute;
-    top: 3vh;
-    right: 15vw;
+    // position: absolute;
+    // top: 3vh;
+    // right: 15vw;
     font-size: 50px;
     color: #ACB3BF;
 
   }
 
   .card-img-icon-search {
-    position: absolute;
+    // position: absolute;
     padding: 4px 30px;
-    top: 3vh;
-    right: 12vw;
+    // top: 3vh;
+    // right: 12vw;
     color: white;
     background-color: #ACB3BF;
+    width: 50%;
 
     a {
       text-decoration: none;
@@ -89,10 +97,11 @@
   }
 
   .card-img-icon-random {
-    position: absolute;
+    width: 50%;
+    // position: absolute;
     padding: 4px 29px;
-    bottom: 3vh;
-    right: 12vw;
+    // bottom: 3vh;
+    // right: 12vw;
     color: white;
     background-color: #ACB3BF;
   }
@@ -111,13 +120,6 @@
     border-radius: 5px;
   }
 }
-
-.background-alone {
-background-color: #EDF6EF;
-position: relative;
-border-radius: 5px;
-}
-
 
 .background-random {
 background-color: rgba(150, 150, 150, 0.7);

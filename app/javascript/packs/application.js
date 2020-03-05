@@ -49,6 +49,6 @@ initMapbox();
 
 getGeoloc();
 
-scrollToNavbarTop();
+// scrollToNavbarTop();
 
 

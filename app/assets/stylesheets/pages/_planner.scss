@@ -51,3 +51,32 @@ input,textarea {
 //   height: 10px;
 //   width: 20px;
 // }
+
+
+i.fa-star{
+  color: #F2AE03;
+  opacity: 0.9;
+}
+
+.rating-card{
+  position: relative;
+  bottom: -76px;
+}
+
+.btn-cooked-or-not{
+  position: absolute;
+  top: 15px;
+  right:15px;
+}
+
+
+.card-img-icon-cooked {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    text-align: right;
+}
+
+
+
+

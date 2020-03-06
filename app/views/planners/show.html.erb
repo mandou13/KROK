@@ -26,7 +26,7 @@
                   </div>
                   <!-- not exist when coming from past planners -->
                   <% unless params[:id].to_i < current_user.planners.last.id %>
-                    <div class="card-img-icon-cooked" id="">
+                    <div class="card-img-icon-cooked" >
                       <% if planner_recipe.cooked %>
                         <%= link_to planner_planner_recipe_path(@planner, planner_recipe, query: 'cooked'), method: :patch, remote: true do  %>
                           <i class="fas fa-drumstick-bite btn-cooked"></i>
@@ -54,6 +54,12 @@
                           </div>
                         </div>
                       <% end %>
+                        <div class="rating-card">
+                          <% star = '<i class="fas fa-star"></i>' %>
+                          <% unless @planner.user.ratings.where(recipe_id: planner_recipe.recipe_id).blank?  %>
+                          <%= (star * @planner.user.ratings.where(recipe_id: planner_recipe.recipe_id).first.rating).html_safe %>
+                        <% end %>
+                        </div>
                     </div>
                   <% end %>
                   <!-- not exist when coming from past planners -->

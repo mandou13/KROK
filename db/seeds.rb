@@ -44,6 +44,20 @@ photo_c = URI.open('https://www.parisinfo.com/var/otcp/sites/images/node_43/node
 cyril.photo.attach(io: photo_c, filename: 'photocyril.png', content_type: 'image/png')
 cyril.save!
 
+
+amandine = User.create!(
+  username: "Mandou13",
+  password: "azerty",
+  email:    "amandine@me.com",
+)
+
+photo_am = URI.open('https://avatars0.githubusercontent.com/u/58696274?s=400&u=2b66c76b761ef4f8842d4618d340d8daf1f7a9ce&v=4')
+amandine.photo.attach(io: photo_am, filename: 'photoamandine.png', content_type: 'image/png')
+amandine.save!
+
+
+
+
 maxence = User.create!(
   username: "Naicma59",
   password: "azerty",
@@ -161,10 +175,10 @@ end
 # Ingredient.create(name: 'Tagliatelle', unit: 'g', quantity: 300, recipe_id: second_recipe.id)
 # Ingredient.create(name: 'Carrot', quantity: 3, recipe_id: second_recipe.id)
 
-# Planner.create(
-#   name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu",
-#   user_id: maxence.id
-# )
+Planner.create(
+  name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu",
+  user_id: maxence.id
+)
 
 Planner.create(
   name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu",
@@ -174,6 +188,11 @@ Planner.create(
 Planner.create(
   name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu",
   user_id: pauline.id
+)
+
+Planner.create(
+  name: "#{Time.now.strftime("%d")}/#{Time.now.strftime("%m")} Menu",
+  user_id: amandine.id
 )
 
 # PlannerRecipe.create(

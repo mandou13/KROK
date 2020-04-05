@@ -1,7 +1,6 @@
 uuid;quantity;unit;name;category
 666995576ae7c8be50c7;800;g;oat bread;Bakery
 b1997b662d682300b081;2;tbsp;gelatin;Bakery
-8dd634f39722831a580e;1;;biscuits;Bakery
 a5ad2b18ce6a8cf1137f;18;tbsp;biscuits;Bakery
 b3802daafb8b2121e09b;200;g;biscuits;Bakery
 f17672605ba58e226ff9;1;tbsp;baking powder;Bakery
@@ -542,7 +541,6 @@ d6727f46fef9807326a2;1;;lime;Fruit
 6b44db6764041db8a381;6;;lime;Fruit
 7b4a75c7a63924bacb2a;1;;lime;Fruit
 fbd0c5b8660e5b1815d9;1;;melon;Fruit
-8dd634f39722831a580e;1;tbsp;vanilla;Fruit
 78618932bf1e6eb7049d;1;;orange;Fruit
 e4c4c15c333092dca744;100;ml;orange;Fruit
 76b36865a2a1f289937f;1;tbsp;bitter orange;Fruit

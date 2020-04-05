@@ -16,7 +16,6 @@ edb04312c7426eb32fe9;1;tsp;baking powder;Bakery
 8978cc0ca9193bb8d7f3;250;g;biscuits;Bakery
 992b01ee1b5c69845eec;250;g;biscuits;Bakery
 ef43008554b87ff9d590;140;g;biscuits;Bakery
-5eb16d306a4ecd6aee25;1;;wheaten bread;Bakery
 25b3e1b39fa86f866446;1;;brioche;Bakery
 6944a360615d3b68389a;1;;brioche;Bakery
 4dc3a8de1fe1e7c78276;75;g;caster sugar;Bakery
@@ -220,7 +219,6 @@ a400e02b1f847036b53d;1;tbsp;salt;Condiment
 208caa78fd6389d3f7d6;3;tbsp;olive oil;Condiment
 22d176142cb988497e7b;1;tbsp;mayonnaise;Condiment
 76b36865a2a1f289937f;5;tbsp;olive oil;Condiment
-5eb16d306a4ecd6aee25;1;tbsp;olive oil;Condiment
 1ef6b05701b4dccba3a6;1;tbsp;olive oil;Condiment
 612d3fbad49ea9ccc3c6;3;tbsp;olive oil;Condiment
 f5a8b956994f4a68f90c;2;tbsp;olive oil;Condiment
@@ -290,7 +288,6 @@ db57f1743fa154618cd2;250;g;butter;Dairy
 0f6117099c5fb8356d62;250;ml;buttermilk;Dairy
 edb04312c7426eb32fe9;284;ml;buttermilk;Dairy
 0f6117099c5fb8356d62;50;g;buttermilk;Dairy
-5eb16d306a4ecd6aee25;400;g;butter;Dairy
 a5ad2b18ce6a8cf1137f;142;ml;cream;Dairy
 837b068723364c202aff;284;ml;cream;Dairy
 a5ad2b18ce6a8cf1137f;500;g;mascarpone;Dairy
@@ -473,7 +470,6 @@ cacfe28b4d2c6964be85;140;g;self-raising flour;Dry
 19d959d6874b812a9094;400;g;spaghetti;Dry
 18e04b3fff1325b4d244;140;g;spaghetti;Dry
 babe1d8b0cb43f576a20;400;g;spaghetti;Dry
-5eb16d306a4ecd6aee25;140;g;spaghetti;Dry
 abb9c496dc6a551a5534;1;tbsp;flour;Dry
 babe1d8b0cb43f576a20;2;tbsp;common tuna;Fish
 208caa78fd6389d3f7d6;2;tbsp;anchovy;Fish
@@ -598,7 +594,6 @@ cb63700d3badc09031a7;1;bunch;basil;Herb and Spice
 18e04b3fff1325b4d244;4;;celery;Herb and Spice
 74195811e951e9fbe3f8;1;;celery;Herb and Spice
 612d3fbad49ea9ccc3c6;3;;celery;Herb and Spice
-5eb16d306a4ecd6aee25;4;;celery;Herb and Spice
 a2f4e2e307aa28f20b89;1;tsp;chili flakes;Herb and Spice
 4dc3a8de1fe1e7c78276;2;tsp;chili flakes;Herb and Spice
 381784f839eae80dffe7;12;tsp;chili flakes;Herb and Spice
@@ -684,7 +679,6 @@ abb9c496dc6a551a5534;1;clove;garlic;Herb and Spice
 feb7951a7f5547e84d49;1;clove;garlic;Herb and Spice
 f5a8b956994f4a68f90c;1;clove;garlic;Herb and Spice
 806207e9e1d8ac85f24e;23;clove;garlic;Herb and Spice
-5eb16d306a4ecd6aee25;2;clove;garlic;Herb and Spice
 612d3fbad49ea9ccc3c6;2;clove;garlic;Herb and Spice
 a97e4fe8fd9ce7d8fd75;2;clove;garlic;Herb and Spice
 9f0ca93d6dd6978f0c21;4;clove;garlic;Herb and Spice
@@ -877,7 +871,6 @@ d14edc387bdd1ac463a1;300;g;broccoli;Vegetable
 208caa78fd6389d3f7d6;2;tbsp;radish;Vegetable
 18e04b3fff1325b4d244;1;;cabbage;Vegetable
 f5a8b956994f4a68f90c;400;g;tomato;Vegetable
-5eb16d306a4ecd6aee25;400;g;tomato;Vegetable
 236a6329caba80c14040;400;g;tomato;Vegetable
 bdc7448d788edf8e88f4;4;;carrots;Vegetable
 0528174c0168ac50d4d4;3;;carrots;Vegetable
@@ -908,13 +901,9 @@ edb04312c7426eb32fe9;2;;courgette;Vegetable
 4dc3a8de1fe1e7c78276;3;;cucumber;Vegetable
 612d3fbad49ea9ccc3c6;50;g;mushroom;Vegetable
 1abbd1dce11537641229;700;g;potatoes;Vegetable
-5eb16d306a4ecd6aee25;1;;cabbage;Vegetable
 babe1d8b0cb43f576a20;500;g;tomato paste;Vegetable
-5eb16d306a4ecd6aee25;3;;carrots;Vegetable
 a97e4fe8fd9ce7d8fd75;1;;onion;Vegetable
 9f0ca93d6dd6978f0c21;1;;onion;Vegetable
-5eb16d306a4ecd6aee25;1;;onion;Vegetable
-5eb16d306a4ecd6aee25;2;;potatoes;Vegetable
 74195811e951e9fbe3f8;1;;leek;Vegetable
 0412d199f71146f42257;500;g;leek;Vegetable
 a2f6240a66ab428e6d61;1;;onion;Vegetable
@@ -1010,7 +999,6 @@ d14edc387bdd1ac463a1;8;tbsp;sundried tomato;Vegetable
 02f1939873c5ed70986c;950;g;sweet potato;Vegetable
 729cd47fa972c76a1f7c;2;tbsp;olive;Vegetable
 666995576ae7c8be50c7;2;tbsp;sundried tomato;Vegetable
-5eb16d306a4ecd6aee25;2;tbsp;tomato puree;Vegetable
 8b1fcfc80c7231df0d48;400;g;tomato;Vegetable
 18e04b3fff1325b4d244;400;g;tomato;Vegetable
 02f1939873c5ed70986c;400;g;tomato;Vegetable
@@ -1046,6 +1034,5 @@ d6727f46fef9807326a2;1;tsp;vegetable stock;Vegetable
 3e7d26c4653d6de4140d;1;tsp;vegetable stock;Vegetable
 b75f44023b45c1d6a82e;1;tbsp;vegetable stock;Vegetable
 598fccc8ab06e9a83389;2;tbsp;vegetable stock;Vegetable
-5eb16d306a4ecd6aee25;2;l;vegetable stock;Vegetable
 db57f1743fa154618cd2;7;g;yeast;Vegetable
 ffc9de576eb8ce1deb32;7;g;yeast;Vegetable
